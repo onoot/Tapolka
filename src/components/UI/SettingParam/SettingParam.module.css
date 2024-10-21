@@ -1,0 +1,99 @@
+.settingParam__container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background: #241C22;
+    border-radius: 16px;
+    color: #fff;
+    border: 0;
+    padding: 16px;
+    font-family: Poppins_Regular;
+
+    outline: none;
+}
+.settingParam__container__in{
+    padding: 0px !important;
+}
+.settingParam__container__delete{
+    padding: 16px
+}
+.settingParam__container__title{
+    font-size: 13px;
+    font-family: Poppins;
+}
+.settingParam__container__param{
+    font-size: 12px;
+    text-align: right;
+    color: #777777;
+    position: relative;
+    margin-right: 20px;
+}
+.settingParam__container__paramInput{
+    font-size: 12px;
+    text-align: right;
+    color: #777777;
+}
+.settingParam__container__param::before{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 9px;
+    background-size: 100%;
+    background-image: url("../../images/arrow.png");
+    top: 0;
+    right: -15px;
+    bottom: 0;
+    margin: auto 0px;
+}
+.settingParam__container__param::after{
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 9px;
+    background: rgba(36, 28, 34, 0.5);
+    top: 0;
+    right: -15px;
+    bottom: 0;
+    margin: auto 0px;
+}
+input[type="radio"]{
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #E1E1E2;
+    border-radius: 6px;
+    content: none;
+    outline: none;
+    margin: 0;
+    position: relative;
+    background: #fff;
+}
+
+input[type="radio"]:checked {
+    appearance: none;
+    outline: none;
+    padding: 0;
+    content: none;
+    border: none;
+    border-color: #4F5AD7;
+    background: #4F5AD7;
+}
+
+input[type="radio"]:checked::before{
+    position: absolute;
+    color: #fff !important;
+    content: "";
+    width: 16px;
+    background-image: url("../../images/Icon.png");
+    background-size: 100% 100%;
+
+    height: 12px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;
+    text-align: center;
+    font-size: 18px;
+}

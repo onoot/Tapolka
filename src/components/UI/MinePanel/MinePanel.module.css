@@ -1,0 +1,89 @@
+.deleteAccount__background{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 200;
+    display: none;
+}
+.deleteAccount__background.active{
+    display: flex;
+}
+
+.deleteAccount__container{
+    z-index: 201;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    padding: 0 5vw;
+    background: #241C22;
+    box-shadow: 0 -2px 0 0 #D02EF9, 0 -16px 30px 8px #D21EFF4D;
+    border-radius: 50px 50px 0 0;
+}
+.deleteAccount__container img{
+    margin-top: 15px;
+
+}
+.deleteAccount__container__title{
+    font-family: Poppins;
+    font-size: 20px;
+    text-align: center;
+}
+.money{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins_SemiBold;
+    font-size: 20px;
+    margin: 8px 0 20px;
+    gap: 6px;
+}
+.minePanel__profit{
+    font-size: 8px;
+    font-family: Poppins;
+    color: #777777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222730;
+    border: 1px solid rgba(208, 46, 249, 0.3);
+    padding: 8px 12px;
+    border-radius: 147px;
+    gap: 4px;
+    margin-top: 8px;
+}
+.minePanel__profit__count{
+    color: #fff;
+    font-size: 12px;
+}
+.minePanel__profit svg{
+    margin-top: 1px;
+    margin-left: 8px;
+}
+
+.deleteAccount__container__description{
+    font-size: 12px;
+    text-align: center;
+    width: 90%;
+}
+.deleteAccount__container__button{
+    display: flex;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 14px;
+    font-family: Poppins_Regular;
+    background: #282B30;
+    border: 0;
+    border-radius: 8px;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    margin: 16px 0 40px;
+}

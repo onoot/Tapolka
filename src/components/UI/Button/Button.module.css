@@ -1,0 +1,17 @@
+.buttonPurple{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    color: #fff;
+    text-align: center;
+    gap: 4px;
+    background: linear-gradient(to right, #6161FB, #B15AFF);
+    border: 0;
+    border-radius: 8px;
+    font-family: Poppins;
+    font-size: 16px;
+}
+.isFullScreen{
+    width: 100%;
+}

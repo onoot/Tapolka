@@ -1,0 +1,39 @@
+.friend__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #282B30;
+    padding: 16px;
+    border-radius: 16px;
+    width: 100%;
+    margin: 0 auto;
+}
+.friend__container__block:last-child{
+    gap: 4px;
+}
+.friend__container__block{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.friend__container__description{
+    display: flex;
+    flex-direction: column;
+}
+.friend__container__description__name{
+    font-size: 18px;
+}
+.friend__container__description__level{
+    font-size: 12px;
+    color: #8E8E8E;
+}
+.friend__container__img{
+    background: #1E1E1E;
+    border-radius: 6px;
+    padding: 10px;
+    width: 60px;
+    height: 60px;
+}
+.friend__container__item__block__svg{
+    display: flex;
+}

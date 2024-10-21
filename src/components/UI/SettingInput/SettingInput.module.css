@@ -1,0 +1,11 @@
+.settingInput__container{
+    display: flex;
+    background: #241C22;
+    padding: 16px;
+    width: 100%;
+    justify-content: space-between;
+}
+.settingInput__container__title{
+    font-family: Poppins;
+    font-size: 17px;
+}

@@ -1,0 +1,53 @@
+.playerProfit__container{
+    display: flex;
+    background: #1E1E1EB2 70%;
+    width: 90%;
+    height: 60px;
+    border-radius: 30px;
+    border: 1px solid rgba(120, 120, 120, 0.4);
+    justify-content: center;
+    margin-top: 16px;
+}
+.playerProfit__container__block{
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    align-items: center;
+}
+.playerProfit__settingBtn{
+    background: #00000000;
+    border: 0;
+    outline: none;
+    z-index: 10;
+}
+.playerProfit__container__block__item{
+    display: flex;
+    width: 100%;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.playerProfit__container__block .playerProfit__container__block__item:nth-child(2){
+    border: 1px solid #464646;
+    border-top: 0;
+    border-bottom: 0;
+    padding: 0 20px;
+}
+
+
+.playerProfit__container__block__item__profitInfo{
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.playerProfit__container__block__item__profitInfo__text{
+    font-size: 10px;
+    color: #8e8e8e;
+    text-align: center;
+}

@@ -1,0 +1,83 @@
+.mineMarketItemsSpecial__container{
+    display: flex;
+    background: linear-gradient(to bottom, #FAB12E, #885803);
+    padding: 15px 0;
+    border-radius: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 2;
+    position: relative;
+    overflow: hidden;
+    width: 170px;
+}
+.mineMarketItemsSpecial__container:last-child{
+    background: linear-gradient(to bottom, #E97264, #862B20);
+
+}
+.mineMarketItemsSpecial__container:before{
+    content: 'lvl 01';
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: linear-gradient(to right, #6161FB, #B15AFF);
+    width: 79px;
+    height: 19px;
+    right: -20px;
+    top: 10px;
+    transform: rotate(45deg);
+}
+.mineMarketItemsSpecial__container__block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+    width: 100%;
+}
+.mineMarketItemsSpecial__container__block:last-child{
+    justify-content: space-between;
+    flex-direction: row;
+    background: rgba(255, 255, 255, 0.2);
+}
+.mineMarketItemsSpecial__container__block__item{
+    font-size: 12px;
+    font-family: Poppins;
+}
+.mineMarketItemsSpecial__container__block__item svg{
+    display: flex;
+    margin-top: -1px;
+}
+.mineMarketItemsSpecial__container__block__profitContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 83%;
+    margin: 3px 0 8px;
+}
+.mineMarketItemsSpecial__container__block__profitText{
+    font-size: 8px;
+    color: #D7D7D7;
+    width: 100%;
+}
+.mineMarketItemsSpecial__container__block__profit{
+    display: flex;
+    align-items: center;
+    color: #FFF;
+    font-size: 12px;
+    gap: 4px;
+}
+.mineMarketItemsSpecial__container__block__image{
+    width: auto;
+    position: relative;
+    height: auto;
+}
+.mineMarketItems__container__block{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    padding: 0 15px;
+}

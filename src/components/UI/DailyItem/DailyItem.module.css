@@ -1,0 +1,33 @@
+.dailyList__container{
+    display: flex;
+    flex-direction: column;
+    background: #282B30;
+    padding: 15px 20px 15px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(120, 120, 120, 0.3);
+    box-shadow: 0 -4px 0 0 #4F5AD7;
+    position: relative;
+}
+.dailyList__container.true:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 75%;
+    z-index: 10;
+    background: rgba(40, 43, 48, 0.7);
+    left: 0;
+    border-radius: 12px;
+    top: 0;
+}
+.dailyList__container__title{
+    font-size: 12px;
+    font-family: Poppins;
+}
+.dailyList__container__time{
+    font-size: 10px;
+    color: #8E8E8E;
+}
+.dailyList__container__icon img{
+    width: 47px;
+    height: 47px;
+}

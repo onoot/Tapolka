@@ -1,0 +1,21 @@
+.mineMarketType{
+    color: #777777;
+    font-size: 16px;
+    text-align: center;
+    background: #00000000;
+    border: 0px solid #00000000;
+    border-bottom: 2px #00000000;
+    padding-bottom: 4px;
+    z-index: 1;
+    font-family: Poppins;
+}
+.mineMarketType__active{
+    background: linear-gradient(to right, #6161FB, #B15AFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, #6161FB, #B15AFF);
+    -moz-border-image: -moz-linear-gradient(to right, #6161FB, #B15AFF);
+    -webkit-border-image: -webkit-linear-gradient(to right, #6161FB, #B15AFF);
+    border-image-slice: 1;
+}

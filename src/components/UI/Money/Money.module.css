@@ -1,0 +1,9 @@
+.money{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 30px;
+    text-align: center;
+    font-family: Poppins_SemiBold;
+}

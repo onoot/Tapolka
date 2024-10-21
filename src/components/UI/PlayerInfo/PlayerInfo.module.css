@@ -1,0 +1,101 @@
+@import "../../../styles/joinFonts.css";
+
+.playerInfo__panel{
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    width: calc(100vw - 32px);
+}
+.playerInfo__panel__item{
+    display: flex;
+    width: 100%;
+
+}
+.playerInfo__panel__item__icon{
+    position: relative;
+    background: #1E1E1E;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+}
+.playerInfo__panel__item__icon svg{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.playerInfo__panel__item__descriptionPlayer{
+    display: flex;
+    gap: 8px;
+}
+.playerInfo__panel__item__descriptionPlayer__block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.playerInfo__panel__item__descriptionPlayer__block__name{
+    font-family: Poppins_Regular;
+    font-size: 14px;
+}
+.playerInfo__panel__item__descriptionPlayer__block__role{
+    font-family: Poppins_Regular;
+    font-size: 10px;
+    color: #8E8E8E;
+}
+
+
+
+
+.playerInfo__panel__item__levelBlock{
+    background: #00000000;
+    border: 0;
+    color: #fff;
+    font-family: Poppins_Regular;
+    display: flex;
+    margin-left: auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.playerInfo__panel__item__levelBlock__rankBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    width: 100%;
+}
+.playerInfo__panel__item__levelBlock__rankBlock__rankPlayer{
+    display: flex;
+    align-items: center;
+}
+.playerInfo__panel__item__levelBlock__rankBlock__rankPlayerNow{
+    color: #787878;
+
+}
+
+.playerInfo__panel__item__levelBlock__progressBar{
+    width: 143px;
+    border: 1px solid #787878;
+    border-radius: 4px;
+    height: 8px;
+    left: 0;
+    background: #1E1E1E;
+    position: relative;
+}
+
+.playerInfo__panel__item__levelBlock__progressBar::before{
+    content: '';
+    position: absolute;
+    background: linear-gradient(to right, #98DA92, #CBA2CE, #C584DD, #826EE1);
+    width: calc(48% + 2px);
+    top: -1px;
+    left: -1px;
+    height: 8px;
+    border: 0 solid #000;
+    border-radius: 4px;
+}
+
+
+

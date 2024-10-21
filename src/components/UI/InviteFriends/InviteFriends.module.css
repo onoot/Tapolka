@@ -1,0 +1,45 @@
+.inviteFriend__container__item{
+    background: #282B30;
+    width: 100%;
+    display: flex;
+    border-radius: 16px;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 16px;
+}
+.inviteFriend__container__item__block{
+    display: flex;
+    gap: 16px;
+}
+.inviteFriend__container__item__block__content{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.inviteFriend__container__item__task{
+    font-size: 16px;
+    text-align: left;
+}
+
+.inviteFriend__container__item__block__image{
+}
+.inviteFriend__container__item__block__rewardText{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.inviteFriend__container__item__block__rewardText div{
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+}
+.inviteFriend__container__item__reward{
+    font-size: 16px !important;
+    text-align: center;
+    color:#FFDE50;
+}
+.inviteFriend__container__item__block__svg{
+    margin-top: -2px;
+}
