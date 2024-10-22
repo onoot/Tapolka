@@ -75,6 +75,7 @@ function App() {
                     <Settings visible={settings} setVisible={setSettings} />
                     <Boost visible={boost} setVisible={setBoost} money={player.money} />
                     <Progress visible={progress} setVisible={setProgress} player={player} />
+                    <div className="boobs"></div>
                     <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} />
                     <BrowserRouter>
                         <Routes>
