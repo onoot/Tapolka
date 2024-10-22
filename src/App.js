@@ -44,7 +44,7 @@ function App() {
 
         const fetchPlayerData = async () => {
             try {
-                
+                const newPlayer = new Player(1, 'Player', 'role', 100, 0, 0, 0, 0, 0);
                 setPlayer(newPlayer);  // Устанавливаем данные игрока
                 setIsLoading(false);  // Отключаем прелоадер
             } catch (error) {
