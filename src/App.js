@@ -12,6 +12,18 @@ import {useTelegram} from "./components/hooks/useTelegram";
 import Headers from "./components/header/header";
 
 function App() {
+     // Создание объекта игрока с данными
+     const newPlayer = new Player(
+        1,
+        user?.username || '...',
+        '...',  // Это роль можно изменить, если нужно
+        0,
+        0,  // totalMoney - можно изменить на значение из базы
+        0,    // profit - можно изменить на значение из базы
+        0,     // energy - можно изменить на значение из базы
+        0,        // rank - можно изменить на значение из базы
+        0      // benefit - можно изменить на значение из базы
+    );
     class Player {
         constructor(id, name, role, money, totalMoney, profit, energy, rank, benefit) {
             this.id = id;
@@ -41,21 +53,10 @@ function App() {
 
     useEffect(() => {
        
-
+        const {user, onClose} = useTelegram();
         const fetchPlayerData = async () => {
             try {
-                 // Создание объекта игрока с данными
-                 const newPlayer = new Player(
-                    loginData.user.id,
-                    loginData.user.firstName,
-                    '...',  // Это роль можно изменить, если нужно
-                    coinsData.coins[0]?.amount || 0,
-                    0,  // totalMoney - можно изменить на значение из базы
-                    0,    // profit - можно изменить на значение из базы
-                    0,     // energy - можно изменить на значение из базы
-                    0,        // rank - можно изменить на значение из базы
-                    0      // benefit - можно изменить на значение из базы
-                );
+                
                 setPlayer(newPlayer);  // Устанавливаем данные игрока
                 setIsLoading(false);  // Отключаем прелоадер
             } catch (error) {
