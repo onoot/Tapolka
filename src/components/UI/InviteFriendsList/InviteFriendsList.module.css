@@ -1,0 +1,17 @@
+.inviteFriendsList__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 16px;
+    margin: 24px 0;
+}
+.inviteFriendsList__moreBonuses{
+    background: #00000000;
+    border: 0;
+    outline: none;
+    color: #8D5DFD;
+    font-size: 16px;
+    font-family: Poppins;
+}

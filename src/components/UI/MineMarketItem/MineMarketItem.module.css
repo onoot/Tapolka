@@ -1,0 +1,108 @@
+.mineMarketItems__container{
+    display: flex;
+    background: #282B30;
+    padding: 15px 0;
+    border-radius: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex-grow: 2;
+    position: relative;
+    overflow: hidden;
+}
+.mineMarketItems__container:before{
+    content: 'lvl 01';
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: linear-gradient(to right, #6161FB, #B15AFF);
+    width: 79px;
+    height: 19px;
+    right: -20px;
+    top: 10px;
+    transform: rotate(45deg);
+}
+.mineMarketItems__container__locked:before{
+    background: #777777;
+}
+
+.mineMarketItems__container__locked img{
+    opacity: 20%;
+}
+.mineMarketItems__container__locked .mineMarketItems__container__block__mainImage:before{
+    content: "";
+    position: absolute;
+    background-image: url("../../images/locker.png");
+    width: 21px;
+    height: 29px;
+    z-index: 10;
+    opacity: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 15px;
+}
+
+.mineMarketItems__container__block{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    padding: 0 15px;
+}
+.mineMarketItems__container__block:last-child{
+    justify-content: space-between;
+    background: #32353A;
+}
+
+.mineMarketItems__container__block__content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.mineMarketItems__container__block__content__title{
+    font-size: 12px;
+}
+.mineMarketItems__container__block__content__profitText{
+    color: #777777;
+    font-size: 8px;
+}
+
+.mineMarketItems__container__block__textPrice{
+    color: #fff;
+    font-size: 10px;
+}
+.mineMarketItems__container__block__price{
+    gap: 4px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+
+
+
+.mineMarketItems__container__block__image{
+    width: auto;
+    position: relative;
+    height: auto;
+}
+
+.mineMarketItems__container__block__image svg{
+    display: flex;
+    margin-top: -1px;
+}
+
+.mineMarketItems__container__block__content__profit{
+    display: flex;
+    align-items: center;
+    color: #777777;
+    font-size: 12px;
+    gap: 4px;
+}

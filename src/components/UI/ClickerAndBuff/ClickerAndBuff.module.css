@@ -1,0 +1,38 @@
+.clickerAndBuff__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.exchange__container__content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0 0;
+    width: 100%;
+}
+
+.exchange__container__energyAndBoost{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.exchange__container__energyAndBoost__item{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    background: #00000000;
+    border: 0;
+    color: #fff;outline: none;
+    font-size: 16px;
+    font-family: Poppins_SemiBold;
+}
+.exchange__container__energyAndBoost div:first-child{
+    gap: 10px;
+}
+.exchange__container__energyAndBoost__container__icon img{
+    width: 25px;
+    height: 25px;
+}

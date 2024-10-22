@@ -1,0 +1,17 @@
+.navbar__container{
+    background: #282B30;
+    position: fixed;
+    width: 92%;
+    height: 69px;
+    z-index: 2;
+    bottom: 8px;
+    border-radius: 16px;
+    left: 4%;
+    display: flex;
+    justify-content: center;
+}
+.navbar__container__block{
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}

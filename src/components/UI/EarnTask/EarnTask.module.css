@@ -1,0 +1,31 @@
+.earnTask__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #241C22;
+    border-radius: 16px;
+    padding: 30px 20px;
+    gap: 12px;
+    width: 48%;
+    margin: 16px 0 24px;
+}
+.earnTask__container__img{
+
+}
+.earnTask__container__task{
+    font-family: Poppins;
+    text-align: center;
+    font-size: 12px;
+}
+.earnTask__container__reward{
+    font-family: Poppins_SemiBold;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.earnTask__container__reward svg{
+    margin-top: -2px;
+}

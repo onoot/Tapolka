@@ -1,0 +1,33 @@
+.mine__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 80px;
+    flex-direction: column;
+    width: 100%;
+}
+.mine__container__timer{
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    align-items: center;
+    color: #8E8E8E;
+    font-size: 14px;
+}
+.mine__container__dailyCombo{
+    background: #282B30;
+    padding: 16px;
+    margin: 12px 0 16px;
+    border-radius: 16px;
+    width: 100%;
+}
+.mine__container__dailyCombo__items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mine__container__dailyCombo__items:first-child{
+    margin-bottom: 20px;
+    font-family: Poppins_SemiBold;
+}
+

@@ -1,0 +1,26 @@
+.friendsList__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding-bottom: 80px;
+    gap: 16px;
+    margin: 0px 0 16px;
+}
+.friendsList__container__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 16px;
+
+    font-family: Poppins;
+}
+.friendsList__container__content button{
+    background: #00000000;
+    border: 0;
+    outline: none;
+}
+

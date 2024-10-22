@@ -1,0 +1,56 @@
+.friends__container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    width: 90%;
+    margin: 16px auto 0;
+
+}
+.friends__container:before{
+    content: "";
+    background-image: url("../components/images/background.png");
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    height: 100vh;
+    top: -16px;
+    z-index: -1;
+    object-fit: cover;
+}
+.friends__container__title{
+    text-align: center;
+    font-size: 32px;
+    font-family: Poppins_SemiBold;
+}
+.friends__container__description{
+    text-align: center;
+    font-size: 16px;
+    margin: 0 auto;
+}
+.airdrop__img{
+    display: flex;
+    margin: 64px auto 128px;
+    position: relative;
+    user-select: none;
+}
+.airdrop__img:before{
+    content: "";
+    position: absolute;
+    width: 93px;
+    height: 93px;
+    z-index: 10;
+    background: #FEB92F;
+    border-radius: 50px;
+    background-image: url("../components/images/airdropIcon.png");
+    background-repeat: no-repeat;
+    background-size: 93px 78px;
+    background-position: center 10px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 7%;
+    text-align: center;
+    user-select: none;
+    box-shadow: 0 -40px 200px 35px #FEB92F;
+}

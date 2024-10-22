@@ -1,0 +1,57 @@
+.loading__background{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: column;
+    position: relative;
+    padding-top: 130px;
+    padding-bottom: 30px;
+}
+.background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: brightness(30%);
+    object-fit: cover;
+}
+.loading__title{
+    font-family: Poppins_Bold;
+    background-image: linear-gradient(to right, #6161FB, #B15AFF);
+    -webkit-text-stroke: 2px #802E16;  /* для Safari/Chrome */
+    color: #6161FB;
+    /*color: transparent;*/
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-align: center;
+    font-size: 66px;
+    position: relative;
+    text-shadow: 0 5px #992807;
+    margin-top: 40px;
+}
+.loading__anim{
+    width: 321px;
+    height: 293px;
+    transform: rotateY(180deg);
+    filter: brightness(100%);
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+.loading__titleTwo{
+    font-size: 20px;
+    font-family: Poppins_Bold;
+    text-align: center;
+}
+.purple{
+    color: #B15AFF;
+}
+.yellow{
+    color: #FAC600;
+}
