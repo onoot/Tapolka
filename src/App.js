@@ -9,7 +9,6 @@ import Boost from "./components/UI/Boost/Boost";
 import Progress from "./components/UI/Progress/Progress";
 import MinePanel from "./components/UI/MinePanel/MinePanel";
 import {useTelegram} from "./components/hooks/useTelegram";
-import Headers from "./components/header/header";
 
 function App() {
     const {user, onClose} = useTelegram();
@@ -69,7 +68,6 @@ function App() {
 
     return (
         <div className="App">
-            <Headers/>
             {isLoading ? (
                 <Loading />  // Прелоадер отображается, пока идет загрузка
             ) : (
