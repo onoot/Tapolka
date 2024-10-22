@@ -44,7 +44,18 @@ function App() {
 
         const fetchPlayerData = async () => {
             try {
-                const newPlayer = new Player(1, 'Player', 'role', 100, 0, 0, 0, 0, 0);
+                 // Создание объекта игрока с данными
+                 const newPlayer = new Player(
+                    loginData.user.id,
+                    loginData.user.firstName,
+                    '...',  // Это роль можно изменить, если нужно
+                    coinsData.coins[0]?.amount || 0,
+                    0,  // totalMoney - можно изменить на значение из базы
+                    0,    // profit - можно изменить на значение из базы
+                    0,     // energy - можно изменить на значение из базы
+                    0,        // rank - можно изменить на значение из базы
+                    0      // benefit - можно изменить на значение из базы
+                );
                 setPlayer(newPlayer);  // Устанавливаем данные игрока
                 setIsLoading(false);  // Отключаем прелоадер
             } catch (error) {
