@@ -8,6 +8,7 @@
 }
 
 #root{
+    height: 110svh;
     display: flex;
     justify-content: center;
     align-items: center;
