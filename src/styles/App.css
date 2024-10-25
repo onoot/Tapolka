@@ -8,7 +8,6 @@
 }
 
 #root{
-    height: 110svh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,5 +26,10 @@ body{
 .boobs{
     margin-top: 50px;
     padding-top: 50px;
+}
+
+.chlen{
+    padding: 70px;
+    margin-bottom: 70px;
 }
 

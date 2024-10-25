@@ -82,8 +82,8 @@ function App() {
                             <Route path="airdrop" element={<BuildAPage player={player} page="airdrop" playerPanel={false} />} />
                             <Route path="*" element={<BuildAPage player={player} page="exchange" playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} />} />
                         </Routes>
-                        
                         <Navbar />
+                        <div className="chlen"></div>
                     </BrowserRouter>
                 </>
             )}
