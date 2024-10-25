@@ -8,22 +8,12 @@ import Settings from "./components/UI/Settings/Settings";
 import Boost from "./components/UI/Boost/Boost";
 import Progress from "./components/UI/Progress/Progress";
 import MinePanel from "./components/UI/MinePanel/MinePanel";
-import {useTelegram} from "./components/hooks/useTelegram";
+import { useTelegram } from "./components/hooks/useTelegram";
 
 function App() {
-    const {user, onClose} = useTelegram();
-     // Создание объекта игрока с данными
-     const newPlayer = new Player(
-        1,
-        user?.username || '...',
-        '...',  // Это роль можно изменить, если нужно
-        0,
-        0,  // totalMoney - можно изменить на значение из базы
-        0,    // profit - можно изменить на значение из базы
-        0,     // energy - можно изменить на значение из базы
-        0,        // rank - можно изменить на значение из базы
-        0      // benefit - можно изменить на значение из базы
-    );
+    const { user, onClose, onToggleButton, tg } = useTelegram();
+
+    // Определяем класс игрока
     class Player {
         constructor(id, name, role, money, totalMoney, profit, energy, rank, benefit) {
             this.id = id;
@@ -38,28 +28,35 @@ function App() {
         }
     }
 
+    // Инициализация игрока с тестовыми данными для локальной отладки
+    const [player, setPlayer] = useState(
+        new Player(
+            1,
+            user?.username || 'Guest',
+            'CEO',  // Роль игрока по умолчанию
+            0,
+            0,  // totalMoney
+            0,  // profit
+            0,  // energy
+            0,  // rank
+            0   // benefit
+        )
+    );
+
     const [settings, setSettings] = useState(false);
     const [boost, setBoost] = useState(false);
     const [progress, setProgress] = useState(false);
     const [minePanel, setMinePanel] = useState(false);
-    const [player, setPlayer] = useState(null);  
-    const [isLoading, setIsLoading] = useState(true); 
-
-    const {onToggleButton, tg} = useTelegram();
-
-    useEffect(() => {
-        tg.ready();
-    }, [])
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchPlayerData = async () => {
             try {
-                
-                setPlayer(newPlayer);  // Устанавливаем данные игрока
-                setIsLoading(false);  // Отключаем прелоадер
+                // Устанавливаем тестового игрока
+                setPlayer(player);  
+                setIsLoading(false);  // Прелоадер выключен
             } catch (error) {
                 console.error('Error fetching data:', error);
-                // setIsLoading(false);  // Отключаем прелоадер, даже если есть ошибка
             }
         };
 
@@ -75,17 +72,17 @@ function App() {
                     <Settings visible={settings} setVisible={setSettings} />
                     <Boost visible={boost} setVisible={setBoost} money={player.money} />
                     <Progress visible={progress} setVisible={setProgress} player={player} />
-                    <div className="boobs"></div>
                     <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} />
                     <BrowserRouter>
                         <Routes>
-                            <Route path={"exchange"} element={<BuildAPage player={player} page={"exchange"} playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} />} />
-                            <Route path={"mine"} element={<BuildAPage player={player} page={"mine"} playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} setMinePanel={setMinePanel} />} />
-                            <Route path={"friends"} element={<BuildAPage player={player} page={"friends"} playerPanel={false} />} />
-                            <Route path={"earn"} element={<BuildAPage player={player} page={"earn"} playerPanel={false} />} />
-                            <Route path={"airdrop"} element={<BuildAPage player={player} page={"airdrop"} playerPanel={false} />} />
-                            <Route path={"*"} element={<BuildAPage player={player} page={"exchange"} playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} />} />
+                            <Route path="exchange" element={<BuildAPage player={player} page="exchange" playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} />} />
+                            <Route path="mine" element={<BuildAPage player={player} page="mine" playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} setMinePanel={setMinePanel} />} />
+                            <Route path="friends" element={<BuildAPage player={player} page="friends" playerPanel={false} />} />
+                            <Route path="earn" element={<BuildAPage player={player} page="earn" playerPanel={false} />} />
+                            <Route path="airdrop" element={<BuildAPage player={player} page="airdrop" playerPanel={false} />} />
+                            <Route path="*" element={<BuildAPage player={player} page="exchange" playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} />} />
                         </Routes>
+                        
                         <Navbar />
                     </BrowserRouter>
                 </>

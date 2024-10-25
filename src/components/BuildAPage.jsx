@@ -23,7 +23,12 @@ function returnPage(page, player, setBoost, setMinePanel){
 const BuildAPage = ({player, page, playerPanel,setSettings, setBoost, setProgress, setMinePanel}) => {
     return (
         <div style={{position:"relative"}}>
-            {playerPanel ? <PlayerPanel setProgress={setProgress} key={player.id} setSettings={setSettings} player={player}/> : false}
+            {playerPanel ? <PlayerPanel
+                setProgress={setProgress}
+                key={player.id}
+                setSettings={setSettings}
+                player={player} />
+                : false}
             {returnPage(page, player, setBoost, setMinePanel)}
         </div>
     );

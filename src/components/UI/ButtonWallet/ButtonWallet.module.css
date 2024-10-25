@@ -1,0 +1,18 @@
+.button_wallet {
+    position: absolute;
+    left: 33px; 
+    bottom: 10%;
+    background: transparent;
+    background-image: url(../../images/wallet.png);
+    background-size: cover;
+    background-position: center; 
+    border: none;
+    width: 40px;
+    height: 42px;
+    box-sizing: border-box;
+    padding: 0; 
+}
+
+.button_wallet:focus, .button_wallet:active {
+    outline: none; 
+}

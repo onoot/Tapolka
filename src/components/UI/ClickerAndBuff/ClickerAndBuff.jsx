@@ -1,11 +1,13 @@
 import React from 'react';
 import Clicker from "../Clicker/Clicker";
 import cl from "./ClickerAndBuff.module.css";
+import ButtonWallet from '../ButtonWallet/ButtonWallet';
 
 const ClickerAndBuff = ({energy, setBoost}) => {
     return (
         <div className={cl.clickerAndBuff__container}>
             <Clicker/>
+            <ButtonWallet/>
             <div className={cl.exchange__container__content}>
                 <div className={cl.exchange__container__energyAndBoost}>
                     <div className={cl.exchange__container__energyAndBoost__item}>
