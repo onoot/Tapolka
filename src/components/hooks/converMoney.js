@@ -31,32 +31,40 @@ export function convertMoneyToReduction(money){
     }
     return res;
 }
-export function convertMoneyToRCommasIsFull(money){
-    try{
-        const str = money.toString().length;
-        const mas = []
-        let res, res1;
-    
-        res = money;
-    
-        let a = Math.floor(str/3);
-        const b = str%3;
-        if(b){
-            res = money.toString().slice(0, b)
-            res1 = money.toString().slice(b)
+export function convertMoneyToRCommasIsFull(money) {
+    try {
+        // Если число меньше 1000, возвращаем его как есть, без форматирования
+        if (money < 1000) {
+            return money.toString();
         }
-        for (let i = 0; i < a; i++) {
-            mas[i]= res1.toString().slice(i*3, i*3+3)
+
+        const strLength = money.toString().length;
+        const segments = [];
+        let mainPart, remainderPart;
+        
+        mainPart = money;
+        
+        let groupCount = Math.floor(strLength / 3);
+        const remainder = strLength % 3;
+
+        if (remainder) {
+            mainPart = money.toString().slice(0, remainder);
+            remainderPart = money.toString().slice(remainder);
         }
-        res = res + "," + mas.join(",")
-        return res;
-    }catch(e){
-        console.log(money)
-        console.log(e)
+        
+        for (let i = 0; i < groupCount; i++) {
+            segments[i] = remainderPart.toString().slice(i * 3, i * 3 + 3);
+        }
+        
+        mainPart = mainPart + "," + segments.join(",");
+        return mainPart;
+    } catch (e) {
+        console.log(money);
+        console.log(e);
         return money;
     }
-    
 }
+
 export function convertMoneyToRCommas(money){
 
 }
