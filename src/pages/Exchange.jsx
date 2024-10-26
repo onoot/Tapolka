@@ -5,7 +5,7 @@ import Money from "../components/UI/Money/Money";
 import clSecond from "../styles/mainPanel.module.css";
 import ClickerAndBuff from "../components/UI/ClickerAndBuff/ClickerAndBuff";
 
-const Exchange = ({money, energy, setBoost}) => {
+const Exchange = ({player, setPlayer, money, energy, setBoost}) => {
 
     return (
         <div className={clSecond.mainPanel}>
@@ -13,7 +13,7 @@ const Exchange = ({money, energy, setBoost}) => {
                 <div className={cl.exchange__container__money}>
                     <Money money={money}/>
                 </div>
-                <ClickerAndBuff energy={energy} setBoost={setBoost}/>
+                <ClickerAndBuff player={player} setPlayer={setPlayer} energy={energy} setBoost={setBoost}/>
                 <DailyList/>
             </div>
         </div>

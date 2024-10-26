@@ -31,3 +31,23 @@
     width: 47px;
     height: 47px;
 }
+
+@media (max-width: 357px) {
+    .dailyList__container {
+        padding: 10px 15px 10px 10px; 
+        border-radius: 10px;
+    }
+
+    .dailyList__container__title {
+        font-size: 10px; 
+    }
+
+    .dailyList__container__time {
+        font-size: 8px; 
+    }
+
+    .dailyList__container__icon img {
+        width: 35px; 
+        height: 35px;
+    }
+}

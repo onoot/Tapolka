@@ -32,23 +32,30 @@ export function convertMoneyToReduction(money){
     return res;
 }
 export function convertMoneyToRCommasIsFull(money){
-    const str = money.toString().length;
-    const mas = []
-    let res, res1;
-
-    res = money;
-
-    let a = Math.floor(str/3);
-    const b = str%3;
-    if(b){
-        res = money.toString().slice(0, b)
-        res1 = money.toString().slice(b)
+    try{
+        const str = money.toString().length;
+        const mas = []
+        let res, res1;
+    
+        res = money;
+    
+        let a = Math.floor(str/3);
+        const b = str%3;
+        if(b){
+            res = money.toString().slice(0, b)
+            res1 = money.toString().slice(b)
+        }
+        for (let i = 0; i < a; i++) {
+            mas[i]= res1.toString().slice(i*3, i*3+3)
+        }
+        res = res + "," + mas.join(",")
+        return res;
+    }catch(e){
+        console.log(money)
+        console.log(e)
+        return money;
     }
-    for (let i = 0; i < a; i++) {
-        mas[i]= res1.toString().slice(i*3, i*3+3)
-    }
-    res = res + "," + mas.join(",")
-    return res;
+    
 }
 export function convertMoneyToRCommas(money){
 

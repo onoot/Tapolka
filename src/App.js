@@ -37,7 +37,7 @@ function App() {
             0,
             0,  // totalMoney
             0,  // profit
-            0,  // energy
+            1000,  // energy
             0,  // rank
             0   // benefit
         )
@@ -75,7 +75,7 @@ function App() {
                     <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} />
                     <BrowserRouter>
                         <Routes>
-                            <Route path="exchange" element={<BuildAPage player={player} page="exchange" playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} />} />
+                            <Route path="exchange" element={<BuildAPage player={player} setPlayer={setPlayer} page="exchange" playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} />} />
                             <Route path="mine" element={<BuildAPage player={player} page="mine" playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} setMinePanel={setMinePanel} />} />
                             <Route path="friends" element={<BuildAPage player={player} page="friends" playerPanel={false} />} />
                             <Route path="earn" element={<BuildAPage player={player} page="earn" playerPanel={false} />} />

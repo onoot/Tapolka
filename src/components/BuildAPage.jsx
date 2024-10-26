@@ -6,9 +6,9 @@ import Friends from "../pages/Friends";
 import Earn from "../pages/Earn";
 import Airdrop from "../pages/Airdrop";
 
-function returnPage(page, player, setBoost, setMinePanel){
+function returnPage(page, player, setPlayer, setBoost, setMinePanel){
     if(page === "exchange"){
-        return <Exchange  money={player.money} energy={player.energy} setBoost={setBoost}/>
+        return <Exchange player={player} setPlayer={setPlayer}  money={player.money} energy={player.energy} setBoost={setBoost}/>
     } else if(page === "mine"){
         return <Mine  money={player.money} energy={player.energy} setBoost={setBoost} timer={"03:25:30"} setMinePanel={setMinePanel}/>
     } else if(page === "friends"){
@@ -20,7 +20,7 @@ function returnPage(page, player, setBoost, setMinePanel){
     }
 
 }
-const BuildAPage = ({player, page, playerPanel,setSettings, setBoost, setProgress, setMinePanel}) => {
+const BuildAPage = ({player, setPlayer, page, playerPanel,setSettings, setBoost, setProgress, setMinePanel}) => {
     return (
         <div style={{position:"relative"}}>
             {playerPanel ? <PlayerPanel
@@ -29,7 +29,7 @@ const BuildAPage = ({player, page, playerPanel,setSettings, setBoost, setProgres
                 setSettings={setSettings}
                 player={player} />
                 : false}
-            {returnPage(page, player, setBoost, setMinePanel)}
+            {returnPage(page, player, setPlayer, setBoost, setMinePanel)}
         </div>
     );
 };
