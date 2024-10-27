@@ -36,9 +36,14 @@ function App() {
     }
     useEffect(() => {
         tg.ready();
-        console.log(initData);
     }, [])
-
+    fetch("https://jsonplaceholder.typicode.com/todos/1",{
+        method: "POST",
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(initData),
+    })
 
 
     // Инициализация игрока с тестовыми данными для локальной отладки
