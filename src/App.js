@@ -36,6 +36,7 @@ function App() {
     }
     useEffect(() => {
         tg.ready();
+        console.log(initData);
     }, [])
 
 
@@ -79,7 +80,7 @@ function App() {
                     <Settings visible={settings} setVisible={setSettings} />
                     <Boost visible={boost} setVisible={setBoost} money={player.money} />
                     <Progress visible={progress} setVisible={setProgress} player={player} />
-                    {"dsad"+initData}
+                    {"dsad "+initData}
                     <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} />
                     <BrowserRouter>
                         <Routes>
