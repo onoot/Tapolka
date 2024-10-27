@@ -1,10 +1,12 @@
-const tg = window.Telegram.WebApp;
+import { retrieveLaunchParams } from '@telegram-apps/sdk';
 
+const tg = window.Telegram.WebApp;
 export function useTelegram() {
 
     const onClose = () => {
         tg.close()
     }
+    const {initDataRaw } = retrieveLaunchParams();
 
     const onToggleButton = () => {
         if(tg.MainButton.isVisible) {

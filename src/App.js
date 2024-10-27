@@ -8,10 +8,17 @@ import Settings from "./components/UI/Settings/Settings";
 import Boost from "./components/UI/Boost/Boost";
 import Progress from "./components/UI/Progress/Progress";
 import MinePanel from "./components/UI/MinePanel/MinePanel";
-import { useTelegram } from "./components/hooks/useTelegram";
+import { useTelegram } from "./components/hooks/useTelegram.js";
 
 function App() {
-    const { user, onClose, onToggleButton, tg } = useTelegram();
+    const { user, onClose, onToggleButton, tg, initDataRaw } = useTelegram();
+
+    console.log("initDataRaw",initDataRaw)
+    const [settings, setSettings] = useState(false);
+    const [boost, setBoost] = useState(false);
+    const [progress, setProgress] = useState(false);
+    const [minePanel, setMinePanel] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     // Определяем класс игрока
     class Player {
@@ -27,6 +34,11 @@ function App() {
             this.benefit = benefit;
         }
     }
+    useEffect(() => {
+        tg.ready();
+    }, [])
+
+
 
     // Инициализация игрока с тестовыми данными для локальной отладки
     const [player, setPlayer] = useState(
@@ -43,17 +55,12 @@ function App() {
         )
     );
 
-    const [settings, setSettings] = useState(false);
-    const [boost, setBoost] = useState(false);
-    const [progress, setProgress] = useState(false);
-    const [minePanel, setMinePanel] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchPlayerData = async () => {
             try {
                 // Устанавливаем тестового игрока
-                setPlayer(player);  
+                setPlayer(player);
                 setIsLoading(false);  // Прелоадер выключен
             } catch (error) {
                 console.error('Error fetching data:', error);
