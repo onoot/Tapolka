@@ -79,8 +79,8 @@ function App() {
                     <Settings visible={settings} setVisible={setSettings} />
                     <Boost visible={boost} setVisible={setBoost} money={player.money} />
                     <Progress visible={progress} setVisible={setProgress} player={player} />
+                    {"dsad"+initDataRaw}
                     <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} />
-                    {initDataRaw}
                     <BrowserRouter>
                         <Routes>
                             <Route path="exchange" element={<BuildAPage player={player} setPlayer={setPlayer} page="exchange" playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} />} />
