@@ -13,7 +13,7 @@ import { useTelegram } from "./components/hooks/useTelegram.js";
 function App() {
     const { user, onClose, onToggleButton, tg, initDataRaw } = useTelegram();
 
-    console.log("initDataRaw",initDataRaw)
+    
     const [settings, setSettings] = useState(false);
     const [boost, setBoost] = useState(false);
     const [progress, setProgress] = useState(false);
@@ -80,6 +80,7 @@ function App() {
                     <Boost visible={boost} setVisible={setBoost} money={player.money} />
                     <Progress visible={progress} setVisible={setProgress} player={player} />
                     <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} />
+                    {initDataRaw}
                     <BrowserRouter>
                         <Routes>
                             <Route path="exchange" element={<BuildAPage player={player} setPlayer={setPlayer} page="exchange" playerPanel={true} setSettings={setSettings} setBoost={setBoost} setProgress={setProgress} />} />
