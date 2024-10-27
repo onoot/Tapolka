@@ -11,7 +11,7 @@ import MinePanel from "./components/UI/MinePanel/MinePanel";
 import { useTelegram } from "./components/hooks/useTelegram.js";
 
 function App() {
-    const { user, onClose, onToggleButton, tg, initDataRaw } = useTelegram();
+    const { user, onClose, onToggleButton, tg, initData } = useTelegram();
 
     
     const [settings, setSettings] = useState(false);
@@ -79,7 +79,7 @@ function App() {
                     <Settings visible={settings} setVisible={setSettings} />
                     <Boost visible={boost} setVisible={setBoost} money={player.money} />
                     <Progress visible={progress} setVisible={setProgress} player={player} />
-                    {"dsad"+initDataRaw}
+                    {"dsad"+initData}
                     <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} />
                     <BrowserRouter>
                         <Routes>
