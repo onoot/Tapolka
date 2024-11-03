@@ -40,7 +40,7 @@ function App() {
 
     const fetchPlayerData = async () => {
         try {
-            const response = await fetch("http://62.217.181.16/api/login", {
+            const response = await fetch("https://62.217.181.16/api/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(initData),
