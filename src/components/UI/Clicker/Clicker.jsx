@@ -1,36 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import cl from './Clicker.module.css';
 import { usePlayerStore } from '../../../store/playerStore';
+import { fetchWithAuth } from '../../utils/auth.mjs';
 
 const Clicker = () => {
     const { player, updatePlayer } = usePlayerStore();
     const [isShaking, setIsShaking] = useState(false);
 
-    const handleClick = () => {
+    const checkEnergy = async () => {
+        const data = await fetchWithAuth(`http://localhost:5000/api/check-energy/${player.id}`);
+        if (data?.energy !== undefined) {
+            updatePlayer({ energy: data.energy });
+        }
+    };
+
+    const handleClick = async () => {
         if (player.energy <= 0) return;
 
         setIsShaking(true);
 
-        // Уменьшение энергии и увеличение баланса немедленно при каждом клике
+        // Обновление энергии и баланса на клиенте немедленно
         updatePlayer({
             energy: Math.max(0, player.energy - 1),
-            money: player.money + 1
+            money: player.money + 1,
         });
 
-        // Отключение анимации после короткой задержки
+        // Отправляем запрос для увеличения количества монет
+        await fetchWithAuth(`http://localhost:5000/api/add-coins/${player.id}`, {
+            method: 'POST',
+        });
+
         setTimeout(() => setIsShaking(false), 200);
     };
 
-    // Эффект восстановления энергии каждую секунду
     useEffect(() => {
         const energyRegenInterval = setInterval(() => {
             if (player.energy < 1600) {
-                updatePlayer({ energy: Math.min(player.energy + 1, 1600) });
+                checkEnergy();
             }
-        }, 1000); // Восстанавливаем энергию каждую секунду
+        }, 1000);
 
         return () => clearInterval(energyRegenInterval);
-    }, [player.energy, updatePlayer]);
+    }, [player.energy]);
 
     return (
         <div className={cl.container__clicker}>

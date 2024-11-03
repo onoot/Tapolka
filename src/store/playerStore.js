@@ -16,8 +16,9 @@ class Player {
 }
 
 export const usePlayerStore = create((set) => ({
-    player: new Player(1, 'Guest', 'CEO', 0, 0, 0, 1000, 0, 0),
+    player: new Player(),
     setPlayer: (newPlayer) => set({ player: newPlayer }),
+
     updatePlayer: (updates) =>
         set((state) => ({
             player: { ...state.player, ...updates },
