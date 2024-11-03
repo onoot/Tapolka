@@ -14,7 +14,7 @@ import MinePanel from "./components/UI/MinePanel/MinePanel";
 
 function App() {
     const { user, tg, initData } = useTelegram();
-    const { playerData, setPlayer } = usePlayerStore();
+    const { playerData, updatePlayer } = usePlayerStore();
 
     const [settings, setSettings] = useState(false);
     const [boost, setBoost] = useState(false);
@@ -53,7 +53,7 @@ function App() {
                 benefit: data.benefit || 0,
             };
 
-            setPlayer(playerData);
+            updatePlayer(playerData);
             setIsLoading(false);
         } catch (error) {
             console.error("Ошибка при получении данных игрока:", error);
