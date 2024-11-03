@@ -1,7 +1,7 @@
 import React from 'react';
 import cl from "./Money.module.css";
 import { convertMoneyToRCommasIsFull } from "../../hooks/converMoney";
-import { usePlayerStore } from '../../../store/playerStore';
+import { usePlayerStore } from '../../../store/playerStore.mjs';
 
 const Money = () => {
     const { player } = usePlayerStore();

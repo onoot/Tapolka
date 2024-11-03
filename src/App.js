@@ -1,6 +1,6 @@
 import './styles/App.css';
 import React, { useEffect, useState } from "react";
-import { usePlayerStore } from "./store/playerStore";
+import { usePlayerStore } from "./store/playerStore.mjs";
 import { useTelegram } from "./components/hooks/useTelegram";
 import Navbar from "./components/UI/Navbar/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -11,10 +11,22 @@ import Boost from "./components/UI/Boost/Boost";
 import Progress from "./components/UI/Progress/Progress";
 import MinePanel from "./components/UI/MinePanel/MinePanel";
 
-
 function App() {
     const { user, tg, initData } = useTelegram();
-    const { playerData, updatePlayer } = usePlayerStore();
+    const { player, updatePlayer } = usePlayerStore();
+    // const initData = { 
+    //     "query_id": "AAH-2XhEAAAAAP7ZeESod4dt", 
+    //     "user": { 
+    //         "id": 1148770814, 
+    //         "first_name": "overlamer", 
+    //         "last_name": "Broken", 
+    //         "username": "Crazy_santa", 
+    //         "language_code": "ru", 
+    //         "allows_write_to_pm": true 
+    //     }, 
+    //     "auth_date": "1730518862", 
+    //     "hash": "0d177daac8909aa50020cdf260abcaa84b218aaf18e1a8d2c942db2aa0435506" 
+    // };
 
     const [settings, setSettings] = useState(false);
     const [boost, setBoost] = useState(false);
@@ -26,10 +38,9 @@ function App() {
         tg.ready();
     }, []);
 
-    // Обновленный fetchPlayerData в App.js
     const fetchPlayerData = async () => {
         try {
-            const response = await fetch("http://localhost:5000/api/login", {
+            const response = await fetch("http://62.217.181.16/api/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(initData),
@@ -37,7 +48,6 @@ function App() {
             const data = await response.json();
 
             if (data.token) {
-                // Сохраняем токен в localStorage
                 localStorage.setItem('token', data.token);
             }
 
@@ -52,11 +62,13 @@ function App() {
                 rank: data.rank || 0,
                 benefit: data.benefit || 0,
             };
-
+            console.log(playerData)
             updatePlayer(playerData);
             setIsLoading(false);
+            console.log(player)
+
         } catch (error) {
-            console.error("Ошибка при получении данных игрока:", error);
+            console.error("Error fetching player data:", error);
             setIsLoading(false);
         }
     };
@@ -67,23 +79,24 @@ function App() {
 
     return (
         <div className="App">
-            {isLoading ? (
-                <Loading />
-            ) : (
+            {!isLoading && player ? (
                 <>
                     <Settings visible={settings} setVisible={setSettings} />
-                    <Boost visible={boost} setVisible={setBoost} money={playerData.money} />
-                    <Progress visible={progress} setVisible={setProgress} player={playerData} />
-                    <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={playerData.money} />
+                    <Boost visible={boost} setVisible={setBoost} money={player?.money || 0} />
+                    <Progress visible={progress} setVisible={setProgress} player={player || {}} />
+                    <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player?.money || 0} />
+
                     <BrowserRouter>
                         <Routes>
-                            <Route path="exchange" element={<BuildAPage player={playerData} />} />
-                            <Route path="mine" element={<BuildAPage player={playerData} />} />
-                            <Route path="*" element={<BuildAPage player={playerData} />} />
+                            <Route path="exchange" element={<BuildAPage player={player} />} />
+                            <Route path="mine" element={<BuildAPage player={player} />} />
+                            <Route path="*" element={<BuildAPage player={player} />} />
                         </Routes>
                         <Navbar />
                     </BrowserRouter>
                 </>
+            ) : (
+                <Loading />
             )}
         </div>
     );

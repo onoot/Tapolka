@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import cl from './Clicker.module.css';
-import { usePlayerStore } from '../../../store/playerStore';
+import { usePlayerStore } from '../../../store/playerStore.mjs';
 import { fetchWithAuth } from '../../utils/auth.mjs';
 
 const Clicker = () => {
@@ -8,7 +8,7 @@ const Clicker = () => {
     const [isShaking, setIsShaking] = useState(false);
 
     const checkEnergy = async () => {
-        const data = await fetchWithAuth(`http://localhost:5000/api/check-energy/${player.id}`);
+        const data = await fetchWithAuth(`http://62.217.181.16/api/check-energy/${player.id}`);
         if (data?.energy !== undefined) {
             updatePlayer({ energy: data.energy });
         }
@@ -26,7 +26,7 @@ const Clicker = () => {
         });
 
         // Отправляем запрос для увеличения количества монет
-        await fetchWithAuth(`http://localhost:5000/api/add-coins/${player.id}`, {
+        await fetchWithAuth(`http://62.217.181.16/api/add-coins/${player.id}`, {
             method: 'POST',
         });
 

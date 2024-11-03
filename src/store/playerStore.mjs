@@ -1,4 +1,4 @@
-// playerStore.js
+// playerStore.mjs
 import { create } from 'zustand';
 
 class Player {
@@ -14,9 +14,8 @@ class Player {
         this.benefit = benefit;
     }
 }
-
 export const usePlayerStore = create((set) => ({
-    player: new Player(),
+    player: new Player(1, '...', '...', 0, 0, 0, 1600, 0, 0), 
     setPlayer: (newPlayer) => set({ player: newPlayer }),
 
     updatePlayer: (updates) =>

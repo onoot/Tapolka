@@ -2,7 +2,7 @@ import React from 'react';
 import Clicker from "../Clicker/Clicker";
 import cl from "./ClickerAndBuff.module.css";
 import ButtonWallet from '../ButtonWallet/ButtonWallet';
-import { usePlayerStore } from '../../../store/playerStore';
+import { usePlayerStore } from '../../../store/playerStore.mjs';
 
 const ClickerAndBuff = ({ setBoost }) => {
     const player = usePlayerStore((state) => state.player);

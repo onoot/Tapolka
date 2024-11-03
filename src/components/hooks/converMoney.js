@@ -1,4 +1,6 @@
 export function convertMoneyToReduction(money){
+    if (money == null) return 0; 
+
     const multipliers = ["K", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc"]
     const str = money.toString().length;
     let a = Math.floor(str/3);
