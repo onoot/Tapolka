@@ -4,11 +4,11 @@ import PlayerInfo from "../PlayerInfo/PlayerInfo";
 import PlayerProfit from "../PlayerProfit/PlayerProfit";
 import Settings from "../Settings/Settings";
 
-const PlayerPanel = ({player, setSettings, setProgress}) => {
+const PlayerPanel = ({avatar, player, setSettings, setProgress}) => {
     return (
         <div className={cl.playerPanel__container}>
             <PlayerInfo player={player} setProgress={setProgress}/>
-            <PlayerProfit profit={player.profit} setSettings={setSettings}/>
+            <PlayerProfit avatar={avatar} profit={player.profit} setSettings={setSettings}/>
         </div>
     );
 };

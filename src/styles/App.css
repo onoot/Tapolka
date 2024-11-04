@@ -6,6 +6,9 @@
     box-sizing: border-box;
     z-index: 1;
 }
+html{
+    overscroll-behavior: none;
+}
 
 #root{
     display: flex;
@@ -21,6 +24,7 @@ body{
     background: #010101;
     font-family: Poppins_Regular;
     color: #fff;
+    overscroll-behavior: none;
 }
 
 .boobs{

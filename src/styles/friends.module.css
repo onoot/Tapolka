@@ -3,20 +3,25 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    width: 90%;
     margin: 16px auto 0;
-
+    padding: 0 16px;
+    position: relative;
+    overflow: hidden;
+    overscroll-behavior: none;
 }
+
 .friends__container:before{
     content: "";
     background-image: url("../components/images/background.png");
     position: absolute;
-    width: 100vw;
+    width: 100svw;
     left: 0;
-    height: 100vh;
+    height: 100svh;
     top: -16px;
     z-index: -1;
     object-fit: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 .friends__container__title{
     text-align: center;

@@ -1,7 +1,7 @@
 import './styles/App.css';
 import React, { useEffect, useState } from "react";
 import { usePlayerStore } from "./store/playerStore.mjs";
-import { useTelegram } from "./components/hooks/useTelegram";
+import { useTelegram } from "./components/hooks/useTelegram"; 
 import Navbar from "./components/UI/Navbar/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Loading from "./pages/Loading";
@@ -11,18 +11,33 @@ import Boost from "./components/UI/Boost/Boost";
 import Progress from "./components/UI/Progress/Progress";
 import MinePanel from "./components/UI/MinePanel/MinePanel";
 
+
 function App() {
-    const { user, tg, initData } = useTelegram();
+    const { user, tg, initData, photoUrl } = useTelegram(); 
     const { player, updatePlayer } = usePlayerStore();
 
     const [settings, setSettings] = useState(false);
     const [boost, setBoost] = useState(false);
     const [progress, setProgress] = useState(false);
     const [minePanel, setMinePanel] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true); 
 
     useEffect(() => {
-        tg.ready();
+        tg.ready(); 
+
+        // Используем фиктивные данные вместо вызова API
+        // const playerData = {
+        //     id: 1,
+        //     name: 'Guest',
+        //     role: 'CEO',
+        //     money: 1000,
+        //     totalMoney: 5000,
+        //     profit: 300,
+        //     energy: 1000,
+        //     rank: 5,
+        //     benefit: 200,
+        // };
+        // updatePlayer(playerData);
     }, []);
 
     const fetchPlayerData = async () => {
@@ -77,10 +92,100 @@ function App() {
 
                     <BrowserRouter>
                         <Routes>
-                            <Route path="exchange" element={<BuildAPage player={player} />} />
-                            <Route path="mine" element={<BuildAPage player={player} />} />
-                            <Route path="*" element={<BuildAPage player={player} />} />
+                            <Route
+                                path="exchange"
+                                element={
+                                    <BuildAPage
+                                        player={player}
+                                        setPlayer={updatePlayer}
+                                        page="exchange"
+                                        playerPanel
+                                        setSettings={setSettings}
+                                        setBoost={setBoost}
+                                        setProgress={setProgress}
+                                        setMinePanel={setMinePanel}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="mine"
+                                element={
+                                    <BuildAPage
+                                        player={player}
+                                        setPlayer={updatePlayer}
+                                        page="mine"
+                                        playerPanel
+                                        setSettings={setSettings}
+                                        setBoost={setBoost}
+                                        setProgress={setProgress}
+                                        setMinePanel={setMinePanel}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="friends"
+                                element={
+                                    <BuildAPage
+                                        player={player}
+                                        setPlayer={updatePlayer}
+                                        page="friends"
+                                        playerPanel
+                                        setSettings={setSettings}
+                                        setBoost={setBoost}
+                                        setProgress={setProgress}
+                                        setMinePanel={setMinePanel}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="earn"
+                                element={
+                                    <BuildAPage
+                                        player={player}
+                                        setPlayer={updatePlayer}
+                                        page="earn"
+                                        playerPanel
+                                        setSettings={setSettings}
+                                        setBoost={setBoost}
+                                        setProgress={setProgress}
+                                        setMinePanel={setMinePanel}
+                                    />
+                                }
+                            />
+                            <Route
+                                path="airdrop"
+                                element={
+                                    <BuildAPage
+                                        player={player}
+                                        setPlayer={updatePlayer}
+                                        page="airdrop"
+                                        playerPanel
+                                        setSettings={setSettings}
+                                        setBoost={setBoost}
+                                        setProgress={setProgress}
+                                        setMinePanel={setMinePanel}
+                                    />
+                                }
+                            />
+                            {/* Резервный маршрут для неизвестных страниц */}
+                            <Route
+                                path="*"
+                                element={
+                                    <BuildAPage
+                                        avatar={photoUrl||null}
+                                        player={player}
+                                        setPlayer={updatePlayer}
+                                        page="exchange" 
+                                        playerPanel
+                                        setSettings={setSettings}
+                                        setBoost={setBoost}
+                                        setProgress={setProgress}
+                                        setMinePanel={setMinePanel}
+                                    />
+                                }
+                            />
                         </Routes>
+
                         <Navbar />
                     </BrowserRouter>
                 </>

@@ -8,7 +8,7 @@ const MineMarketItemSpecial = ({item}) => {
         <div className={cl.mineMarketItemsSpecial__container}>
             <div className={cl.mineMarketItemsSpecial__container__block}>
                 <div className={cl.mineMarketItemsSpecial__container__block__item}>
-                    <img src={require("../../images/tiger.png")} alt=""/>
+                    <img src={require("../../images/kangaroo.png")} alt=""/>
                 </div>
                 <div className={cl.mineMarketItemsSpecial__container__block__item}>
                     {item.title}

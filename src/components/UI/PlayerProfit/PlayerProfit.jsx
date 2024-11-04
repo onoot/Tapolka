@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import cl from './PlayerProfit.module.css';
 import iconProfit from "./../../images/iconProfit.png"
 
-const PlayerProfit = ({profit, setSettings}) => {
+const PlayerProfit = ({avatar, profit, setSettings}) => {
     return (
         <div className={cl.playerProfit__container}>
             <div className={cl.playerProfit__container__block}>
                 <div className={cl.playerProfit__container__block__item}>
-                    <img src={iconProfit} alt=""/>
+                    {/* Аватар персонажа */}
+                    <img src={avatar?avatar:iconProfit} alt=""/>
                 </div>
                 <div className={cl.playerProfit__container__block__item}>
                     <div className={cl.playerProfit__container__block__item__profitInfo__text}>

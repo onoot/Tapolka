@@ -1,7 +1,7 @@
 .mainPanel{
     background: #241C22;
     position: relative;
-    min-height: calc(100svh + 149px);
+    min-height: calc(100svh - 149px);
     margin-top: 20px;
     border-radius: 50px 50px 0 0;
     padding: 0 16px;

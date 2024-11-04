@@ -11,12 +11,23 @@
     width: 100%;
 
 }
+
 .playerInfo__panel__item__icon{
     position: relative;
     background: #1E1E1E;
     width: 36px;
     height: 36px;
     border-radius: 6px;
+}
+.playerInfo__panel__prifile__icon{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 24px;
+    max-height: 24px;
 }
 .playerInfo__panel__item__icon svg{
     position: absolute;

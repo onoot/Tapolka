@@ -18,12 +18,13 @@ function returnPage(page, player, setPlayer, setBoost, setMinePanel){
     } else if(page === "airdrop"){
         return <Airdrop/>
     }
-
+console.log(page)
 }
-const BuildAPage = ({player, setPlayer, page, playerPanel,setSettings, setBoost, setProgress, setMinePanel}) => {
+const BuildAPage = ({avatar, player, setPlayer, page, playerPanel,setSettings, setBoost, setProgress, setMinePanel}) => {
     return (
         <div style={{position:"relative"}}>
             {playerPanel ? <PlayerPanel
+                avatar={photoUrl||null}
                 setProgress={setProgress}
                 key={player.id}
                 setSettings={setSettings}

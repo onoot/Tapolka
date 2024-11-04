@@ -8,7 +8,7 @@ const PlayerInfo = ({player, setProgress}) => {
             <div className={cl.playerInfo__panel__item}>
                 <div className={cl.playerInfo__panel__item__descriptionPlayer}>
                     <div className={cl.playerInfo__panel__item__icon}>
-                        <img src={require(`../../images/playerIcons.png`)}/>
+                        <img className={cl.playerInfo__panel__prifile__icon} src={require(`../../images/playerIcons.png`)}/>
                     </div>
                     <div className={cl.playerInfo__panel__item__descriptionPlayer__block}>
                         <div className={cl.playerInfo__panel__item__descriptionPlayer__block__name}>

@@ -6,6 +6,13 @@ import { fetchWithAuth } from '../../utils/auth.mjs';
 const Clicker = () => {
     const { player, updatePlayer } = usePlayerStore();
     const [isShaking, setIsShaking] = useState(false);
+    const clickerImage = require('../../images/clickerBtn.png'); // Импорт изображения
+
+    // Предварительная загрузка изображения
+    useEffect(() => {
+        const img = new Image();
+        img.src = clickerImage;
+    }, [clickerImage]);
 
     const checkEnergy = async () => {
         const data = await fetchWithAuth(`https://app.tongaroo.fun/api/check-energy/${player.id}`);
@@ -18,14 +25,10 @@ const Clicker = () => {
         if (player.energy <= 0) return;
 
         setIsShaking(true);
-
-        // Обновление энергии и баланса на клиенте немедленно
         updatePlayer({
             energy: Math.max(0, player.energy - 1),
             money: player.money + 1,
         });
-
-        // Отправляем запрос для увеличения количества монет
         await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
             method: 'POST',
         });
@@ -33,15 +36,15 @@ const Clicker = () => {
         setTimeout(() => setIsShaking(false), 200);
     };
 
-    useEffect(() => {
-        const energyRegenInterval = setInterval(() => {
-            if (player.energy < 1600) {
-                checkEnergy();
-            }
-        }, 1000);
+    // useEffect(() => {
+    //     const energyRegenInterval = setInterval(() => {
+    //         if (player.energy < 1600) {
+    //             checkEnergy();
+    //         }
+    //     }, 1000);
 
-        return () => clearInterval(energyRegenInterval);
-    }, [player.energy]);
+    //     return () => clearInterval(energyRegenInterval);
+    // }, [player.energy]);
 
     return (
         <div className={cl.container__clicker}>
@@ -49,7 +52,7 @@ const Clicker = () => {
                 className={`${cl.clicker__btn} ${isShaking ? cl.shake : ''}`}
                 onClick={handleClick}
             >
-                <img src={require('../../images/clickerBtn.png')} alt="click button" className={cl.clicker__img} />
+                <img src={clickerImage} alt="click button" className={cl.clicker__img} />
             </div>
         </div>
     );
