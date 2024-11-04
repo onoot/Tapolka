@@ -14,19 +14,6 @@ import MinePanel from "./components/UI/MinePanel/MinePanel";
 function App() {
     const { user, tg, initData } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
-    // const initData = { 
-    //     "query_id": "AAH-2XhEAAAAAP7ZeESod4dt", 
-    //     "user": { 
-    //         "id": 1148770814, 
-    //         "first_name": "overlamer", 
-    //         "last_name": "Broken", 
-    //         "username": "Crazy_santa", 
-    //         "language_code": "ru", 
-    //         "allows_write_to_pm": true 
-    //     }, 
-    //     "auth_date": "1730518862", 
-    //     "hash": "0d177daac8909aa50020cdf260abcaa84b218aaf18e1a8d2c942db2aa0435506" 
-    // };
 
     const [settings, setSettings] = useState(false);
     const [boost, setBoost] = useState(false);
@@ -45,6 +32,9 @@ function App() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(initData),
             });
+            if (!response.ok) {
+                return false
+            }
             const data = await response.json();
 
             if (data.token) {
