@@ -3,10 +3,17 @@ import cl from './Clicker.module.css';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
 import { fetchWithAuth } from '../../utils/auth.mjs';
 
+const MAX_ENERGY = 1600;
+const ENERGY_REGEN_RATE = 1; // 1 единица энергии в секунду
+const CLICK_SEND_DELAY = 500; // Задержка перед отправкой кликов
+
 const Clicker = () => {
     const { player, updatePlayer } = usePlayerStore();
     const [isShaking, setIsShaking] = useState(false);
-    const clickerImage = require('../../images/clickerBtn.png'); 
+    const [localEnergy, setLocalEnergy] = useState(player.energy);
+    const [clickCount, setClickCount] = useState(0);
+    const clickerImage = require('../../images/clickerBtn.png');
+    let clickTimeout = null;
 
     // Предварительная загрузка изображения
     useEffect(() => {
@@ -14,37 +21,47 @@ const Clicker = () => {
         img.src = clickerImage;
     }, [clickerImage]);
 
-    const checkEnergy = async () => {
-        const data = await fetchWithAuth(`https://app.tongaroo.fun/api/check-energy/${player.id}`);
-        if (data?.energy !== undefined) {
-            updatePlayer({ energy: data.energy });
-        }
-    };
-
-    const handleClick = async () => {
-        if (player.energy <= 0) return;
+    const handleClick = () => {
+        if (localEnergy <= 0) return;
 
         setIsShaking(true);
+        setClickCount((prevCount) => prevCount + 1);
+        setLocalEnergy((prevEnergy) => Math.max(0, prevEnergy - 1)); 
         updatePlayer({
             energy: Math.max(0, player.energy - 1),
             money: player.money + 1,
         });
-        await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
-            method: 'POST',
-        });
+
+        if (clickTimeout) clearTimeout(clickTimeout);
+        clickTimeout = setTimeout(() => {
+            sendClickData();
+        }, CLICK_SEND_DELAY);
 
         setTimeout(() => setIsShaking(false), 200);
     };
 
-    useEffect(() => {
-        const energyRegenInterval = setInterval(() => {
-            if (player.energy < 1600) {
-                checkEnergy();
+    const sendClickData = async () => {
+        if (clickCount > 0) {
+            const data = await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
+                method: 'POST',
+                body: JSON.stringify({ clicks: clickCount }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+            if (data?.energy !== undefined) {
+                updatePlayer({ energy: data.energy });
+                setLocalEnergy(data.energy); 
             }
+            setClickCount(0);
+        }
+    };
+
+    useEffect(() => {
+        const regenInterval = setInterval(() => {
+            setLocalEnergy((prevEnergy) => Math.min(MAX_ENERGY, prevEnergy + ENERGY_REGEN_RATE));
         }, 1000);
 
-        return () => clearInterval(energyRegenInterval);
-    }, [player.energy]);
+        return () => clearInterval(regenInterval);
+    }, []);
 
     return (
         <div className={cl.container__clicker}>
@@ -54,6 +71,7 @@ const Clicker = () => {
             >
                 <img src={clickerImage} alt="click button" className={cl.clicker__img} />
             </div>
+            <div>Энергия: {localEnergy}</div>
         </div>
     );
 };
