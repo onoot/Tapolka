@@ -6,7 +6,7 @@ import { fetchWithAuth } from '../../utils/auth.mjs';
 const Clicker = () => {
     const { player, updatePlayer } = usePlayerStore();
     const [isShaking, setIsShaking] = useState(false);
-    const clickerImage = require('../../images/clickerBtn.png'); // Импорт изображения
+    const clickerImage = require('../../images/clickerBtn.png'); 
 
     // Предварительная загрузка изображения
     useEffect(() => {
@@ -15,7 +15,7 @@ const Clicker = () => {
     }, [clickerImage]);
 
     const checkEnergy = async () => {
-        const data = await fetchWithAuth(`https://app.tongaroo.fun/api/check-energy/${player.telegramId}`);
+        const data = await fetchWithAuth(`https://app.tongaroo.fun/api/check-energy/${player.id}`);
         if (data?.energy !== undefined) {
             updatePlayer({ energy: data.energy });
         }
@@ -29,7 +29,7 @@ const Clicker = () => {
             energy: Math.max(0, player.energy - 1),
             money: player.money + 1,
         });
-        await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.telegramId}`, {
+        await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
             method: 'POST',
         });
 
