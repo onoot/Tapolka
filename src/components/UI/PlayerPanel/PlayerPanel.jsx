@@ -7,7 +7,7 @@ import Settings from "../Settings/Settings";
 const PlayerPanel = ({avatar, player, setSettings, setProgress}) => {
     return (
         <div className={cl.playerPanel__container}>
-            <PlayerInfo player={player} setProgress={setProgress}/>
+            <PlayerInfo avatar={avatar} player={player} setProgress={setProgress}/>
             <PlayerProfit avatar={avatar} profit={player.profit} setSettings={setSettings}/>
         </div>
     );
