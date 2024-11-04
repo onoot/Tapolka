@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from "./PlayerInfo.module.css";
-import iconProfit from "./../../images/iconProfit.png"
+import iconProfit from "./../../images/playerIcons.png"
 
 const PlayerInfo = ({ avatar, player, setProgress }) => {
 

@@ -7,7 +7,7 @@
     justify-content: center;
 }
 .exchange__container__money{
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .exchange__container__timer{
     display: flex;
@@ -19,8 +19,8 @@
 .exchange__container__clicker__btn{
     display: flex;
     justify-content: center;
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
     margin-top: 16px;
     background: radial-gradient(circle, rgba(68, 68, 68, 70%), #1f2734);
     border-radius: 50%;
