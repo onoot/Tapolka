@@ -8,7 +8,7 @@ const Clicker = () => {
     const [isShaking, setIsShaking] = useState(false);
 
     const checkEnergy = async () => {
-        const data = await fetchWithAuth(`https://62.217.181.16/api/check-energy/${player.id}`);
+        const data = await fetchWithAuth(`https://app.tongaroo.fun/api/check-energy/${player.id}`);
         if (data?.energy !== undefined) {
             updatePlayer({ energy: data.energy });
         }
@@ -26,7 +26,7 @@ const Clicker = () => {
         });
 
         // Отправляем запрос для увеличения количества монет
-        await fetchWithAuth(`https://62.217.181.16/api/add-coins/${player.id}`, {
+        await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
             method: 'POST',
         });
 
