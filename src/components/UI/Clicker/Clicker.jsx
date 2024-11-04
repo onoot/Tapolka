@@ -4,13 +4,12 @@ import { usePlayerStore } from '../../../store/playerStore.mjs';
 import { fetchWithAuth } from '../../utils/auth.mjs';
 
 const MAX_ENERGY = 1600;
-const ENERGY_REGEN_RATE = 1; // 1 единица энергии в секунду
-const CLICK_SEND_DELAY = 500; // Задержка перед отправкой кликов
+const ENERGY_REGEN_RATE = 1;
+const CLICK_SEND_DELAY = 500;
 
 const Clicker = () => {
     const { player, updatePlayer } = usePlayerStore();
     const [isShaking, setIsShaking] = useState(false);
-    const [localEnergy, setLocalEnergy] = useState(player.energy);
     const [clickCount, setClickCount] = useState(0);
     const clickerImage = require('../../images/clickerBtn.png');
     let clickTimeout = null;
@@ -22,11 +21,12 @@ const Clicker = () => {
     }, [clickerImage]);
 
     const handleClick = () => {
-        if (localEnergy <= 0) return;
+        if (player.energy <= 0) return;
 
         setIsShaking(true);
         setClickCount((prevCount) => prevCount + 1);
-        setLocalEnergy((prevEnergy) => Math.max(0, prevEnergy - 1)); 
+
+        // Обновляем энергию и деньги игрока через updatePlayer
         updatePlayer({
             energy: Math.max(0, player.energy - 1),
             money: player.money + 1,
@@ -49,7 +49,6 @@ const Clicker = () => {
             });
             if (data?.energy !== undefined) {
                 updatePlayer({ energy: data.energy });
-                setLocalEnergy(data.energy); 
             }
             setClickCount(0);
         }
@@ -57,11 +56,13 @@ const Clicker = () => {
 
     useEffect(() => {
         const regenInterval = setInterval(() => {
-            setLocalEnergy((prevEnergy) => Math.min(MAX_ENERGY, prevEnergy + ENERGY_REGEN_RATE));
+            updatePlayer((state) => ({
+                energy: Math.min(MAX_ENERGY, state.player.energy + ENERGY_REGEN_RATE),
+            }));
         }, 1000);
 
         return () => clearInterval(regenInterval);
-    }, []);
+    }, [updatePlayer]);
 
     return (
         <div className={cl.container__clicker}>
