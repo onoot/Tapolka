@@ -71,7 +71,6 @@ const Clicker = () => {
             >
                 <img src={clickerImage} alt="click button" className={cl.clicker__img} />
             </div>
-            <div>Энергия: {localEnergy}</div>
         </div>
     );
 };
