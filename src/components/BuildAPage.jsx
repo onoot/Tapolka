@@ -24,7 +24,7 @@ const BuildAPage = ({avatar, player, setPlayer, page, playerPanel,setSettings, s
     return (
         <div style={{position:"relative"}}>
             {playerPanel ? <PlayerPanel
-                avatar={photoUrl||null}
+                avatar={avatar}
                 setProgress={setProgress}
                 key={player.id}
                 setSettings={setSettings}
