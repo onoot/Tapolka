@@ -15,7 +15,7 @@ const Clicker = () => {
     }, [clickerImage]);
 
     const checkEnergy = async () => {
-        const data = await fetchWithAuth(`https://app.tongaroo.fun/api/check-energy/${player.id}`);
+        const data = await fetchWithAuth(`https://app.tongaroo.fun/api/check-energy/${player.telegramId}`);
         if (data?.energy !== undefined) {
             updatePlayer({ energy: data.energy });
         }
@@ -29,22 +29,22 @@ const Clicker = () => {
             energy: Math.max(0, player.energy - 1),
             money: player.money + 1,
         });
-        await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
+        await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.telegramId}`, {
             method: 'POST',
         });
 
         setTimeout(() => setIsShaking(false), 200);
     };
 
-    // useEffect(() => {
-    //     const energyRegenInterval = setInterval(() => {
-    //         if (player.energy < 1600) {
-    //             checkEnergy();
-    //         }
-    //     }, 1000);
+    useEffect(() => {
+        const energyRegenInterval = setInterval(() => {
+            if (player.energy < 1600) {
+                checkEnergy();
+            }
+        }, 1000);
 
-    //     return () => clearInterval(energyRegenInterval);
-    // }, [player.energy]);
+        return () => clearInterval(energyRegenInterval);
+    }, [player.energy]);
 
     return (
         <div className={cl.container__clicker}>
