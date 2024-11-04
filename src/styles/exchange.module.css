@@ -19,8 +19,8 @@
 .exchange__container__clicker__btn{
     display: flex;
     justify-content: center;
-    width: 240px;
-    height: 240px;
+    width: 200px;
+    height: 200px;
     margin-top: 16px;
     background: radial-gradient(circle, rgba(68, 68, 68, 70%), #1f2734);
     border-radius: 50%;
