@@ -19,6 +19,7 @@ const Clicker = () => {
         img.src = clickerImage;
     }, [clickerImage]);
 
+    // Обработка кликов
     const handleClick = () => {
         if (player.energy <= 0) return;
 
@@ -33,6 +34,7 @@ const Clicker = () => {
         setTimeout(() => setIsShaking(false), 200);
     };
 
+    // Функция для отправки данных о кликах
     const sendClickData = async () => {
         if (clickCount > 0) {
             const currentClickCount = clickCount;
@@ -45,11 +47,12 @@ const Clicker = () => {
             });
 
             if (data?.user?.energy !== undefined) {
-                updateEnergy(data.user.energy);
+                updateEnergy(data.user.energy); // Обновляем только энергию
             }
         }
     };
 
+    // Таймер для отправки кликов
     useEffect(() => {
         const clickInterval = setInterval(() => {
             sendClickData();
@@ -58,14 +61,17 @@ const Clicker = () => {
         return () => clearInterval(clickInterval);
     }, [clickCount]);
 
-    const regenerateEnergy = () => {
-        updateEnergy((currentEnergy) => {
-            const newEnergy = Math.min(MAX_ENERGY, currentEnergy + ENERGY_REGEN_RATE);
-            console.log("Regenerating energy...", newEnergy);
-            return newEnergy;
-        });
-    };
+    // Восстановление энергии с использованием колбэк-версии
+const regenerateEnergy = () => {
+    updateEnergy((prevEnergy) => {
+        const newEnergy = Math.min(MAX_ENERGY, prevEnergy + ENERGY_REGEN_RATE);
+        console.log("Regenerating energy...", newEnergy);
+        return newEnergy;
+    });
+};
 
+
+    // Интервал восстановления энергии
     useEffect(() => {
         const regenInterval = setInterval(() => {
             regenerateEnergy();
