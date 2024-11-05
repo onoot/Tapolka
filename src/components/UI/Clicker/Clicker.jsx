@@ -5,7 +5,7 @@ import { fetchWithAuth } from '../../utils/auth.mjs';
 
 const MAX_ENERGY = 1600;
 const ENERGY_REGEN_RATE = 1;
-const CLICK_SEND_DELAY = 500;
+const CLICK_SEND_DELAY = 2000;
 
 const Clicker = () => {
     const { player, updatePlayer } = usePlayerStore();
@@ -31,8 +31,10 @@ const Clicker = () => {
             energy: Math.max(0, player.energy - 1),
             money: player.money + 1,
         });
+        console.log("Данные игрока",player);
 
-        if (clickTimeout) clearTimeout(clickTimeout);
+        if (clickTimeout) 
+            clearTimeout(clickTimeout);
         clickTimeout = setTimeout(() => {
             sendClickData();
         }, CLICK_SEND_DELAY);
@@ -62,7 +64,7 @@ const Clicker = () => {
         }, 1000);
 
         return () => clearInterval(regenInterval);
-    }, [updatePlayer]);
+    }, [player]);
 
     return (
         <div className={cl.container__clicker}>
