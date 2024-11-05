@@ -28,7 +28,7 @@ const Clicker = () => {
         setClickCount((prevCount) => prevCount + 1);
 
         updatePlayer({
-            energy: player.energy - 1,
+            energy: Math.min(0, player.energy - 1),
             money: player.money + 1,
         });
 
@@ -69,7 +69,7 @@ const Clicker = () => {
         console.log("Regenerating energy...", player.energy);
         updatePlayer((state) => ({
             ...state,
-            energy: state.energy + ENERGY_REGEN_RATE,
+            energy: Math.max(MAX_ENERGY, state.energy + ENERGY_REGEN_RATE),
         }));
     };
 
