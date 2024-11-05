@@ -44,19 +44,22 @@ const Clicker = () => {
     // Функция для отправки данных о кликах на сервер
     const sendClickData = async () => {
         if (clickCount > 0) {
+            const currentClickCount = clickCount; // Сохраняем текущее количество кликов
+            setClickCount(0); // Обнуляем clickCount для накопления новых кликов
+    
+            // Отправляем только сохраненные клики
             const data = await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
                 method: 'POST',
-                body: JSON.stringify({ clicks: clickCount }),
+                body: JSON.stringify({ clicks: currentClickCount }),
                 headers: { 'Content-Type': 'application/json' },
             });
-
+    
             if (data?.user?.energy !== undefined) {
                 // Обновляем только энергию игрока из ответа сервера
                 updatePlayer({
                     energy: data.user.energy,
                 });
             }
-            setClickCount(0); 
         }
     };
 
