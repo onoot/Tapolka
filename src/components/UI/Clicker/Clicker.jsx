@@ -14,25 +14,23 @@ const Clicker = () => {
     const clickerImage = require('../../images/clickerBtn.png');
     const clickTimeout = useRef(null);
 
-    // Загружаем изображение для кнопки кликера
     useEffect(() => {
         const img = new Image();
         img.src = clickerImage;
     }, [clickerImage]);
 
-    // Функция для обработки клика
     const handleClick = () => {
         if (player.energy <= 0) return;
 
         setIsShaking(true);
         setClickCount((prevCount) => prevCount + 1);
 
-        // Локально уменьшаем энергию
+        // Локально обновляем энергию и деньги
         updatePlayer({
             energy: Math.max(0, player.energy - 1),
+            money: player.money + 1, // Добавляем монеты локально при каждом клике
         });
 
-        // Запуск таймера для отправки кликов раз в CLICK_SEND_DELAY
         if (clickTimeout.current) clearTimeout(clickTimeout.current);
         clickTimeout.current = setTimeout(() => {
             sendClickData();
@@ -41,21 +39,18 @@ const Clicker = () => {
         setTimeout(() => setIsShaking(false), 200);
     };
 
-    // Функция для отправки данных о кликах на сервер
     const sendClickData = async () => {
         if (clickCount > 0) {
-            const currentClickCount = clickCount; // Сохраняем текущее количество кликов
-            setClickCount(0); // Обнуляем clickCount для накопления новых кликов
-    
-            // Отправляем только сохраненные клики
+            const currentClickCount = clickCount;
+            setClickCount(0);
+
             const data = await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
                 method: 'POST',
                 body: JSON.stringify({ clicks: currentClickCount }),
                 headers: { 'Content-Type': 'application/json' },
             });
-    
+
             if (data?.user?.energy !== undefined) {
-                // Обновляем только энергию игрока из ответа сервера
                 updatePlayer({
                     energy: data.user.energy,
                 });
@@ -63,15 +58,14 @@ const Clicker = () => {
         }
     };
 
-    // Функция для восстановления энергии каждую секунду
     const regenerateEnergy = () => {
+        console.log("Regenerating energy...");
         updatePlayer((state) => ({
             ...state,
             energy: Math.min(MAX_ENERGY, state.energy + ENERGY_REGEN_RATE),
         }));
     };
 
-    // Устанавливаем интервал восстановления энергии
     useEffect(() => {
         const regenInterval = setInterval(() => {
             regenerateEnergy();
