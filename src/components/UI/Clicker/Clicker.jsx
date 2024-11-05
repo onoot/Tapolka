@@ -59,7 +59,7 @@ const Clicker = () => {
     };
 
     const regenerateEnergy = () => {
-        console.log("Regenerating energy...");
+        console.log("Regenerating energy...", player.energy);   
         updatePlayer((state) => ({
             ...state,
             energy: Math.min(MAX_ENERGY, state.energy + ENERGY_REGEN_RATE),
