@@ -61,16 +61,12 @@ const Clicker = () => {
         return () => clearInterval(clickInterval);
     }, [clickCount]);
 
-
-    // Восстановление энергии с использованием корректного значения
+    // Восстановление энергии
     const regenerateEnergy = () => {
-        updateEnergy((prevEnergy) => {
-            const newEnergy = Math.min(MAX_ENERGY, prevEnergy + ENERGY_REGEN_RATE);
-            console.log("Regenerating energy to:", newEnergy);
-            return newEnergy;
-        });
+        const newEnergy = Math.min(MAX_ENERGY, player.energy + ENERGY_REGEN_RATE);
+        updateEnergy(newEnergy);
+        console.log("Regenerating energy...", player.energy);
     };
-
 
     // Интервал восстановления энергии
     useEffect(() => {
