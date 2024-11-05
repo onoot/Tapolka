@@ -8,7 +8,7 @@ const ENERGY_REGEN_RATE = 1;
 const CLICK_SEND_DELAY = 2000;
 
 const Clicker = () => {
-    const { player, updatePlayer } = usePlayerStore();
+    const { player, updatePlayer, updateEnergy } = usePlayerStore();
     const [isShaking, setIsShaking] = useState(false);
     const [clickCount, setClickCount] = useState(0);
     const clickerImage = require('../../images/clickerBtn.png');
@@ -19,16 +19,15 @@ const Clicker = () => {
         img.src = clickerImage;
     }, [clickerImage]);
 
-    // Обрабатываем клики
+    // Обработка кликов
     const handleClick = () => {
-        if (player.energy <= 0) 
-            return;
+        if (player.energy <= 0) return;
 
         setIsShaking(true);
         setClickCount((prevCount) => prevCount + 1);
 
         updatePlayer({
-            energy: Math.min(0, player.energy - 1),
+            energy: Math.max(0, player.energy - 1),
             money: player.money + 1,
         });
 
@@ -48,14 +47,12 @@ const Clicker = () => {
             });
 
             if (data?.user?.energy !== undefined) {
-                updatePlayer({
-                    energy: data.user.energy,
-                });
+                updateEnergy(data.user.energy); // Обновляем только энергию
             }
         }
     };
 
-    // Управление таймером отправки кликов
+    // Таймер для отправки кликов
     useEffect(() => {
         const clickInterval = setInterval(() => {
             sendClickData();
@@ -67,12 +64,10 @@ const Clicker = () => {
     // Восстановление энергии
     const regenerateEnergy = () => {
         console.log("Regenerating energy...", player.energy);
-        updatePlayer((state) => ({
-            ...state,
-            energy: Math.max(MAX_ENERGY, state.energy + ENERGY_REGEN_RATE),
-        }));
+        updateEnergy(Math.min(MAX_ENERGY, player.energy + ENERGY_REGEN_RATE));
     };
 
+    // Интервал восстановления энергии
     useEffect(() => {
         const regenInterval = setInterval(() => {
             regenerateEnergy();
