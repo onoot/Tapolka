@@ -14,7 +14,6 @@ const Clicker = () => {
     const clickerImage = require('../../images/clickerBtn.png');
     let clickTimeout = null;
 
-    // Предварительная загрузка изображения
     useEffect(() => {
         const img = new Image();
         img.src = clickerImage;
@@ -26,15 +25,13 @@ const Clicker = () => {
         setIsShaking(true);
         setClickCount((prevCount) => prevCount + 1);
 
-        // Обновляем энергию и деньги игрока через updatePlayer
+        // Локально обновляем энергию и деньги
         updatePlayer({
             energy: Math.max(0, player.energy - 1),
             money: player.money + 1,
         });
-        console.log("Данные игрока",player);
-
-        if (clickTimeout) 
-            clearTimeout(clickTimeout);
+        
+        if (clickTimeout) clearTimeout(clickTimeout);
         clickTimeout = setTimeout(() => {
             sendClickData();
         }, CLICK_SEND_DELAY);
@@ -49,22 +46,34 @@ const Clicker = () => {
                 body: JSON.stringify({ clicks: clickCount }),
                 headers: { 'Content-Type': 'application/json' },
             });
-            if (data?.energy !== undefined) {
-                updatePlayer({ energy: data.energy });
+
+            if (data?.user?.energy !== undefined) {
+                // Обновляем энергию и деньги из ответа сервера
+                updatePlayer({
+                    energy: data.user.energy,
+                    money: data.user.money,
+                });
             }
             setClickCount(0);
         }
     };
 
+    // Функция для восстановления энергии каждую секунду
+    const regenerateEnergy = () => {
+        updatePlayer((state) => ({
+            ...state,
+            energy: Math.min(MAX_ENERGY, state.energy + ENERGY_REGEN_RATE),
+        }));
+    };
+
     useEffect(() => {
+        // Запуск функции восстановления энергии каждую секунду
         const regenInterval = setInterval(() => {
-            updatePlayer((state) => ({
-                energy: Math.min(MAX_ENERGY, state.player.energy + ENERGY_REGEN_RATE),
-            }));
+            regenerateEnergy();
         }, 1000);
 
         return () => clearInterval(regenInterval);
-    }, [player]);
+    }, []);
 
     return (
         <div className={cl.container__clicker}>
