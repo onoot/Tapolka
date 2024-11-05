@@ -64,11 +64,10 @@ const Clicker = () => {
 
     // Восстановление энергии с использованием корректного значения
     const regenerateEnergy = () => {
-        set((state) => {
-            const currentEnergy = state.player.energy;
-            const newEnergy = Math.min(MAX_ENERGY, currentEnergy + ENERGY_REGEN_RATE);
+        updateEnergy((prevEnergy) => {
+            const newEnergy = Math.min(MAX_ENERGY, prevEnergy + ENERGY_REGEN_RATE);
             console.log("Regenerating energy to:", newEnergy);
-            updateEnergy(newEnergy);
+            return newEnergy;
         });
     };
 
