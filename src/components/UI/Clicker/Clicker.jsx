@@ -59,12 +59,12 @@ const Clicker = () => {
     };
 
     const regenerateEnergy = () => {
-        console.log("Regenerating energy...", player.energy);  
-        let ref_ener=player.energy+ENERGY_REGEN_RATE 
+        let ref_ener=Math.min(MAX_ENERGY, player.energy+ENERGY_REGEN_RATE )
         updatePlayer((state) => ({
             ...state,
-            energy: Math.min(MAX_ENERGY, ref_ener),
+            energy: ref_ener,
         }));
+        console.log("Regenerating energy...", player.energy);  
     };
 
     useEffect(() => {
