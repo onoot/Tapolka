@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import cl from './Clicker.module.css';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
 import { fetchWithAuth } from '../../utils/auth.mjs';
@@ -12,33 +12,36 @@ const Clicker = () => {
     const [isShaking, setIsShaking] = useState(false);
     const [clickCount, setClickCount] = useState(0);
     const clickerImage = require('../../images/clickerBtn.png');
-    let clickTimeout = null;
+    const clickTimeout = useRef(null);
 
+    // Загружаем изображение для кнопки кликера
     useEffect(() => {
         const img = new Image();
         img.src = clickerImage;
     }, [clickerImage]);
 
+    // Функция для обработки клика
     const handleClick = () => {
         if (player.energy <= 0) return;
 
         setIsShaking(true);
         setClickCount((prevCount) => prevCount + 1);
 
-        // Локально обновляем энергию и деньги
+        // Локально уменьшаем энергию
         updatePlayer({
             energy: Math.max(0, player.energy - 1),
-            money: player.money + 1,
         });
-        
-        if (clickTimeout) clearTimeout(clickTimeout);
-        clickTimeout = setTimeout(() => {
+
+        // Запуск таймера для отправки кликов раз в CLICK_SEND_DELAY
+        if (clickTimeout.current) clearTimeout(clickTimeout.current);
+        clickTimeout.current = setTimeout(() => {
             sendClickData();
         }, CLICK_SEND_DELAY);
 
         setTimeout(() => setIsShaking(false), 200);
     };
 
+    // Функция для отправки данных о кликах на сервер
     const sendClickData = async () => {
         if (clickCount > 0) {
             const data = await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
@@ -48,13 +51,12 @@ const Clicker = () => {
             });
 
             if (data?.user?.energy !== undefined) {
-                // Обновляем энергию и деньги из ответа сервера
+                // Обновляем только энергию игрока из ответа сервера
                 updatePlayer({
                     energy: data.user.energy,
-                    money: data.user.money,
                 });
             }
-            setClickCount(0);
+            setClickCount(0); 
         }
     };
 
@@ -66,8 +68,8 @@ const Clicker = () => {
         }));
     };
 
+    // Устанавливаем интервал восстановления энергии
     useEffect(() => {
-        // Запуск функции восстановления энергии каждую секунду
         const regenInterval = setInterval(() => {
             regenerateEnergy();
         }, 1000);
