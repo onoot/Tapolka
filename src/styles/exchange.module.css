@@ -1,6 +1,8 @@
 .exchange__container{
     display: flex;
     flex-direction: column;
+    overscroll-behavior: none;
+    padding-bottom: 69px;
 }
 .exchange__container__clicker{
     display: flex;

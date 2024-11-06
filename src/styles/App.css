@@ -6,9 +6,6 @@
     box-sizing: border-box;
     z-index: 1;
 }
-html{
-    overscroll-behavior: none;
-}
 
 #root{
     display: flex;
