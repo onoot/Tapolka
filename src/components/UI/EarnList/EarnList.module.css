@@ -1,7 +1,7 @@
 .earnList_container{
     display: flex;
     flex-direction: column;
-    margin: 24px 0 80px;
+    margin: 30px 0 80px;
 }
 .earnList_container__row{
     display: flex;
