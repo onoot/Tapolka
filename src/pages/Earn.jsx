@@ -13,7 +13,7 @@ const Earn = () => {
 
 
     return (
-        <div className={`${cl.friends__container} ${cl.mt_20}`}>
+        <div className={`${cl.friends__container} ${cl.mt_40}`}>
             <div className={cl.friends__container__title}>
                 Earn more coins
             </div>
