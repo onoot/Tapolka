@@ -3,6 +3,10 @@
     flex-direction: column;
     margin: 30px 0 80px;
 }
+
+.mt_20{
+    margin-top: 10svh;
+}
 .earnList_container__row{
     display: flex;
     flex-direction: row;

@@ -10,10 +10,10 @@
 }
 
 .mt_40{
-    margin: 40svh auto 0;
+    margin-top: 50svh;
 }
 .mt_20{
-    margin: 20svh auto 0;
+    margin-top: 10svh;
 }
 
 .friends__container:before{
