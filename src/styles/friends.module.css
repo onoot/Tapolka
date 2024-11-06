@@ -1,5 +1,5 @@
 .friends__container{
-    max-height: calc(100svh - 149px);
+    max-height: calc(90svh - 149px);
     display: flex;
     justify-content: center;
     align-content: center;
@@ -7,8 +7,6 @@
     margin: 20px auto 0;
     padding: 0 16px;
     position: relative;
-    overflow: hidden;
-    overscroll-behavior: none;
 }
 
 .friends__container:before{

@@ -1,7 +1,7 @@
 .button_wallet {
     position: absolute;
     left: 33px; 
-    bottom: 5%;
+    bottom: 15%;
     background: transparent;
     background-image: url(../../images/wallet.png);
     background-size: cover;
