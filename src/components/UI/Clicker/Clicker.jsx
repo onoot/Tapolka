@@ -12,15 +12,13 @@ const Clicker = () => {
     const [isShaking, setIsShaking] = useState(false);
     const [clickCount, setClickCount] = useState(0);
     const clickerImage = require('../../images/clickerBtn.png');
-    const clickTimeout = useRef(null);
-    const isEnergyInitialized = useRef(false); // Флаг для отслеживания инициализации энергии
+    const isEnergyInitialized = useRef(false);
 
     useEffect(() => {
         const img = new Image();
         img.src = clickerImage;
     }, [clickerImage]);
 
-    // Обработка кликов
     const handleClick = () => {
         if (player.energy <= 0) return;
 
@@ -35,7 +33,6 @@ const Clicker = () => {
         setTimeout(() => setIsShaking(false), 200);
     };
 
-    // Функция для отправки данных о кликах
     const sendClickData = async () => {
         if (clickCount > 0) {
             const currentClickCount = clickCount;
@@ -48,7 +45,6 @@ const Clicker = () => {
             });
 
             if (data?.user?.energy !== undefined) {
-                // Обновляем энергию только при инициализации или после ответа от сервера
                 if (!isEnergyInitialized.current) {
                     updateEnergy(data.user.energy);
                     isEnergyInitialized.current = true;
@@ -57,7 +53,6 @@ const Clicker = () => {
         }
     };
 
-    // Таймер для отправки кликов
     useEffect(() => {
         const clickInterval = setInterval(() => {
             sendClickData();
@@ -66,22 +61,18 @@ const Clicker = () => {
         return () => clearInterval(clickInterval);
     }, [clickCount]);
 
-    // Восстановление энергии на 1 единицу, если она ниже максимального значения
-    const regenerateEnergy = () => {
-        if (player.energy < MAX_ENERGY) {
-            updateEnergy(player.energy + ENERGY_REGEN_RATE);
-            console.log("Regenerating energy...", player.energy);
-        }
-    };
-
-    // Интервал восстановления энергии
+    // Восстановление энергии с использованием функционального обновления состояния
     useEffect(() => {
         const regenInterval = setInterval(() => {
-            regenerateEnergy();
+            updateEnergy((prevEnergy) => {
+                const newEnergy = Math.min(prevEnergy + ENERGY_REGEN_RATE, MAX_ENERGY);
+                console.log("Regenerating energy...", newEnergy);
+                return newEnergy;
+            });
         }, 1000);
 
         return () => clearInterval(regenInterval);
-    }, []);
+    }, [updateEnergy]);
 
     return (
         <div className={cl.container__clicker}>
