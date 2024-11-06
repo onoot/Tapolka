@@ -103,7 +103,6 @@ function App() {
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
-                                        setMinePanel={setMinePanel}
                                     />
                                 }
                             />
@@ -133,7 +132,6 @@ function App() {
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
-                                        setMinePanel={setMinePanel}
                                     />
                                 }
                             />
@@ -148,7 +146,6 @@ function App() {
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
-                                        setMinePanel={setMinePanel}
                                     />
                                 }
                             />
@@ -163,7 +160,6 @@ function App() {
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
-                                        setMinePanel={setMinePanel}
                                     />
                                 }
                             />
@@ -180,7 +176,6 @@ function App() {
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
-                                        setMinePanel={setMinePanel}
                                     />
                                 }
                             />
