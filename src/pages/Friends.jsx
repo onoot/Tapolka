@@ -19,7 +19,7 @@ const Friends = () => {
 
 
     return (
-        <div className={cl.friends__container}>
+        <div className={`${cl.friends__container} ${cl.mt_40}`}>
             <div className={cl.friends__container__title}>
                 Invite friends!
             </div>
