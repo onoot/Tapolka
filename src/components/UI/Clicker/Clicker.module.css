@@ -17,7 +17,7 @@
     border: 1px solid #292929;
     background-size: cover; 
     background-position: center;
-    transition: transform 0.1s ease;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 .clicker__btn::before {
@@ -49,17 +49,26 @@
     justify-content: center;
 }
 
-.clicker__btn:active {
-    transform: scale(0.9); /* Уменьшение размера при клике */
-}
-
 .shake {
-    animation: shakeAnimation 0.1s ease; /* Анимация тряски при каждом клике */
+    animation: shakeAnimation 0.1s ease; 
+}.container__clicker {
+    display: flex;
+    justify-content: center;
 }
 
-@keyframes shakeAnimation {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
+.clicker__btn:active {
+    animation: scaleDown 0.3s ease-out; 
+}
+
+.scaleDown{
+    animation: scaleDown 0.3s ease-out;
+}
+
+@keyframes scaleDown {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.8); 
+    }
 }

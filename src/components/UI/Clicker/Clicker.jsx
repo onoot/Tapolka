@@ -81,7 +81,7 @@ const Clicker = () => {
     return (
         <div className={cl.container__clicker}>
             <div
-                className={`${cl.clicker__btn} ${isShaking ? cl.shake : ''}`}
+                className={`${cl.clicker__btn} ${isShaking ? cl.scaleDo : ''}`}
                 onClick={handleClick}
             >
                 <img src={clickerImage} alt="click button" className={cl.clicker__img} />
