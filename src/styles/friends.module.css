@@ -4,9 +4,13 @@
     justify-content: center;
     align-content: center;
     flex-direction: column;
-    margin: 400px auto 0;
+    margin:20px auto 0;
     padding: 0 16px;
     position: relative;
+}
+
+.addMargin{
+    margin: 40svh auto 0;
 }
 
 .friends__container:before{
