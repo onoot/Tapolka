@@ -13,6 +13,7 @@ const Clicker = () => {
     const [clickCount, setClickCount] = useState(0);
     const clickerImage = require('../../images/clickerBtn.png');
     const clickTimeout = useRef(null);
+    const isEnergyInitialized = useRef(false); // Флаг для отслеживания инициализации энергии
 
     useEffect(() => {
         const img = new Image();
@@ -47,7 +48,11 @@ const Clicker = () => {
             });
 
             if (data?.user?.energy !== undefined) {
-                updateEnergy(data.user.energy); // Обновляем только энергию
+                // Обновляем энергию только при инициализации или после ответа от сервера
+                if (!isEnergyInitialized.current) {
+                    updateEnergy(data.user.energy);
+                    isEnergyInitialized.current = true;
+                }
             }
         }
     };
@@ -61,11 +66,12 @@ const Clicker = () => {
         return () => clearInterval(clickInterval);
     }, [clickCount]);
 
-    // Восстановление энергии
+    // Восстановление энергии на 1 единицу, если она ниже максимального значения
     const regenerateEnergy = () => {
-        const newEnergy = Math.min(MAX_ENERGY, player.energy + ENERGY_REGEN_RATE);
-        updateEnergy(newEnergy);
-        console.log("Regenerating energy...", player.energy);
+        if (player.energy < MAX_ENERGY) {
+            updateEnergy(player.energy + ENERGY_REGEN_RATE);
+            console.log("Regenerating energy...", player.energy);
+        }
     };
 
     // Интервал восстановления энергии
