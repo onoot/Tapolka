@@ -99,7 +99,7 @@ function App() {
                                         player={player}
                                         setPlayer={updatePlayer}
                                         page="exchange"
-                                        playerPanel
+                                        playerPanel={true}
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
@@ -113,7 +113,7 @@ function App() {
                                         player={player}
                                         setPlayer={updatePlayer}
                                         page="mine"
-                                        playerPanel
+                                        playerPanel={true}
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
@@ -128,7 +128,7 @@ function App() {
                                         player={player}
                                         setPlayer={updatePlayer}
                                         page="friends"
-                                        playerPanel
+                                        playerPanel={false}
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
@@ -142,7 +142,7 @@ function App() {
                                         player={player}
                                         setPlayer={updatePlayer}
                                         page="earn"
-                                        playerPanel
+                                        playerPanel={false}
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
@@ -156,7 +156,7 @@ function App() {
                                         player={player}
                                         setPlayer={updatePlayer}
                                         page="airdrop"
-                                        playerPanel
+                                        playerPanel={false}
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
@@ -172,7 +172,7 @@ function App() {
                                         player={player}
                                         setPlayer={updatePlayer}
                                         page="exchange" 
-                                        playerPanel
+                                        playerPanel={true}
                                         setSettings={setSettings}
                                         setBoost={setBoost}
                                         setProgress={setProgress}
