@@ -1,34 +1,34 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { TonConnectUI } from '@tonconnect/ui-react';
+// ButtonWallet.jsx
+import React, { useEffect, useState } from 'react';
+import { useTonConnectUI } from '@tonconnect/ui-react';
 import cl from './ButtonWallet.module.css';
 
 const ButtonWallet = () => {
     const [walletAddress, setWalletAddress] = useState(null);
-    const tonConnectUIRef = useRef(null); // Используем ref для хранения экземпляра TonConnectUI
+    const [tonConnectUI] = useTonConnectUI();
 
     useEffect(() => {
-        if (!tonConnectUIRef.current) {
-            tonConnectUIRef.current = new TonConnectUI({ 
-                manifestUrl: 'https://app.tongaroo.fun/api/manifest/ton.json' 
-            });
-        }
-    }, []);
-
-    const connectWallet = async () => {
-        try {
-            const wallet = await tonConnectUIRef.current.connectWallet();
-            if (wallet?.account?.address) {
+        const unsubscribe = tonConnectUI.onStatusChange((wallet) => {
+            if (wallet) {
                 setWalletAddress(wallet.account.address);
+            } else {
+                setWalletAddress(null);
             }
-        } catch (error) {
-            console.error("Ошибка подключения кошелька:", error);
-        }
+        });
+
+        return () => unsubscribe();
+    }, [tonConnectUI]);
+
+    const connectWallet = () => {
+        tonConnectUI.connectWallet();
     };
 
     return (
         <div className={cl.test}>
             {walletAddress ? `Wallet: ${walletAddress}` : "Connect Wallet"}
-            <button className={cl.button_wallet} onClick={connectWallet}></button>
+            <button className={cl.button_wallet} onClick={connectWallet}>
+                {/* Кастомная кнопка */}
+            </button>
         </div>
     );
 };
