@@ -16,3 +16,8 @@
 .button_wallet:focus, .button_wallet:active {
     outline: none; 
 }
+
+.test{
+    color: white;
+    font-style: 18px;
+}

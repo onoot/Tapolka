@@ -1,4 +1,3 @@
-// ButtonWallet.jsx
 import React, { useState } from 'react';
 import { TonConnect } from '@tonconnect/sdk';
 import cl from './ButtonWallet.module.css';
@@ -9,12 +8,16 @@ const ButtonWallet = () => {
 
     const connectWallet = async () => {
         try {
-            // Инициализация соединения с кошельком
-            await tonConnect.connectWallet();
+            // Установка соединения с кошельком
+            const wallet = await tonConnect.connect({
+                manifestUrl: 'https://app.tongaroo.fun/api/manifest/ton.json'
+            });
 
+            console.log(wallet);
             // Получение информации о кошельке пользователя
-            const walletInfo = tonConnect.getWallet();
+            const walletInfo = tonConnect.wallet;
             if (walletInfo) {
+                console.log(walletInfo);
                 setWalletAddress(walletInfo.address); // Сохраняем адрес кошелька в состояние
             }
         } catch (error) {
@@ -23,12 +26,12 @@ const ButtonWallet = () => {
     };
 
     return (
-        <div>
+        <div className={cl.test}>
+            {walletAddress ? `Wallet: ${walletAddress}` : "Connect Wallet"}
             <button className={cl.button_wallet} onClick={connectWallet}>
-                {walletAddress ? `Wallet: ${walletAddress}` : "Connect Wallet"}
             </button>
         </div>
     );
-}
+};
 
 export default ButtonWallet;
