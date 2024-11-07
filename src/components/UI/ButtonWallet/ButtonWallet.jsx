@@ -1,35 +1,36 @@
-import React, { useState } from 'react';
-import { TonConnect } from '@tonconnect/sdk';
+import React, { useEffect, useState } from 'react';
+import { TonConnectButton, useTonConnectUI } from '@tonconnect/ui-react';
 import cl from './ButtonWallet.module.css';
 
 const ButtonWallet = () => {
     const [walletAddress, setWalletAddress] = useState(null);
-    const tonConnect = new TonConnect();
+    const [tonConnectUI] = useTonConnectUI();
 
-    const connectWallet = async () => {
-        try {
-            // Установка соединения с кошельком
-            const wallet = await tonConnect.connect({
-                manifestUrl: 'https://app.tongaroo.fun/api/manifest/ton.json'
-            });
+    useEffect(() => {
+        tonConnectUI.setConnectRequestParameters({
+            manifestUrl: 'https://app.tongaroo.fun/api/manifest/ton.json'
+        });
 
-            console.log(wallet);
-            // Получение информации о кошельке пользователя
-            const walletInfo = tonConnect.wallet;
-            if (walletInfo) {
-                console.log(walletInfo);
-                setWalletAddress(walletInfo.address); // Сохраняем адрес кошелька в состояние
-            }
-        } catch (error) {
-            console.error("Ошибка подключения кошелька:", error);
-        }
-    };
+        const handleStatusChange = ({ address }) => {
+            setWalletAddress(address);
+        };
+
+        tonConnectUI.onStatusChange(handleStatusChange);
+
+        return () => {
+            // Очистка слушателя при размонтировании компонента
+            tonConnectUI.offStatusChange(handleStatusChange);
+        };
+    }, [tonConnectUI]);
 
     return (
         <div className={cl.test}>
-            {walletAddress ? `Wallet: ${walletAddress}` : "Connect Wallet"}
-            <button className={cl.button_wallet} onClick={connectWallet}>
-            </button>
+            {walletAddress ? (
+                <p>Wallet: {walletAddress}</p>
+            ) : (
+                <p>Connect Wallet</p>
+            )}
+            <TonConnectButton className={cl.button_wallet} />
         </div>
     );
 };
