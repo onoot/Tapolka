@@ -30,7 +30,11 @@ const ButtonWallet = () => {
             ) : (
                 <p>Connect Wallet</p>
             )}
-            <TonConnectButton className={cl.button_wallet} />
+            <TonConnectButton 
+                className={cl.button_wallet} 
+                buttonStyle="custom"          
+                theme="dark"                  
+            />
         </div>
     );
 };
