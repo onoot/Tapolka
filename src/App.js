@@ -10,7 +10,7 @@ import Settings from "./components/UI/Settings/Settings";
 import Boost from "./components/UI/Boost/Boost";
 import Progress from "./components/UI/Progress/Progress";
 import MinePanel from "./components/UI/MinePanel/MinePanel";
-
+import { TonConnectUIProvider } from '@tonconnect/ui-react';
 
 function App() {
     const { user, tg, initData, photoUrl, expand } = useTelegram();
@@ -82,6 +82,7 @@ function App() {
     }, []);
 
     return (
+        <TonConnectUIProvider manifestUrl="https://app.tongaroo.fun/api/manifest/ton.json">
         <div className="App">
             {!isLoading && player ? (
                 <>
@@ -188,6 +189,7 @@ function App() {
                 <Loading />
             )}
         </div>
+        </TonConnectUIProvider>
     );
 }
 
