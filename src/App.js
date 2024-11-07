@@ -1,7 +1,7 @@
 import './styles/App.css';
 import React, { useEffect, useState } from "react";
 import { usePlayerStore } from "./store/playerStore.mjs";
-import { useTelegram } from "./components/hooks/useTelegram"; 
+import { useTelegram } from "./components/hooks/useTelegram";
 import Navbar from "./components/UI/Navbar/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Loading from "./pages/Loading";
@@ -13,18 +13,21 @@ import MinePanel from "./components/UI/MinePanel/MinePanel";
 
 
 function App() {
-    const { user, tg, initData, photoUrl } = useTelegram(); 
+    const { user, tg, initData, photoUrl } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
 
     const [settings, setSettings] = useState(false);
     const [boost, setBoost] = useState(false);
     const [progress, setProgress] = useState(false);
     const [minePanel, setMinePanel] = useState(false);
-    const [isLoading, setIsLoading] = useState(true); 
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        tg.ready(); 
-
+        tg.ready();
+        // Поддержка метода expand() для развертывания приложения на весь экран
+        if (window.Telegram && Telegram.WebApp) {
+            Telegram.WebApp.expand();
+        }
         // Используем фиктивные данные вместо вызова API
         // const playerData = {
         //     id: 1,
@@ -168,10 +171,10 @@ function App() {
                                 path="*"
                                 element={
                                     <BuildAPage
-                                        avatar={photoUrl||null}
+                                        avatar={photoUrl || null}
                                         player={player}
                                         setPlayer={updatePlayer}
-                                        page="exchange" 
+                                        page="exchange"
                                         playerPanel={true}
                                         setSettings={setSettings}
                                         setBoost={setBoost}
