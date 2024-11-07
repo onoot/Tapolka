@@ -8,9 +8,7 @@ const ButtonWallet = () => {
     const buttonRef = useRef(null); 
 
     const connectWallet = () => {
-        if (buttonRef.current) {
-            buttonRef.current.click();
-        }
+        buttonRef.current.click();
     };
 
     // Событие, когда кошелек подключен
