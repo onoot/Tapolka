@@ -13,7 +13,7 @@ import MinePanel from "./components/UI/MinePanel/MinePanel";
 
 
 function App() {
-    const { user, tg, initData, photoUrl } = useTelegram();
+    const { user, tg, initData, photoUrl, expand } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
 
     const [settings, setSettings] = useState(false);
@@ -24,10 +24,7 @@ function App() {
 
     useEffect(() => {
         tg.ready();
-        // Поддержка метода expand() для развертывания приложения на весь экран
-        if (window.Telegram && Telegram.WebApp) {
-            Telegram.WebApp.expand();
-        }
+        expand();
         // Используем фиктивные данные вместо вызова API
         // const playerData = {
         //     id: 1,

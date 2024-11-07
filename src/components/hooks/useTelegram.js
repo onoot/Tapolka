@@ -1,6 +1,9 @@
 
 const tg = window.Telegram.WebApp;
 export function useTelegram() {
+    const expand = () => {
+        tg.expand();
+    }
 
     const onClose = () => {
         tg.close()
@@ -24,5 +27,6 @@ export function useTelegram() {
         user: tg.initDataUnsafe?.user,
         queryId: tg.initDataUnsafe?.query_id,
         photoUrl: tg.initDataUnsafe?.user?.photo_url,
+        expand,
     }
 }
