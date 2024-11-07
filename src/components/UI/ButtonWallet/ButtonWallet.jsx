@@ -1,40 +1,39 @@
+// ButtonWallet.jsx
 import React, { useEffect, useState } from 'react';
-import { TonConnectButton, useTonConnectUI } from '@tonconnect/ui-react';
+import { TonConnectUI, TonConnect } from '@tonconnect/ui-react';
 import cl from './ButtonWallet.module.css';
 
 const ButtonWallet = () => {
     const [walletAddress, setWalletAddress] = useState(null);
-    const [tonConnectUI] = useTonConnectUI();
+    const tonConnect = new TonConnect();
 
     useEffect(() => {
-        tonConnectUI.setConnectRequestParameters({
-            manifestUrl: 'https://app.tongaroo.fun/api/manifest/ton.json'
+        tonConnect.restoreConnection().then((wallet) => {
+            if (wallet) {
+                setWalletAddress(wallet.account.address);
+            }
         });
+    }, [tonConnect]);
 
-        const handleStatusChange = ({ address }) => {
-            setWalletAddress(address);
-        };
-
-        tonConnectUI.onStatusChange(handleStatusChange);
-
-        return () => {
-            // Очистка слушателя при размонтировании компонента
-            tonConnectUI.offStatusChange(handleStatusChange);
-        };
-    }, [tonConnectUI]);
+    const connectWallet = async () => {
+        try {
+            // Устанавливаем соединение с кошельком
+            const wallet = await tonConnect.connectWallet({
+                manifestUrl: 'https://app.tongaroo.fun/api/manifest/ton.json'
+            });
+            setWalletAddress(wallet.account.address);
+        } catch (error) {
+            console.error("Ошибка подключения кошелька:", error);
+        }
+    };
 
     return (
         <div className={cl.test}>
-            {walletAddress ? (
-                <p>Wallet: {walletAddress}</p>
-            ) : (
-                <p>Connect Wallet</p>
-            )}
-            <TonConnectButton 
-                className={cl.button_wallet} 
-                buttonStyle="custom"          
-                theme="dark"                  
-            />
+            {/* Отображаем кастомную кнопку */}
+            {walletAddress ? `Wallet: ${walletAddress}` : "Connect Wallet"}
+            <button className={cl.button_wallet} onClick={connectWallet}>
+                {/* Ваша кастомная кнопка */}
+            </button>
         </div>
     );
 };
