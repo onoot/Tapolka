@@ -98,3 +98,13 @@
     display: flex;
     justify-content: center;
 }
+
+.friends_ton_connect_button__9tGG9 button {
+    box-shadow: none !important;
+}
+
+.friends_ton_connect_button__9tGG9 button:hover,
+.friends_ton_connect_button__9tGG9 button:focus,
+.friends_ton_connect_button__9tGG9 button:active {
+    box-shadow: none !important;
+}
