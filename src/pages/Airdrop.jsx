@@ -4,7 +4,7 @@ import ButtonWallet from '../components/UI/ButtonWallet/ButtonWallet';
 
 const Airdrop = () => {
     return (
-        <div className={`${cl.friends__container} ${cl.mt_20} ${cl.mb_20}`}>
+        <div className={`${cl.friends__container} ${cl.mt_20} ${cl.mb_30}`}>
             <div className={cl.friends__container__title}>
                 Airdrop Tasks
             </div>
