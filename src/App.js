@@ -1,12 +1,12 @@
-import './styles/App.css';
 import React, { useEffect, useState, Suspense, lazy } from "react";
+import './styles/App.css';
 import { usePlayerStore } from "./store/playerStore.mjs";
 import { useTelegram } from "./components/hooks/useTelegram";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Loading from "./pages/Loading";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 
-// Асинхронная загрузка компонентов
+// Lazy imports
 const Navbar = lazy(() => import("./components/UI/Navbar/Navbar"));
 const BuildAPage = lazy(() => import("./components/BuildAPage"));
 const Settings = lazy(() => import("./components/UI/Settings/Settings"));
@@ -36,14 +36,10 @@ function App() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(initData),
             });
-            if (!response.ok) {
-                return false;
-            }
-            const data = await response.json();
+            if (!response.ok) return false;
 
-            if (data.token) {
-                localStorage.setItem('token', data.token);
-            }
+            const data = await response.json();
+            if (data.token) localStorage.setItem('token', data.token);
 
             const playerData = {
                 id: data.id || 1,
@@ -70,15 +66,10 @@ function App() {
     return (
         <TonConnectUIProvider manifestUrl={`https://tongaroo.fun/manifest.json`}>
             <div className="App">
-                {isLoading || !player ? (
+                {isLoading ? (
                     <Loading />
                 ) : (
                     <Suspense fallback={<Loading />}>
-                        <Settings visible={settings} setVisible={setSettings} />
-                        <Boost visible={boost} setVisible={setBoost} money={player?.money || 0} />
-                        <Progress visible={progress} setVisible={setProgress} player={player || {}} />
-                        <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player?.money || 0} />
-
                         <BrowserRouter>
                             <Routes>
                                 <Route
@@ -125,35 +116,6 @@ function App() {
                                     }
                                 />
                                 <Route
-                                    path="earn"
-                                    element={
-                                        <BuildAPage
-                                            player={player}
-                                            setPlayer={updatePlayer}
-                                            page="earn"
-                                            playerPanel={false}
-                                            setSettings={setSettings}
-                                            setBoost={setBoost}
-                                            setProgress={setProgress}
-                                        />
-                                    }
-                                />
-                                <Route
-                                    path="airdrop"
-                                    element={
-                                        <BuildAPage
-                                            player={player}
-                                            setPlayer={updatePlayer}
-                                            page="airdrop"
-                                            playerPanel={false}
-                                            setSettings={setSettings}
-                                            setBoost={setBoost}
-                                            setProgress={setProgress}
-                                        />
-                                    }
-                                />
-                                {/* Резервный маршрут для неизвестных страниц */}
-                                <Route
                                     path="*"
                                     element={
                                         <BuildAPage
@@ -169,7 +131,6 @@ function App() {
                                     }
                                 />
                             </Routes>
-
                             <Navbar />
                         </BrowserRouter>
                     </Suspense>

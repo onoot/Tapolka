@@ -90,6 +90,10 @@
     box-shadow: none !important; 
 }
 
+.mb_20 {
+    margin-bottom: 20svh;
+}
+
 .mb_40 {
     margin-bottom: 40svh;
 }

@@ -4,7 +4,7 @@ import { TonConnectButton } from '@tonconnect/ui-react';
 
 const Airdrop = () => {
     return (
-        <div className={`${cl.friends__container} ${cl.mt_20} ${cl.mb_40}`}>
+        <div className={`${cl.friends__container} ${cl.mt_20} ${cl.mb_20}`}>
             <div className={cl.friends__container__title}>
                 Airdrop Tasks
             </div>
