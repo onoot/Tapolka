@@ -40,7 +40,7 @@ const Clicker = () => {
             const currentClickCount = clickCount;
             setClickCount(0);
 
-            const data = await fetchWithAuth(`https://app.tongaroo.fun/api/add-coins/${player.id}`, {
+            const data = await fetchWithAuth(`https://tongaroo.fun/api/add-coins/${player.id}`, {
                 method: 'POST',
                 body: JSON.stringify({ clicks: currentClickCount }),
                 headers: { 'Content-Type': 'application/json' },
@@ -48,7 +48,7 @@ const Clicker = () => {
 
             // Устанавливаем энергию, возвращенную сервером
             if (data?.user?.energy !== undefined) {
-                updateEnergy(data.user.energy); // Обновляем только энергию
+                updateEnergy(data.user.energy); 
             }
         }
     };
@@ -76,7 +76,7 @@ const Clicker = () => {
         }, 1000);
 
         return () => clearInterval(regenInterval);
-    }, [player.energy]); // Добавляем зависимость от player.energy для корректного обновления
+    }, [player.energy]); 
 
     return (
         <div className={cl.container__clicker}>

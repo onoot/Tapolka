@@ -42,7 +42,7 @@ function App() {
 
     const fetchPlayerData = async () => {
         try {
-            const response = await fetch("https://app.tongaroo.fun/api/login", {
+            const response = await fetch(`https://tongaroo.fun/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(initData),
@@ -82,7 +82,7 @@ function App() {
     }, []);
 
     return (
-        <TonConnectUIProvider manifestUrl="https://app.tongaroo.fun/api/manifest/ton.json">
+        <TonConnectUIProvider manifestUrl={`https://tongaroo.fun/manifest.json`}>
         <div className="App">
             {!isLoading && player ? (
                 <>

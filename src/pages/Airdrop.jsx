@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from "../styles/friends.module.css";
-import Button from "../components/UI/Button/Button";
+import { TonConnectButton } from '@tonconnect/ui-react';
 
 const Airdrop = () => {
     return (
@@ -9,12 +9,14 @@ const Airdrop = () => {
                 Airdrop Tasks
             </div>
             <div className={cl.friends__container__description}>
-                Listing is on its way. Tasks will appear below. Complete them to particvipate in the Airdrop
+                Listing is on its way. Tasks will appear below. Complete them to participate in the Airdrop
             </div>
             <div className={cl.airdrop__img}>
                 <img src={require("../components/images/airdropMainImg.png")} alt=""/>
             </div>
-            <Button text={"Connect your Telegram Wallet"} isImg={false} isFullScreen={true}/>
+            <div className={cl.button_full_width}>
+                <TonConnectButton className={cl.ton_connect_button} />
+            </div>
         </div>
     );
 };

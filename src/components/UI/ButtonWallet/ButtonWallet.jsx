@@ -22,10 +22,14 @@ const ButtonWallet = () => {
     const connectWallet = () => {
         tonConnectUI.connectWallet();
     };
+    useEffect(() => {
+        if (walletAddress) {
+            console.log('Wallet address:', walletAddress);
+        }
+    }, [walletAddress]);
 
     return (
         <div className={cl.test}>
-            {walletAddress ? `Wallet: ${walletAddress}` : "Connect Wallet"}
             <button className={cl.button_wallet} onClick={connectWallet}>
                 {/* Кастомная кнопка */}
             </button>

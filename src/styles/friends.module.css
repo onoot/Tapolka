@@ -69,3 +69,12 @@
     user-select: none;
     box-shadow: 0 -40px 200px 35px #FEB92F;
 }
+
+.button_full_width {
+    width: 100%;
+}
+
+.ton_connect_button {
+    width: 100%;
+    display: block; 
+}
