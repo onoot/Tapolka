@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/App.css';
 import { usePlayerStore } from "./store/playerStore.mjs";
 import { useTelegram } from "./components/hooks/useTelegram";
