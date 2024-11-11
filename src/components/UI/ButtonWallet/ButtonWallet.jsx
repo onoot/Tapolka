@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useTonConnectUI } from '@tonconnect/ui-react';
 import cl from './ButtonWallet.module.css';
 
-const ButtonWallet = (ton) => {
+const ButtonWallet = ({ ton }) => {
     const [walletAddress, setWalletAddress] = useState(null);
     const [tonConnectUI] = useTonConnectUI();
 
