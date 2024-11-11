@@ -21,3 +21,31 @@
     color: white;
     font-style: 18px;
 }
+
+.ton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0098EA;
+    color: #FFFFFF;
+    padding: 8px 16px 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 40px;
+    gap: unset;
+    width: 100%;
+
+    align-items: unset;
+    justify-content: unset;
+    background-color: rgba(229, 229, 234, 0.12);
+    color: #E5E5EA;
+
+    border: none;
+    border-radius: 100vh;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 510;
+    line-height: 18px;
+    transition: transform 0.125s ease-in-out;
+}
