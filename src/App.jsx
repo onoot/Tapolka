@@ -1,34 +1,46 @@
-import React, { useEffect, useState, Suspense, lazy } from "react";
+import React, { useEffect } from 'react';
 import './styles/App.css';
 import { usePlayerStore } from "./store/playerStore.mjs";
 import { useTelegram } from "./components/hooks/useTelegram";
-import Loading from "./pages/Loading";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
+import Loading from "./pages/Loading";
 
 // Lazy imports
-const Navbar = lazy(() => import("./components/UI/Navbar/Navbar"));
-const BuildAPage = lazy(() => import("./components/BuildAPage"));
-const Settings = lazy(() => import("./components/UI/Settings/Settings"));
-const Boost = lazy(() => import("./components/UI/Boost/Boost"));
-const Progress = lazy(() => import("./components/UI/Progress/Progress"));
-const MinePanel = lazy(() => import("./components/UI/MinePanel/MinePanel"));
+const Navbar = React.lazy(() => import("./components/UI/Navbar/Navbar"));
+const BuildAPage = React.lazy(() => import("./components/BuildAPage"));
+const Settings = React.lazy(() => import("./components/UI/Settings/Settings"));
+const Boost = React.lazy(() => import("./components/UI/Boost/Boost"));
+const Progress = React.lazy(() => import("./components/UI/Progress/Progress"));
+const MinePanel = React.lazy(() => import("./components/UI/MinePanel/MinePanel"));
 
 function App() {
     const { user, tg, initData, photoUrl, expand } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
 
-    const [settings, setSettings] = useState(false);
-    const [boost, setBoost] = useState(false);
-    const [progress, setProgress] = useState(false);
-    const [minePanel, setMinePanel] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = React.useState(true);
 
     useEffect(() => {
         tg.ready();
         expand();
+
+        // Отслеживаем загрузку страницы
+        window.addEventListener('load', () => {
+            // Скрываем прелоадер после полной загрузки страницы
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
+            setIsLoading(false); // Завершаем загрузку данных для приложения
+        });
+
+        // Очистка события после размонтирования компонента
+        return () => {
+            window.removeEventListener('load', () => {});
+        };
     }, []);
 
+    // Функция для асинхронной загрузки данных игрока
     const fetchPlayerData = async () => {
         try {
             const response = await fetch(`https://tongaroo.fun/api/login`, {
@@ -55,8 +67,6 @@ function App() {
             updatePlayer(playerData);
         } catch (error) {
             console.error("Error fetching player data:", error);
-        } finally {
-            setIsLoading(false); // завершить загрузку независимо от результата
         }
     };
 
@@ -71,8 +81,8 @@ function App() {
                     <Loading />
                 ) : (
                     <BrowserRouter>
-                        <Suspense fallback={<Loading />}>
-                            <Routes>
+                        <React.Suspense fallback={<Loading />}>
+                        <Routes>
                                 <Route
                                     path="exchange"
                                     element={
@@ -161,7 +171,7 @@ function App() {
                                 />
                             </Routes>
                             <Navbar />
-                        </Suspense>
+                        </React.Suspense>
                     </BrowserRouter>
                 )}
             </div>
