@@ -9,10 +9,6 @@ import Loading from "./pages/Loading";
 // Lazy imports
 const Navbar = React.lazy(() => import("./components/UI/Navbar/Navbar"));
 const BuildAPage = React.lazy(() => import("./components/BuildAPage"));
-const Settings = React.lazy(() => import("./components/UI/Settings/Settings"));
-const Boost = React.lazy(() => import("./components/UI/Boost/Boost"));
-const Progress = React.lazy(() => import("./components/UI/Progress/Progress"));
-const MinePanel = React.lazy(() => import("./components/UI/MinePanel/MinePanel"));
 
 function App() {
     const { user, tg, initData, photoUrl, expand } = useTelegram();
