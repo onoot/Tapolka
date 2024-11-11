@@ -115,34 +115,34 @@ function App() {
                                         />
                                     }
                                 />
-                                  <Route
-                                path="earn"
-                                element={
-                                    <BuildAPage
-                                        player={player}
-                                        setPlayer={updatePlayer}
-                                        page="earn"
-                                        playerPanel={false}
-                                        setSettings={setSettings}
-                                        setBoost={setBoost}
-                                        setProgress={setProgress}
-                                    />
-                                }
-                            />
-                            <Route
-                                path="airdrop"
-                                element={
-                                    <BuildAPage
-                                        player={player}
-                                        setPlayer={updatePlayer}
-                                        page="airdrop"
-                                        playerPanel={false}
-                                        setSettings={setSettings}
-                                        setBoost={setBoost}
-                                        setProgress={setProgress}
-                                    />
-                                }
-                            />
+                                <Route
+                                    path="earn"
+                                    element={
+                                        <BuildAPage
+                                            player={player}
+                                            setPlayer={updatePlayer}
+                                            page="earn"
+                                            playerPanel={false}
+                                            setSettings={setSettings}
+                                            setBoost={setBoost}
+                                            setProgress={setProgress}
+                                        />
+                                    }
+                                />
+                                <Route
+                                    path="airdrop"
+                                    element={
+                                        <BuildAPage
+                                            player={player}
+                                            setPlayer={updatePlayer}
+                                            page="airdrop"
+                                            playerPanel={false}
+                                            setSettings={setSettings}
+                                            setBoost={setBoost}
+                                            setProgress={setProgress}
+                                        />
+                                    }
+                                />
                                 <Route
                                     path="*"
                                     element={
