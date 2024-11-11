@@ -70,11 +70,31 @@
     box-shadow: 0 -40px 200px 35px #FEB92F;
 }
 
+
+
+
 .button_full_width {
     width: 100%;
 }
 
 .ton_connect_button {
-    width: 100%;
-    display: block; 
+    width: 100% !important;
+    box-shadow: none !important; 
+    border: none; 
+    outline: none;
+}
+
+.ton_connect_button:hover,
+.ton_connect_button:focus,
+.ton_connect_button:active {
+    box-shadow: none !important; 
+}
+
+.mb_40 {
+    margin-bottom: 40svh;
+}
+
+.dflex_justifycenter {
+    display: flex;
+    justify-content: center;
 }

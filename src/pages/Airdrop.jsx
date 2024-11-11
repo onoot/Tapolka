@@ -4,7 +4,7 @@ import { TonConnectButton } from '@tonconnect/ui-react';
 
 const Airdrop = () => {
     return (
-        <div className={`${cl.friends__container} ${cl.mt_20}`}>
+        <div className={`${cl.friends__container} ${cl.mt_20} ${cl.mb_40}`}>
             <div className={cl.friends__container__title}>
                 Airdrop Tasks
             </div>
@@ -14,8 +14,8 @@ const Airdrop = () => {
             <div className={cl.airdrop__img}>
                 <img src={require("../components/images/airdropMainImg.png")} alt=""/>
             </div>
-            <div className={cl.button_full_width}>
-                <TonConnectButton className={cl.ton_connect_button} />
+            <div className={`${cl.button_full_width} ${cl.dflex_justifycenter}`}>
+                <TonConnectButton className={`${cl.ton_connect_button}`} />
             </div>
         </div>
     );
