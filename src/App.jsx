@@ -36,7 +36,7 @@ function App() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(initData),
             });
-            if (!response.ok) return false;
+            if (!response.ok) throw new Error("Failed to fetch player data");
 
             const data = await response.json();
             if (data.token) localStorage.setItem('token', data.token);
@@ -53,9 +53,10 @@ function App() {
                 benefit: data.benefit || 0,
             };
             updatePlayer(playerData);
-            setIsLoading(false);
         } catch (error) {
             console.error("Error fetching player data:", error);
+        } finally {
+            setIsLoading(false); // завершить загрузку независимо от результата
         }
     };
 
@@ -69,8 +70,8 @@ function App() {
                 {isLoading ? (
                     <Loading />
                 ) : (
-                    <Suspense fallback={<Loading />}>
-                        <BrowserRouter>
+                    <BrowserRouter>
+                        <Suspense fallback={<Loading />}>
                             <Routes>
                                 <Route
                                     path="exchange"
@@ -160,8 +161,8 @@ function App() {
                                 />
                             </Routes>
                             <Navbar />
-                        </BrowserRouter>
-                    </Suspense>
+                        </Suspense>
+                    </BrowserRouter>
                 )}
             </div>
         </TonConnectUIProvider>
