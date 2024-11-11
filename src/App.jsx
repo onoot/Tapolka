@@ -14,7 +14,16 @@ function App() {
     const { user, tg, initData, photoUrl, expand } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
 
+    const [settings, setSettings] = useState(false);
+    const [boost, setBoost] = useState(false);
+    const [progress, setProgress] = useState(false);
+    const [minePanel, setMinePanel] = useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
+
+    useEffect(() => {
+        tg.ready();
+        expand();
+    }, []);
 
     useEffect(() => {
         tg.ready();
