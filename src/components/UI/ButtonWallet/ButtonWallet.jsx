@@ -30,7 +30,7 @@ const ButtonWallet = ({ ton }) => {
 
     return (
         <div className={cl.test}>
-            {ton ? (
+            {!ton ? (
                 <button className={cl.button_wallet} onClick={connectWallet}>
                 </button>
             ) :
