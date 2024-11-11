@@ -11,7 +11,7 @@ const ClickerAndBuff = ({ setBoost }) => {
     return (
         <div className={cl.clickerAndBuff__container}>
             <Clicker />
-            <ButtonWallet />
+            <ButtonWallet ton={false}/>
             <div className={cl.exchange__container__content}>
                 <div className={cl.exchange__container__energyAndBoost}>
                     <div className={cl.exchange__container__energyAndBoost__item}>

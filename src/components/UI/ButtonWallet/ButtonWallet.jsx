@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useTonConnectUI } from '@tonconnect/ui-react';
 import cl from './ButtonWallet.module.css';
 
-const ButtonWallet = () => {
+const ButtonWallet = (ton) => {
     const [walletAddress, setWalletAddress] = useState(null);
     const [tonConnectUI] = useTonConnectUI();
 
@@ -29,11 +29,16 @@ const ButtonWallet = () => {
     }, [walletAddress]);
 
     return (
-        <div className={cl.test}>
-            <button className={cl.button_wallet} onClick={connectWallet}>
-                {/* Кастомная кнопка */}
-            </button>
-        </div>
+        <>
+            {ton ? (<div className={cl.test}>
+                <button className={cl.button_wallet} onClick={connectWallet}>
+                </button>
+            </div>) :
+                (<div className={cl.ton}>
+                    <button className={cl.wallet_ton} onClick={connectWallet}>
+                    </button>
+                </div>)}
+        </>
     );
 };
 
