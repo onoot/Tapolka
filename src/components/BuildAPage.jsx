@@ -7,7 +7,7 @@ const Friends = React.lazy(() => import("../pages/Friends"));
 const Earn = React.lazy(() => import("../pages/Earn"));
 const Airdrop = React.lazy(() => import("../pages/Airdrop"));
 
-function returnPage(page, player, setPlayer, setBoost, setMinePanel) {
+function returnPage(page, player, setPlayer, setBoost, setMinePanel, url) {
     if (page === "exchange") {
         return (
             <Exchange
@@ -16,6 +16,7 @@ function returnPage(page, player, setPlayer, setBoost, setMinePanel) {
                 money={player.money}
                 energy={player.energy}
                 setBoost={setBoost}
+                url={url}
             />
         );
     } else if (page === "mine") {
@@ -29,11 +30,11 @@ function returnPage(page, player, setPlayer, setBoost, setMinePanel) {
             />
         );
     } else if (page === "friends") {
-        return <Friends />;
+        return <Friends url={url}/>;
     } else if (page === "earn") {
-        return <Earn />;
+        return <Earn url={url}/>;
     } else if (page === "airdrop") {
-        return <Airdrop />;
+        return <Airdrop url={url}/>;
     }
     console.log(page);
 }
@@ -48,7 +49,9 @@ const BuildAPage = ({
     setBoost,
     setProgress,
     setMinePanel,
+    url
 }) => {
+
     return (
         <div style={{ position: "relative" }}>
             {playerPanel && (
@@ -61,7 +64,7 @@ const BuildAPage = ({
                 />
             )}
             <Suspense fallback={<div>Loading...</div>}>
-                {returnPage(page, player, setPlayer, setBoost, setMinePanel)}
+                {returnPage(page, player, setPlayer, setBoost, setMinePanel, url)}
             </Suspense>
         </div>
     );

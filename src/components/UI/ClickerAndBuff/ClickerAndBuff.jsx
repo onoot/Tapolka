@@ -4,19 +4,19 @@ import cl from "./ClickerAndBuff.module.css";
 import ButtonWallet from '../ButtonWallet/ButtonWallet';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
 
-const ClickerAndBuff = ({ setBoost }) => {
+const ClickerAndBuff = ({ setBoost, url }) => {
     const player = usePlayerStore((state) => state.player);
     const energy = player.energy;
 
     return (
         <div className={cl.clickerAndBuff__container}>
-            <Clicker />
+            <Clicker url={url}/>
             <ButtonWallet ton={false}/>
             <div className={cl.exchange__container__content}>
                 <div className={cl.exchange__container__energyAndBoost}>
                     <div className={cl.exchange__container__energyAndBoost__item}>
                         <div className={cl.exchange__container__energyAndBoost__container__icon}>
-                            <img src={require("../../images/lightning.gif")} alt="" />
+                            <img src={require("../../images/lightning.webp")} alt="" />
                         </div>
                         <div className={cl.exchange__container__energyAndBoost__container__text}>
                             {energy}/1600
@@ -24,7 +24,7 @@ const ClickerAndBuff = ({ setBoost }) => {
                     </div>
                     <button onClick={() => setBoost(true)} className={cl.exchange__container__energyAndBoost__item}>
                         <div className={cl.exchange__container__energyAndBoost__container__icon}>
-                            <img src={require("../../images/rocket.gif")} alt="" />
+                            <img src={require("../../images/rocket.webp")} alt="" />
                         </div>
                         <div className={cl.exchange__container__energyAndBoost__container__text}>
                             Boost

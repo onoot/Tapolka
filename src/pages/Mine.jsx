@@ -5,7 +5,6 @@ import Button from "../components/UI/Button/Button";
 import MineCard from "../components/UI/MineCard/MineCard";
 import Money from "../components/UI/Money/Money";
 import MineMarketList from "../components/UI/MineMarketList/MineMarketList";
-import ClickerAndBuff from "../components/UI/ClickerAndBuff/ClickerAndBuff";
 
 
 const Mine = ({timer, money, energy, setMinePanel, setBoost}) => {
@@ -33,7 +32,6 @@ const Mine = ({timer, money, energy, setMinePanel, setBoost}) => {
                 </div>
                 <Money money={money}/>
                 <MineMarketList/>
-                <ClickerAndBuff energy={energy} setBoost={setBoost}/>
             </div>
         </div>
     );

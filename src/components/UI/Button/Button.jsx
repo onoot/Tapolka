@@ -1,9 +1,12 @@
 import React from 'react';
 import cl from './Button.module.css'
 
-const Button = ({text, isImg, isFullScreen}) => {
+const Button = ({text, isImg, isFullScreen, onClick}) => {
+    
     return (
-        <button className={isFullScreen ? `${cl.buttonPurple} ${cl.isFullScreen}` :  cl.buttonPurple}>
+        <button className={isFullScreen ? `${cl.buttonPurple} ${cl.isFullScreen}` :  cl.buttonPurple}
+            onClick={onClick && ((e) => onClick(e))}
+        >
         {isImg ? <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20 10C20 15.5229 15.5229 20 10 20C7.08857 20 4.46775 18.7559 2.64041 16.7702C2.15897 16.2472 1.73441 15.6746 1.37388 15.062C0.500816 13.5771 0 11.8469 0 10C0 4.47714 4.47714 0 10 0C11.8473 0 13.5775 0.500816 15.062 1.37429C15.6747 1.73455 16.2472 2.15913 16.7698 2.64082C18.7555 4.46735 20 7.08857 20 10Z" fill="#F0CD00"/>
                 <path d="M20 9.99999C20 15.3984 15.7229 19.7975 10.3722 19.993C5.02163 19.7975 0.744492 15.3984 0.744492 9.99999C0.744492 4.60162 5.02163 0.202438 10.3722 0.00692749C15.7229 0.202438 20 4.60162 20 9.99999Z" fill="#FFDE50"/>

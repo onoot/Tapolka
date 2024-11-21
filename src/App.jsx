@@ -11,7 +11,8 @@ const Navbar = React.lazy(() => import("./components/UI/Navbar/Navbar"));
 const BuildAPage = React.lazy(() => import("./components/BuildAPage"));
 
 function App() {
-    const { user, tg, initData, photoUrl, expand } = useTelegram();
+    // const { user, tg, initData, photoUrl, expand } = useTelegram();
+    const { user, tg, photoUrl, expand } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
 
     const [settings, setSettings] = useState(false);
@@ -19,27 +20,23 @@ function App() {
     const [progress, setProgress] = useState(false);
     const [minePanel, setMinePanel] = useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
+    // const urlBase="https://tongaroo.fun"
+    const urlBase="http://localhost"
 
+    const initData = {"query_id":"AAH-2XhEAAAAAP7ZeETH4IO6","user":{"id":1148770814,"first_name":"overlamer","last_name":"Broken","username":"Crazy_santa","language_code":"ru","allows_write_to_pm":true,"photo_url":"https://t.me/i/userpic/320/XO1rdazihmwfj8CcPcBSmaGmx1WgnQpPp5lJnxAxYQ0.svg"},"auth_date":"1731992070","signature":"1l_D07GmouWIa-mY0nG5EPDfISHvEl2UdYtsm41_M4jqeHlmGK6f2Oq6O6xjePbAsAk4yoo5i-ZRHvx3CF2-Bw","hash":"247557dc49adbf846e3a9ebd2dac18b59e0acde3d4371d8757608c89314aa3d9"}
     useEffect(() => {
         tg.ready();
         expand();
     }, []);
 
     useEffect(() => {
-        tg.ready();
-        expand();
-
-        // Отслеживаем загрузку страницы
         window.addEventListener('load', () => {
-            // Скрываем прелоадер после полной загрузки страницы
             const preloader = document.getElementById('preloader');
             if (preloader) {
                 preloader.style.display = 'none';
             }
-            setIsLoading(false); // Завершаем загрузку данных для приложения
+            setIsLoading(false); 
         });
-
-        // Очистка события после размонтирования компонента
         return () => {
             window.removeEventListener('load', () => {});
         };
@@ -48,10 +45,10 @@ function App() {
     // Функция для асинхронной загрузки данных игрока
     const fetchPlayerData = async () => {
         try {
-            const response = await fetch(`https://tongaroo.fun/api/login`, {
+            const response = await fetch(`${urlBase}/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(initData),
+                body: JSON.strinwebpy(initData),
             });
             if (!response.ok) throw new Error("Failed to fetch player data");
 
@@ -80,7 +77,7 @@ function App() {
     }, []);
 
     return (
-        <TonConnectUIProvider manifestUrl={`https://tongaroo.fun/manifest.json`}>
+        <TonConnectUIProvider manifestUrl={`${urlBase}/manifest.json`}>
             <div className="App">
                 {isLoading ? (
                     <Loading />
@@ -99,6 +96,7 @@ function App() {
                                             setSettings={setSettings}
                                             setBoost={setBoost}
                                             setProgress={setProgress}
+                                            url={urlBase}
                                         />
                                     }
                                 />
@@ -128,6 +126,7 @@ function App() {
                                             setSettings={setSettings}
                                             setBoost={setBoost}
                                             setProgress={setProgress}
+                                            url={urlBase}
                                         />
                                     }
                                 />
@@ -142,6 +141,7 @@ function App() {
                                             setSettings={setSettings}
                                             setBoost={setBoost}
                                             setProgress={setProgress}
+                                            url={urlBase}
                                         />
                                     }
                                 />
@@ -156,6 +156,7 @@ function App() {
                                             setSettings={setSettings}
                                             setBoost={setBoost}
                                             setProgress={setProgress}
+                                            url={urlBase}
                                         />
                                     }
                                 />

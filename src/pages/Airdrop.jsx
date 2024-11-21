@@ -2,7 +2,7 @@ import React from 'react';
 import cl from "../styles/friends.module.css";
 import ButtonWallet from '../components/UI/ButtonWallet/ButtonWallet';
 
-const Airdrop = () => {
+const Airdrop = ({url}) => {
     return (
         <div className={`${cl.friends__container} ${cl.mt_20} ${cl.mb_30}`}>
             <div className={cl.friends__container__title}>

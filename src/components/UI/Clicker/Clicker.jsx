@@ -7,7 +7,7 @@ const MAX_ENERGY = 1600;
 const ENERGY_REGEN_RATE = 1;
 const CLICK_SEND_DELAY = 2000;
 
-const Clicker = () => {
+const Clicker = ({ url }) => {
     const { player, updatePlayer, updateEnergy } = usePlayerStore();
     const [isShaking, setIsShaking] = useState(false);
     const [clickCount, setClickCount] = useState(0);
@@ -40,9 +40,9 @@ const Clicker = () => {
             const currentClickCount = clickCount;
             setClickCount(0);
 
-            const data = await fetchWithAuth(`https://tongaroo.fun/api/add-coins/${player.id}`, {
+            const data = await fetchWithAuth(`${url}/api/add-coins/${player.id}`, {
                 method: 'POST',
-                body: JSON.stringify({ clicks: currentClickCount }),
+                body: JSON.strinwebpy({ clicks: currentClickCount }),
                 headers: { 'Content-Type': 'application/json' },
             });
 

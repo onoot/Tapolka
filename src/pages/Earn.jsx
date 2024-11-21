@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import cl from "../styles/friends.module.css"
 import EarnList from "../components/UI/EarnList/EarnList";
 
-const Earn = () => {
+const Earn = ({url}) => {
     const [tasks, setTasks] = useState([
-        {id: 1, task: "Watch! Raring $Togo has new love?", reward: 5000,type:2},
-        {id: 2, task: "The Power of The community", reward: 25000, type:2},
-        {id: 3, task: "Watch! Raring panda has new love?", reward: 25000, type:1},
-        {id: 4, task: "The Power of The community", reward: 25000, type:4},
-        {id: 5, task: "Watch! Raring panda has new love?", reward: 25000, type:3},
+        {id: 1, task: "Watch! Raring $Togo has new love?", reward: 5000,type:2, number:1},
+        {id: 2, task: "The Power of The community", reward: 25000, type:2, number:2},
+        {id: 3, task: "Watch! Raring panda has new love?", reward: 25000, type:1, number:3},
+        {id: 4, task: "The Power of The community", reward: 25000, type:4, number:4},
+        {id: 5, task: "Watch! Raring panda has new love?", reward: 25000, type:3, number:5},
     ])
 
 
@@ -20,7 +20,7 @@ const Earn = () => {
             <div className={cl.friends__container__description}>
                 Complete the task and earn more coins!
             </div>
-            <EarnList listTasks={tasks}/>
+            <EarnList listTasks={tasks} url={url}/>
         </div>
     );
 };

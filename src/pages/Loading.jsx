@@ -9,7 +9,7 @@ const Loading = () => {
             <div className={cl.loading__title}>
                 Farm $TOGO
             </div>
-            <img className={cl.loading__anim} src={require("../components/images/loading.gif")} alt=""/>
+            <img className={cl.loading__anim} src={require("../components/images/loading.webp")} alt=""/>
             <div className={cl.loading__titleTwo}>
                 T2E <span className={cl.purple}>TOGO</span> and don't wait for <span className={cl.yellow}>FOMO</span>
             </div>
