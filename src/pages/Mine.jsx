@@ -7,7 +7,7 @@ import Money from "../components/UI/Money/Money";
 import MineMarketList from "../components/UI/MineMarketList/MineMarketList";
 
 
-const Mine = ({timer, money, energy, setMinePanel, setBoost}) => {
+const Mine = ({timer, money, energy, setMinePanel, setBoost, url}) => {
 
 
     return (
@@ -31,7 +31,7 @@ const Mine = ({timer, money, energy, setMinePanel, setBoost}) => {
                     </div>
                 </div>
                 <Money money={money}/>
-                <MineMarketList/>
+                <MineMarketList url={url}/>
             </div>
         </div>
     );

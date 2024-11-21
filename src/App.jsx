@@ -112,6 +112,7 @@ function App() {
                                             setBoost={setBoost}
                                             setProgress={setProgress}
                                             setMinePanel={setMinePanel}
+                                            url={urlBase}
                                         />
                                     }
                                 />

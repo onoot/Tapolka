@@ -27,6 +27,7 @@ function returnPage(page, player, setPlayer, setBoost, setMinePanel, url) {
                 setBoost={setBoost}
                 timer={"03:25:30"}
                 setMinePanel={setMinePanel}
+                url={url}
             />
         );
     } else if (page === "friends") {
