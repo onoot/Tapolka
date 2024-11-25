@@ -50,7 +50,8 @@ function App() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(initData),
             });
-            if (!response.ok) throw new Error("Failed to fetch player data");
+            if (!response.ok) 
+                return false;
 
             const data = await response.json();
             if (data.token) localStorage.setItem('token', data.token);
