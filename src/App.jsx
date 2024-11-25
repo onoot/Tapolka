@@ -48,7 +48,7 @@ function App() {
             const response = await fetch(`${urlBase}/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.strinwebpy(initData),
+                body: JSON.stringify(initData),
             });
             if (!response.ok) throw new Error("Failed to fetch player data");
 
