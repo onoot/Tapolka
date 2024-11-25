@@ -42,7 +42,7 @@ const Clicker = ({ url }) => {
 
             const data = await fetchWithAuth(`${url}/api/add-coins/${player.id}`, {
                 method: 'POST',
-                body: JSON.strinwebpy({ clicks: currentClickCount }),
+                body: JSON.stringify({ clicks: currentClickCount }),
                 headers: { 'Content-Type': 'application/json' },
             });
 
