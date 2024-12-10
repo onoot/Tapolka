@@ -22,6 +22,7 @@ function App() {
     const [progress, setProgress] = useState(false);
     const [minePanel, setMinePanel] = useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
+    const [isError, setIsError] = React.useState(false);
     const urlBase="https://tongaroo.fun"
     // const urlBase="http://localhost"
 
@@ -33,16 +34,24 @@ function App() {
     }, []);
 
     useEffect(() => {
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.style.display = 'none';
+        try{
+            if(!isError){
+                window.addEventListener('load', () => {
+                    const preloader = document.getElementById('preloader');
+                    if (preloader) {
+                        preloader.style.display = 'none';
+                    }
+                    setIsLoading(false); 
+                });
+                return () => {
+                    window.removeEventListener('load', () => {});
+                };
             }
-            setIsLoading(false); 
-        });
-        return () => {
-            window.removeEventListener('load', () => {});
-        };
+        }catch(e){
+            console.log(e)
+            toast.error(e)
+        }
+      
     }, []);
 
     // Функция для асинхронной загрузки данных игрока
@@ -78,6 +87,8 @@ function App() {
             toast.success('Данные игрока успешно загружены!');
         } catch (error) {
             toast.error(`Ошибка: ${error.message}`);
+            setIsLoading(true);
+            setIsError(true);
         }
     };
 
