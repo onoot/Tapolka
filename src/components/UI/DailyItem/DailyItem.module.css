@@ -1,49 +1,72 @@
-.dailyList__container{
+/* CSS for making DailyItem cards uniform */
+.dailylist {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 35px;
+    gap: 15px; /* Add spacing between cards */
+}
+
+.dailyList__container {
     display: flex;
     flex-direction: column;
     background: #282B30;
-    padding: 10px 15px 10px 10px;
+    padding: 15px; /* Ensure consistent padding */
     border-radius: 12px;
     border: 1px solid rgba(120, 120, 120, 0.3);
     box-shadow: 0 -4px 0 0 #D02EF9;
     position: relative;
+    width: 100%; /* Uniform width for all cards */
+    max-width: 150px; /* Optional: to limit card size */
+    height: 150px; /* Reduced uniform height for all cards */
+    box-sizing: border-box; /* Include padding and border in width/height */
 }
-.dailyList__container.true:before{
+
+.dailyList__container.true:before {
     content: '';
     position: absolute;
     width: 100%;
-    height: 75%;
+    height: 100%; /* Adjust height to cover the entire card */
     z-index: 10;
     background: rgba(40, 43, 48, 0.7);
     left: 0;
     border-radius: 12px;
     top: 0;
 }
-.dailyList__container__title{
-    font-size: 12px;
-    font-family: Poppins;
+
+.dailyList__container__title {
+    font-size: 14px; /* Ensure consistent font size */
+    font-family: Poppins, sans-serif;
+    text-align: center; /* Align text centrally */
+    margin-top: 10px; /* Add spacing between elements */
 }
-.dailyList__container__time{
-    font-size: 10px;
+
+.dailyList__container__time {
+    font-size: 12px; /* Consistent font size */
     color: #8E8E8E;
+    text-align: center; /* Align text centrally */
+    margin-top: 5px;
 }
-.dailyList__container__icon img{
-    width: 47px;
-    height: 47px;
+
+.dailyList__container__icon img {
+    width: 50px; /* Consistent icon size */
+    height: 50px;
+    margin: 0 auto; /* Center align icon */
 }
 
 @media (max-width: 357px) {
     .dailyList__container {
-        padding: 10px 15px 10px 10px; 
+        padding: 10px; 
         border-radius: 10px;
+        height: auto; /* Allow cards to adjust height */
     }
 
     .dailyList__container__title {
-        font-size: 10px; 
+        font-size: 12px; 
     }
 
     .dailyList__container__time {
-        font-size: 8px; 
+        font-size: 10px; 
     }
 
     .dailyList__container__icon img {
