@@ -74,6 +74,7 @@ function App() {
                 benefit: data.benefit || 0,
             };
             updatePlayer(playerData);
+            setIsLoading(false)
             toast.success('Данные игрока успешно загружены!');
         } catch (error) {
             toast.error(`Ошибка: ${error.message}`);
