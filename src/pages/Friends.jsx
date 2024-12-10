@@ -16,21 +16,30 @@ const Friends = ({url}) => {
         // {id: 1, name: "Lara Croft", reward: 25300, level: 4},
     ])
     async function GetList() {
-        try{
+        try {
             const token = localStorage.getItem('token');
-            let response = await fetch(`${url}/api/getFriendList/${initData.user.id}`, {
+            if (!token) {
+                console.error('Токен отсутствует');
+                return;
+            }
+            const response = await fetch(`${url}/api/getFriendList/${initData?.user?.id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
             });
-            if(!response||response.status!==200) 
-                return false;
+            if (!response.ok) {
+                throw new Error(`Ошибка запроса: ${response.status}`);
+            }
             const data = await response.json();
-            setFriends(data);
-        }catch (e) {
-            console.log(e)
+            
+            // Защита от некорректного ответа сервера
+            const friendList = Array.isArray(data?.friends) ? data.friends : [];
+            setFriends(friendList);
+        } catch (e) {
+            console.error('Ошибка в GetList:', e.message);
+            setFriends([]);
         }
     }
     
