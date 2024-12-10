@@ -23,8 +23,8 @@ function App() {
     const [minePanel, setMinePanel] = useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
     const [isError, setIsError] = React.useState(false);
-    // const urlBase="https://tongaroo.fun"
-    const urlBase="http://localhost"
+    const urlBase="https://tongaroo.fun"
+    // const urlBase="http://localhost"
 
     
     useEffect(() => {
