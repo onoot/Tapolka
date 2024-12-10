@@ -14,7 +14,6 @@ const BuildAPage = React.lazy(() => import("./components/BuildAPage"));
 
 function App() {
     const { user, tg, initData, photoUrl, expand } = useTelegram();
-    // const { user, tg, photoUrl, expand } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
 
     const [settings, setSettings] = useState(false);
