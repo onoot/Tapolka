@@ -40,7 +40,9 @@
     background-position: center; 
 }
 
-.clicker__btn img{
+.clicker__btn img {
+    position: relative;
+    top: -20px; 
     user-select: none;
 }
 
