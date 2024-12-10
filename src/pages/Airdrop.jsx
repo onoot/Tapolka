@@ -15,6 +15,7 @@ const Airdrop = ({url}) => {
                 <img src={require("../components/images/airdropMainImg.png")} alt=""/>
             </div>
             <ButtonWallet ton={true} />
+            <div className={`${cl.mp_20}`}></div>
         </div>
     );
 };

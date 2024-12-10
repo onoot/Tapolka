@@ -20,6 +20,10 @@
     margin-top: 10svh;
 }
 
+.mp_20{
+    padding-bottom: 20svh;
+}
+
 .friends__container:before{
     content: "";
     background-image: url("../components/images/background.png");
