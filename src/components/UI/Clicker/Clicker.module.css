@@ -19,7 +19,7 @@
     background-position: center;
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
 }
-
+/* 
 .clicker__btn::before {
     content: '';
     top: 50%;
@@ -36,6 +36,25 @@
     background: url(../../images/cheems-doge.webp);
     border: 1px solid #292929;
     box-shadow: inset 0px 8px 20px rgba(0, 0, 0, 0.3), inset 0px 10px 100px 30px rgba(0, 0, 0, 0.4);
+    background-size: cover; 
+    background-position: center; 
+} */
+
+.clicker__btn::before {
+    content: '';
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* Уменьшено на 40px (240px - 40px) */
+    height: 200px; /* Уменьшено на 40px (240px - 40px) */
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: url(../../images/cheems-doge.webp);
+    border: 1px solid #292929;
+    box-shadow: inset 0px 8px 20px rgba(0, 0, 0, 0.3),
+                inset 0px 10px 100px 30px rgba(0, 0, 0, 0.4);
     background-size: cover; 
     background-position: center; 
 }
