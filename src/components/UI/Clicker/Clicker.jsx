@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import cl from './Clicker.module.css';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
-import { fetchWithAuth } from '../../utils/auth.mjs';
 
 const MAX_ENERGY = 1600;
 const ENERGY_REGEN_RATE = 1;
@@ -40,7 +39,7 @@ const Clicker = ({ url }) => {
             const currentClickCount = clickCount;
             setClickCount(0);
 
-            const data = await fetchWithAuth(`${url}/api/add-coins/${player.id}`, {
+            const data = await fetch(`${url}/api/add-coins/${player.id}`, {
                 method: 'POST',
                 body: JSON.stringify({ clicks: currentClickCount }),
                 headers: { 'Content-Type': 'application/json' },
