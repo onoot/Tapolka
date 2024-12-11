@@ -10,30 +10,31 @@ const ClickerAndBuff = ({ setBoost, url }) => {
 
     return (
         <div className={cl.clickerAndBuff__container}>
-            <Clicker url={url}/>
-            <ButtonWallet ton={false}/>
-            <div className={cl.exchange__container__content}>
-                <div className={cl.exchange__container__energyAndBoost}>
-                    <div className={cl.exchange__container__energyAndBoost__item}>
-                        <div className={cl.exchange__container__energyAndBoost__container__icon}>
-                            <img src={require("../../images/lightning.webp")} alt="" />
-                        </div>
-                        <div className={cl.exchange__container__energyAndBoost__container__text}>
-                            {energy}/1600
-                        </div>
+            <Clicker url={url} />
+            <div className={cl.wallet__container}>
+                <ButtonWallet ton={false} />
+            </div>
+            <div className={`${cl.energyAndBoost__container} ${cl.mt_1}`}>
+                <div className={cl.energy__item}>
+                    <div className={cl.icon}>
+                        <img src={require("../../images/lightning.webp")} alt="" />
                     </div>
-                    <button onClick={() => setBoost(true)} className={cl.exchange__container__energyAndBoost__item}>
-                        <div className={cl.exchange__container__energyAndBoost__container__icon}>
-                            <img src={require("../../images/rocket.webp")} alt="" />
-                        </div>
-                        <div className={cl.exchange__container__energyAndBoost__container__text}>
-                            Boost
-                        </div>
-                    </button>
+                    <div className={cl.text}>
+                        {energy}/1600
+                    </div>
                 </div>
+                <button onClick={() => setBoost(true)} className={cl.boost__item}>
+                    <div className={cl.icon}>
+                        <img src={require("../../images/rocket.webp")} alt="" />
+                    </div>
+                    <div className={cl.text}>
+                        Boost
+                    </div>
+                </button>
             </div>
         </div>
     );
+    
 };
 
 export default ClickerAndBuff;

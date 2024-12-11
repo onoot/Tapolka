@@ -1,18 +1,19 @@
 import React from 'react';
-import cl from './DailyItem.module.css'
+import cl from './DailyItem.module.css';
+import { Link } from "react-router-dom";
 
-const DailyItem = ({srcIcon, title, time, isLock}) => {
+const DailyItem = ({ srcIcon, title, time, isLock, navbarPosition }) => {
     let nameClass;
-    if (isLock){
-        nameClass = `${cl.dailyList__container} ${cl.true}`
-    } else{
-        nameClass = cl.dailyList__container
+    if (isLock) {
+        nameClass = `${cl.dailyList__container} ${cl.true}`;
+    } else {
+        nameClass = cl.dailyList__container;
     }
 
     return (
-        <div className={nameClass}>
+        <Link to={`/${navbarPosition}`} className={`${nameClass} ${cl.noLinkStyles}`}>
             <div className={cl.dailyList__container__icon}>
-                <img src={require(`../../images/${srcIcon}`)} alt=""/>
+                <img src={require(`../../images/${srcIcon}`)} alt="" />
             </div>
             <div className={cl.dailyList__container__title}>
                 {title}
@@ -20,7 +21,7 @@ const DailyItem = ({srcIcon, title, time, isLock}) => {
             <div className={cl.dailyList__container__time}>
                 {time}
             </div>
-        </div>
+        </Link>
     );
 };
 

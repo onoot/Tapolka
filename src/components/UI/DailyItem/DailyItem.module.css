@@ -54,6 +54,12 @@
     margin: 0 auto; /* Center align icon */
 }
 
+
+.noLinkStyles {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color from parent */
+}
+
 @media (max-width: 357px) {
     .dailyList__container {
         padding: 10px; 

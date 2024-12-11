@@ -1,12 +1,35 @@
-.clickerAndBuff__container{
-    margin-top: -40px;
+.clickerAndBuff__container {
     display: flex;
-    position: relative;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     width: 100%;
 }
+
+.energyAndBoost__container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 20px; /* Независимый отступ */
+}
+
+.energy__item, .boost__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon img {
+    width: 25px;
+    height: 25px;
+}
+
+.text {
+    font-size: 16px;
+    font-family: Poppins_SemiBold;
+    color: #fff;
+}
+
 .exchange__container__content{
     display: flex;
     align-items: center;
@@ -37,4 +60,41 @@
 .exchange__container__energyAndBoost__container__icon img{
     width: 25px;
     height: 25px;
+}
+
+.mt_20{
+    margin-top: 20svh;
+}
+
+.wallet__container {
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.boost__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none; /* Убираем белый фон */
+    border: none; /* Убираем границу */
+    color: #fff;
+    font-size: 16px;
+    font-family: Poppins_SemiBold;
+    outline: none; /* Убираем фокусное кольцо */
+    cursor: pointer;
+}
+
+.boost__item:hover {
+    background: rgba(255, 255, 255, 0.1); /* Лёгкий эффект при наведении */
+}
+
+.boost__item:active {
+    transform: scale(0.95); /* Эффект нажатия */
+}
+
+.mt_1{
+    margin-top: 5svh;
 }
