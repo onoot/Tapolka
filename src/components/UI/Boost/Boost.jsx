@@ -13,7 +13,7 @@ const Boost = ({boost, energy, visible, setVisible, money}) => {
             id:1, name: "Multitap", benefit:128000, level:8, img:"multitap"
         },
         {
-            id:2, name: "Energy limit", benefit:128000, level:13, img:"energy"
+            id:2, name: "Energy limit", benefit:128000, level:13, img:"lightning"
         }
     ])
 
@@ -43,7 +43,7 @@ const Boost = ({boost, energy, visible, setVisible, money}) => {
                     <div className={clD.boosters__container}>
                         <div className={clD.boosters__container__block}>
                             <div className={clD.boosters__container__block_img}>
-                                <img src={require(`../../images/lightning.gif`)} alt=""/>
+                                <img src={require(`../../images/lightning.webp`)} alt=""/>
                             </div>
                         </div>
                         <div className={clD.boosters__container__block}>
@@ -63,7 +63,7 @@ const Boost = ({boost, energy, visible, setVisible, money}) => {
                         return <div key={prop.id} className={clD.boosters__container}>
                             <div className={clD.boosters__container__block}>
                                 <div className={clD.boosters__container__block_img}>
-                                    <img src={require(`../../images/${prop.img}.gif`)} alt=""/>
+                                    <img src={require(`../../images/${prop.img}.webp`)} alt=""/>
                                 </div>
                             </div>
                             <div className={clD.boosters__container__block}>

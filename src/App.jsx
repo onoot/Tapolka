@@ -7,6 +7,10 @@ import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import Loading from "./pages/Loading";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Settings from "./components/UI/Settings/Settings";
+import Boost from "./components/UI/Boost/Boost";
+import Progress from "./components/UI/Progress/Progress";
+import MinePanel from "./components/UI/MinePanel/MinePanel";
 
 // Lazy imports
 const Navbar = React.lazy(() => import("./components/UI/Navbar/Navbar"));
@@ -98,6 +102,10 @@ function App() {
     return (
         <TonConnectUIProvider manifestUrl={`${urlBase}/manifest.json`}>
             <div className="App">
+            <Settings visible={settings} setVisible={setSettings}/>
+        <Boost visible={boost} setVisible={setBoost} money={player.money}/>
+        <Progress visible={progress} setVisible={setProgress} player={player}/>
+        <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money}/>
             <ToastContainer />
                 {isLoading ? (
                     <Loading />
