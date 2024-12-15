@@ -57,7 +57,7 @@ const Mine = ({timer, money, energy, setMinePanel, setBoost, url}) => {
                 <div className={cl.mine__container__dailyCombo}>
                     <div className={cl.mine__container__dailyCombo__items}>
                         <div>Daily combo</div>
-                        <Button text={reward?.reward||"5,000,000"} isImg={true} isFullScreen={false}/>
+                        <Button text={reward?.reward||"Coming Soon"} isImg={true} isFullScreen={false}/>
                     </div>
                     <div className={cl.mine__container__dailyCombo__items}>
                         <MineCard setMinePanel={setMinePanel}/>

@@ -20,7 +20,7 @@ const ClickerAndBuff = ({ setBoost, url }) => {
                         <img src={require("../../images/lightning.webp")} alt="" />
                     </div>
                     <div className={cl.text}>
-                        {energy}/1600
+                        {energy}/500
                     </div>
                 </div>
                 <button onClick={() => setBoost(true)} className={cl.boost__item}>

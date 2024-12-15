@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import cl from "./InviteFriends.module.css"
 import Button from "../Button/Button";
 import { convertMoneyToRCommasIsFull } from "../../hooks/converMoney";
+import { usePlayerStore } from "../../../store/playerStore.mjs";
 
 const InviteFriends = ({item, url}) => {
+    const { player } = usePlayerStore((state) => state);
     async function inviteFriend() {
         try {
-            console.log("FFFFFFFFFFFFF",url);
-            const response = await fetch(url, {
+            const response = await fetch(url+`/api/generateReferralLink/${player.id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

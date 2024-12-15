@@ -3,11 +3,14 @@ import cl from "../styles/friends.module.css"
 import InviteFriendsList from "../components/UI/InviteFriendsList/InviteFriendsList";
 import FriendsList from "../components/UI/FriendsList/FriendsList";
 import {useTelegram} from "../components/hooks/useTelegram";
+import {usePlayerStore} from "../store/playerStore.mjs";
 
 const Friends = ({url}) => {
+    const { player } = usePlayerStore((state) => state);
+
     const [inviteFriends, setInviteFriends] = useState([
         {id: 1, task: "Invite a friend", reward: 5000, description: "For you & your friend", pathImg:"redGift"},
-        {id: 2, task: "Invite a friend with Telegram", reward: 25000, description: "For you & your friend", pathImg:"blueGift"},
+        {id: 2, task: "Invite a friend with Telegram Premium", reward: 25000, description: "For you & your friend", pathImg:"blueGift"},
     ])
     const {initData} = useTelegram();
 
@@ -19,10 +22,10 @@ const Friends = ({url}) => {
         try {
             const token = localStorage.getItem('token');
             if (!token) {
-                console.error('Токен отсутствует');
+                console.error(!token);
                 return;
             }
-            const response = await fetch(`${url}/api/getFriendList/${initData?.user?.id}`, {
+            const response = await fetch(`${url}/api/getFriendList/${player?.id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

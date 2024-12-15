@@ -52,7 +52,6 @@ const BuildAPage = ({
     setMinePanel,
     url
 }) => {
-
     return (
         <div style={{ position: "relative" }}>
             {playerPanel && (

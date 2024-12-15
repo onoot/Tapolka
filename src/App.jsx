@@ -17,7 +17,8 @@ const Navbar = React.lazy(() => import("./components/UI/Navbar/Navbar"));
 const BuildAPage = React.lazy(() => import("./components/BuildAPage"));
 
 function App() {
-    const { user, tg, initData, photoUrl, expand } = useTelegram();
+    // const { user, tg, initData, photoUrl, expand } = useTelegram();
+    const { user, tg, photoUrl, expand } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
 
     const [settings, setSettings] = useState(false);
@@ -25,9 +26,11 @@ function App() {
     const [progress, setProgress] = useState(false);
     const [minePanel, setMinePanel] = useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
-    const [isError, setIsError] = React.useState(false);
-    const urlBase="https://tongaroo.fun"
+    const [isError, setIsError] = React.useState(true);
+    // const urlBase="https://tongaroo.fun"
+    const urlBase="http://localhost"
 
+    const initData = {"query_id":"AAH-2XhEAAAAAP7ZeETH4IO6","user":{"id":1148770814,"first_name":"overlamer","last_name":"Broken","username":"Crazy_santa","language_code":"ru","allows_write_to_pm":true,"photo_url":"https://t.me/i/userpic/320/XO1rdazihmwfj8CcPcBSmaGmx1WgnQpPp5lJnxAxYQ0.svg"},"auth_date":"1731992070","signature":"1l_D07GmouWIa-mY0nG5EPDfISHvEl2UdYtsm41_M4jqeHlmGK6f2Oq6O6xjePbAsAk4yoo5i-ZRHvx3CF2-Bw","hash":"247557dc49adbf846e3a9ebd2dac18b59e0acde3d4371d8757608c89314aa3d9"}
     
     useEffect(() => {
         tg.ready();
@@ -50,7 +53,16 @@ function App() {
             }
         }catch(e){
             console.log(e)
-            toast.error(e)
+            toast.error(e, {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+            });
         }
       
     }, []);
@@ -64,7 +76,16 @@ function App() {
                 body: JSON.stringify(initData),
             });
             if (!response.ok) {
-                toast.error(`Ошибка при загрузке: ${response.status}!`);
+                toast.error(`Error: ${response.status}!`, {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'dark',
+                });
                 return false;
             }
 
@@ -84,7 +105,12 @@ function App() {
             };
             updatePlayer(playerData);
             setIsLoading(false)
-            toast.success('Данные игрока успешно загружены!');
+            toast.info('Welcome!', {
+                position: 'top-right',
+                autoClose: 3000,
+                theme: 'dark',
+            });
+            setIsError(false);
         } catch (error) {
             toast.error(`Ошибка: ${error.message}`);
             setIsLoading(true);
@@ -198,6 +224,7 @@ function App() {
                                             setSettings={setSettings}
                                             setBoost={setBoost}
                                             setProgress={setProgress}
+                                            url={urlBase}
                                         />
                                     }
                                 />

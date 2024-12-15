@@ -7,20 +7,13 @@ import { useTelegram } from '../../hooks/useTelegram';
 
 const MineMarketList = ({ url }) => {
     const [mineTypes, setMineTypes] = useState([
-        { id: 1, name: 'PR&Team', isActive: true },
-        { id: 2, name: 'Markets', isActive: false },
-        { id: 3, name: 'Legal', isActive: false },
+        { id: 1, name: 'Combo', isActive: true },
+        { id: 2, name: 'Market', isActive: false },
+        { id: 3, name: 'Spin', isActive: false },
         { id: 4, name: 'Specials', isActive: false },
     ]);
     const [mineItems, setMineItems] = useState([
-        {id:1, path: "tiger", title: "CEO", profit: 1000, price: 1000, isLock: false, type: "PR&Team"},
-        {id:2, path: "tiger", title: "Marketing", profit: 1000, price: 1000, isLock: false, type: "PR&Team"},
-        {id:3, path: "tiger", title: "CEO", profit: 1000, price: 1000, isLock: false, type: "PR&Team"},
-        {id:4, path: "tiger", title: "CEO", profit: 1000, price: 1000, isLock: false, type: "PR&Team"},
-        {id:5, path: "tiger", title: "CEO", profit: 1000, price: 1000, isLock: true, type: "PR&Team"},
-        {id:6, path: "tiger", title: "CEO", profit: 1000, price: 1000, isLock: true, type: "PR&Team"},
-        {id:7, path: "tiger", title: "CEO", profit: 1000, price: 1000, isLock: true, type: "PR&Team"},
-        {id:8, path: "tiger", title: "CEO", profit: 1000, price: 1000, isLock: true, type: "PR&Team"},
+       
     ])
     const { initData } = useTelegram();
     const getItems = async () => {
