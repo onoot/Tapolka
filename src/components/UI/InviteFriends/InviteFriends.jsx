@@ -7,6 +7,11 @@ import { usePlayerStore } from "../../../store/playerStore.mjs";
 const InviteFriends = ({item, url}) => {
     const { player } = usePlayerStore((state) => state);
     async function inviteFriend() {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.error(!token);
+            return;
+        }
         try {
             const response = await fetch(url+`/api/generateReferralLink/${player.id}`, {
                 method: 'GET',

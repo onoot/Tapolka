@@ -19,6 +19,10 @@ const MineMarketList = ({ url }) => {
     const getItems = async () => {
         try {
             const token = localStorage.getItem('token');
+            if (!token) {
+                console.error(!token);
+                return;
+            }
             const req = await fetch(`${url}/api/getMineItems/${initData?.user?.id || 1148770814}`, {
                 method: 'GET',
                 headers: {

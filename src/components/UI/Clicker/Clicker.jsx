@@ -38,7 +38,11 @@ const Clicker = ({ url }) => {
         if (clickCount > 0) {
             const currentClickCount = clickCount;
             setClickCount(0);
-
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.error(!token);
+                return;
+            }
             const data = await fetch(`${url}/api/add-coins/${player.id}`, {
                 method: 'POST',
                 body: JSON.stringify({ clicks: currentClickCount }),
