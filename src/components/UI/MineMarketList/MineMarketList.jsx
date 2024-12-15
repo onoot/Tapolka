@@ -23,7 +23,7 @@ const MineMarketList = ({ url }) => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`,
+                    'Authorization': `Bearer ${token}`,
                 },
             });
             if (!req || req.status !== 200) return false;

@@ -42,7 +42,11 @@ const Clicker = ({ url }) => {
             const data = await fetch(`${url}/api/add-coins/${player.id}`, {
                 method: 'POST',
                 body: JSON.stringify({ clicks: currentClickCount }),
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    
+                 },
             });
 
             // Устанавливаем энергию, возвращенную сервером

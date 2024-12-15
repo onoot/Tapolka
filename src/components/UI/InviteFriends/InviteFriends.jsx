@@ -12,6 +12,8 @@ const InviteFriends = ({item, url}) => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+
                 },
             });
             if (!response || response.status !== 200) {
