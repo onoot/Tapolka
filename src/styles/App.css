@@ -1,4 +1,5 @@
 @import "joinFonts.css";
+@import '~react-toastify/dist/ReactToastify.css';
 
 * {
     margin: 0;

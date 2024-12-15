@@ -3,31 +3,42 @@ import cl from "./InviteFriends.module.css"
 import Button from "../Button/Button";
 import { convertMoneyToRCommasIsFull } from "../../hooks/converMoney";
 import { usePlayerStore } from "../../../store/playerStore.mjs";
+import { toast } from 'react-toastify';
 
 const InviteFriends = ({item, url}) => {
     const { player } = usePlayerStore((state) => state);
     async function inviteFriend() {
         const token = localStorage.getItem('token');
         if (!token) {
-            console.error(!token);
+            toast.error('Token not found. Please log in.', { theme: 'dark' });
             return;
         }
+
         try {
-            const response = await fetch(url+`/api/generateReferralLink/${player.id}`, {
+            const response = await fetch(`${url}/api/generateReferralLink/${player.id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
-
+                    Authorization: `Bearer ${token}`,
                 },
             });
-            if (!response || response.status !== 200) {
-                return false;
+
+            if (!response.ok) {
+                toast.error(`Failed to generate link. Error code: ${response.status}`, { theme: 'dark' });
+                return;
             }
+
             const data = await response.json();
-            console.log(data);
+
+            if (data.referralLink) {
+                await navigator.clipboard.writeText(data.referralLink);
+                toast.success('The referral link has been copied to the clipboard!', { theme: 'dark' });
+            } else {
+                toast.error('Referral link not found in server response.', { theme: 'dark' });
+            }
         } catch (e) {
-            console.log(e)
+            console.error(e);
+            toast.error('An error occurred while generating the referral link.', { theme: 'dark' });
         }
     }
 
