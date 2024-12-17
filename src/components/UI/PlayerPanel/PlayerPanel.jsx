@@ -8,7 +8,7 @@ const PlayerPanel = ({avatar, player, setSettings, setProgress}) => {
     return (
         <div className={cl.playerPanel__container}>
             <PlayerInfo avatar={avatar} player={player} setProgress={setProgress}/>
-            <PlayerProfit profit={player.key} setSettings={setSettings}/>
+            <PlayerProfit setSettings={setSettings}/>
         </div>
     );
 };

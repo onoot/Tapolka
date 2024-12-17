@@ -1,5 +1,5 @@
 .friends__container{
-    max-height: calc(100svh - 149px);
+    /* max-height: calc(100svh - 149px); */
     display: flex;
     justify-content: center;
     align-content: center;
@@ -23,7 +23,7 @@
 .mp_20{
     padding-bottom: 20svh;
 }
-
+/* 
 .friends__container:before{
     content: "";
     background-image: url("../components/images/background.webp");
@@ -36,7 +36,25 @@
     object-fit: cover;
     background-position: center; 
     background-repeat: no-repeat; 
+} */
+
+.friends__container::before {
+    content: "";
+    background-image: url("../components/images/background.webp");
+    position: fixed; /* Фиксируем элемент на экране */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Занимает всю ширину экрана */
+    height: 100vh; /* Занимает всю высоту экрана */
+    z-index: -1; /* Отправляем элемент на задний план */
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; /* Растягиваем изображение на весь экран */
+    pointer-events: none; /* Чтобы фон не блокировал клики */
+    
 }
+
+
 .friends__container__title{
     text-align: center;
     font-size: 32px;

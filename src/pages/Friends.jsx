@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import cl from "../styles/friends.module.css"
 import InviteFriendsList from "../components/UI/InviteFriendsList/InviteFriendsList";
 import FriendsList from "../components/UI/FriendsList/FriendsList";
-import {useTelegram} from "../components/hooks/useTelegram";
 import {usePlayerStore} from "../store/playerStore.mjs";
 
 const Friends = ({url}) => {
@@ -12,7 +11,6 @@ const Friends = ({url}) => {
         {id: 1, task: "LootBox and key", reward: 1, description: "For you & your friend", pathImg:"redGift"},
         {id: 2, task: "LootBoxes and keys for Premium", reward: 3, description: "For you & your friend", pathImg:"blueGift"},
     ])
-    const {initData} = useTelegram();
 
 
     const [friends, setFriends] = useState([

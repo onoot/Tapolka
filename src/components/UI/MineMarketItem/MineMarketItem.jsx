@@ -1,7 +1,7 @@
 import React from 'react';
 import cl from "./MineMarketItem.module.css"
 import {convertMoneyToReduction} from "../../hooks/converMoney";
-const MineMarketItem = ({item}) => {
+const MineMarketItem = ({setMinePanel, item}) => {
     return (
         <div className={item.isLock ? `${cl.mineMarketItems__container} ${cl.mineMarketItems__container__locked}` : cl.mineMarketItems__container}>
             <div className={cl.mineMarketItems__container__block}>
@@ -32,7 +32,7 @@ const MineMarketItem = ({item}) => {
                     </div>
                 </div>
             </div>
-            <div className={cl.mineMarketItems__container__block}>
+            <div onClick={() => setMinePanel(item)} className={cl.mineMarketItems__container__block}>
                 <div className={cl.mineMarketItems__container__block__textPrice}>
                     Upgrade
                 </div>

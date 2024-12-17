@@ -45,8 +45,8 @@ const InviteFriends = ({item, url}) => {
     return (
         <div className={cl.inviteFriend__container__item}>
             <div className={cl.inviteFriend__container__item__block}>
-                <div className={cl.inviteFriend__container__item__block__image}>
-                    <img src={require("../../images/" + item.pathImg + ".webm")} alt="" />
+                <div className={cl.inviteFriend__container__item__block__video}>
+                    <video src={require("../../images/" + item.pathImg + ".webm")} alt="" />
                 </div>
                 <div className={cl.inviteFriend__container__item__block__content}>
                     <div className={cl.inviteFriend__container__item__task}>
@@ -54,7 +54,7 @@ const InviteFriends = ({item, url}) => {
                     </div>
                     <div className={cl.inviteFriend__container__item__block__rewardText}>
                         <div className={cl.inviteFriend__container__item__block__svg}>
-                           <img className={cl.inviteFriend__chest} src={require("../../images/chest.png")}/>
+                           <img className={cl.inviteFriend__chest} src={require("../../images/key.png")}/>
                         </div>
                         <div className={cl.inviteFriend__container__item__reward}>
                             +{convertMoneyToRCommasIsFull(item.reward)}

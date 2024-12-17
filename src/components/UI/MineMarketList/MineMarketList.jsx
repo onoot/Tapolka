@@ -5,12 +5,12 @@ import MineMarketItem from '../MineMarketItem/MineMarketItem';
 import MineMarketItemSpecial from '../MineMarketItemSpecial/MineMarketItemSpecial';
 import { useTelegram } from '../../hooks/useTelegram';
 
-const MineMarketList = ({ url }) => {
+const MineMarketList = ({setMinePanel, url }) => {
     const [mineTypes, setMineTypes] = useState([
         { id: 1, name: 'Combo', isActive: true },
         { id: 2, name: 'Market', isActive: false },
         { id: 3, name: 'Spin', isActive: false },
-        { id: 4, name: 'Specials', isActive: false },
+        { id: 4, name: 'lootbox', isActive: false },
     ]);
     const [mineItems, setMineItems] = useState([
        
@@ -55,8 +55,7 @@ const MineMarketList = ({ url }) => {
                         if(item.type === "Specials") {
                             return <MineMarketItemSpecial key={index} item={item}/>
                         } else{
-                            return <MineMarketItem key={index} item={item}/>
-
+                            return <MineMarketItem setMinePanel={setMinePanel} key={index} item={item}/>
                         }
                     }
                 })

@@ -2,18 +2,56 @@ import React from 'react';
 import cl from "./MinePanel.module.css";
 import Button from "../Button/Button";
 import {convertMoneyToRCommasIsFull} from "../../hooks/converMoney";
+import {usePlayerStore} from "../../../store/playerStore.mjs";
+import { toast } from 'react-toastify';
 
-const MinePanel = ({minePanel, setMinePanel, money}) => {
+const MinePanel = ({minePanel, setMinePanel, money, url}) => {
+    const {player} = usePlayerStore((state) => state);
     const rootClasses = [cl.deleteAccount__background]
-    if(minePanel === true){
+    if(minePanel !== false){
         rootClasses.push(cl.active)
+        console.log(JSON.stringify(minePanel))
     }
+    const goahead = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                console.error('Token not found');
+                return;
+            }
+    
+            const response = await fetch(`${url}/api/buyMine/${player?.id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify({ dayliy: minePanel?.id }),
+            });
+    
+            if (!response.ok) {
+                toast.error('Error code: ' + response.status, { theme: 'dark' });
+                return false;
+            }
+    
+            const data = await response.json(); // Ожидание ответа сервера
+            console.log('Response data:', data);
+    
+            setMinePanel(false); // Закрытие панели после успешной покупки
+        } catch (e) {
+            console.error('Error:', e);
+            toast.error('Error: ' + e.message, { theme: 'dark' });
+        }
+    };
+    
+
+
     return (
         <div className={rootClasses.join(" ")}>
             <div className={cl.deleteAccount__container}>
                 <img src={require("../../images/progressKangaroo.png")} alt=""/>
                 <div className={cl.deleteAccount__container__title}>
-                    Role
+                    {minePanel?.title}
                 </div>
                 <div className={cl.deleteAccount__container__description}>
                     Описание
@@ -35,7 +73,7 @@ const MinePanel = ({minePanel, setMinePanel, money}) => {
                         </svg>
                     </div>
                     <div className={cl.minePanel__profit__count}>
-                        +10
+                        +{minePanel?.profit}
                     </div>
                 </div>
                 <div className={cl.money}>
@@ -51,7 +89,7 @@ const MinePanel = ({minePanel, setMinePanel, money}) => {
                     </svg>
                     {money>0?convertMoneyToRCommasIsFull(money):0}
                 </div>
-                <Button text={"Go ahead"} isImg={false} isFullScreen={true}/>
+                <Button text={"Go ahead"} isImg={false} isFullScreen={true} onClick={goahead}/>
                 <button onClick={() => setMinePanel(false)} className={cl.deleteAccount__container__button}>
                     Cancel
                 </button>

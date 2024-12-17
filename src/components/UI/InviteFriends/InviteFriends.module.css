@@ -24,7 +24,13 @@
 }
 
 .inviteFriend__container__item__block__image{
+
 }
+.inviteFriend__container__item__block__video video{
+    width: 90px;
+    height: 90px;
+}
+
 .inviteFriend__container__item__block__rewardText{
     display: flex;
     gap: 4px;

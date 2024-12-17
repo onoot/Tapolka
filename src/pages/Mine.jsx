@@ -66,7 +66,7 @@ const Mine = ({timer, money, energy, setMinePanel, setBoost, url}) => {
                     </div>
                 </div>
                 <Money money={money}/>
-                <MineMarketList url={url}/>
+                <MineMarketList setMinePanel={setMinePanel} url={url}/>
             </div>
         </div>
     );

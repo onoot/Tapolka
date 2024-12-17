@@ -126,10 +126,10 @@ function App() {
     return (
         <TonConnectUIProvider manifestUrl={`${urlBase}/manifest.json`}>
             <div className="App">
-            <Settings visible={settings} setVisible={setSettings}/>
+        <Settings visible={settings} setVisible={setSettings}/>
         <Boost visible={boost} setVisible={setBoost} money={player.money}/>
         <Progress visible={progress} setVisible={setProgress} player={player}/>
-        <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money}/>
+        <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} url={urlBase}/>
             <ToastContainer />
                 {isLoading ? (
                     <Loading />
