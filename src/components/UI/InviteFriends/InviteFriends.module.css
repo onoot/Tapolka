@@ -43,3 +43,8 @@
 .inviteFriend__container__item__block__svg{
     margin-top: -2px;
 }
+
+.inviteFriend__chest{
+    width: 25px;
+    height: 25px;
+}

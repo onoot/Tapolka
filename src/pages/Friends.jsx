@@ -9,8 +9,8 @@ const Friends = ({url}) => {
     const { player } = usePlayerStore((state) => state);
 
     const [inviteFriends, setInviteFriends] = useState([
-        {id: 1, task: "Invite a friend", reward: 5000, description: "For you & your friend", pathImg:"redGift"},
-        {id: 2, task: "Invite a friend with Telegram Premium", reward: 25000, description: "For you & your friend", pathImg:"blueGift"},
+        {id: 1, task: "LootBox and key", reward: 1, description: "For you & your friend", pathImg:"redGift"},
+        {id: 2, task: "LootBoxes and keys for Premium", reward: 3, description: "For you & your friend", pathImg:"blueGift"},
     ])
     const {initData} = useTelegram();
 

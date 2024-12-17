@@ -26,7 +26,7 @@
 
 .friends__container:before{
     content: "";
-    background-image: url("../components/images/background.png");
+    background-image: url("../components/images/background.webp");
     position: absolute;
     width: 100svw;
     left: 0;
