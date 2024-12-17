@@ -20,7 +20,7 @@ const MinePanel = ({minePanel, setMinePanel, money, url}) => {
                 return;
             }
     
-            const response = await fetch(`${url}/api/buyMine/${player?.id}`, {
+            const response = await fetch(`${url}/api/buyMine?id=${player?.id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
