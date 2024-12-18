@@ -1,22 +1,25 @@
-import React, {useRef, useEffect} from 'react';
+import React, { useRef, useEffect } from 'react';
 import cl from "./MineMarketItem.module.css"
 import { convertMoneyToReduction } from "../../hooks/converMoney";
 const MineMarketItem = ({ setMinePanel, item }) => {
     const containerRef = useRef(null);
 
-    const containerClasses = item.isLock 
-    ? `${cl.mineMarketItems__container} ${cl.mineMarketItems__container__locked}`
-    : cl.mineMarketItems__container;
+    const containerClasses = item.isLock
+        ? `${cl.mineMarketItems__container} ${cl.mineMarketItems__container__locked}`
+        : cl.mineMarketItems__container;
 
     useEffect(() => {
         if (containerRef.current) {
-          // Проверяем и устанавливаем значение
-          const content = item?.lelels ? `"lvl 0${item.lelels}"` : '"lvl 0"';
-          containerRef.current.style.setProperty('--custom-content', content);
+            console.log(item?.levels);
+
+            // Проверяем и устанавливаем значение
+            const content = item?.levels != null ? `"lvl 0${item.levels}"` : '"lvl 0"';
+            containerRef.current.style.setProperty('--custom-content', content);
         }
-      }, [item]);
-return (
-    <div className={containerClasses} ref={containerRef}>
+    }, [item]);
+
+    return (
+        <div className={containerClasses} ref={containerRef}>
             <div className={cl.mineMarketItems__container__block}>
                 <div className={`${cl.mineMarketItems__container__block__image} ${cl.mineMarketItems__container__block__mainImage}`}>
                     <img src={require("../../images/kangaroo.png")} alt="" />
