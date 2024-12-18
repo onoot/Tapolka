@@ -16,7 +16,7 @@ import NavbarBtn from "../NavbarBtn/NavbarBtn";
 
 const Navbar = () => {
     const [navbarPosition, setNavbarPosition] = useState([
-        {id:1, name:"exchange", isActive: false, on: <ExchangeOn/>, off: <ExchangeOff/>},
+        {id:1, name:"home", isActive: false, on: <ExchangeOn/>, off: <ExchangeOff/>},
         {id:2, name:"mine", isActive: false, on: <MineOn/>, off: <MineOff/>},
         {id:3, name:"friends", isActive: false, on: <FriendsOn/>, off: <FriendsOff/>},
         {id:4, name:"earn", isActive: false, on: <EarnOn/>, off: <EarnOff/>},

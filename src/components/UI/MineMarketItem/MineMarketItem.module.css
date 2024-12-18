@@ -10,8 +10,10 @@
     position: relative;
     overflow: hidden;
 }
+
 .mineMarketItems__container:before{
-    content: 'lvl 01';
+    /* content: 'lvl 01'; */
+    content: var(--custom-content, '');
     font-size: 10px;
     display: flex;
     align-items: center;

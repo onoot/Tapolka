@@ -56,7 +56,7 @@ const Friends = ({url}) => {
                 Invite friends!
             </div>
             <div className={cl.friends__container__description}>
-                You and your friend will receive bonuses
+                The opening of the LootBox will take place before TGE
             </div>
             <InviteFriendsList inviteFriends={inviteFriends} url={url}/>
             <FriendsList friends={friends} GetList={GetList}/>

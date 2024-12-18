@@ -90,7 +90,9 @@ function App() {
             }
 
             const data = await response.json();
-            if (data.token) localStorage.setItem('token', data.token);
+            if (data.token) 
+                localStorage.removeItem('token');
+                localStorage.setItem('token', data.token);
 
             const playerData = {
                 id: data.id || 1,

@@ -6,12 +6,13 @@ import {usePlayerStore} from "../../../store/playerStore.mjs";
 import { toast } from 'react-toastify';
 
 const MinePanel = ({minePanel, setMinePanel, money, url}) => {
-    const {player} = usePlayerStore((state) => state);
+    const {player, updateMoney} = usePlayerStore((state) => state);
     const rootClasses = [cl.deleteAccount__background]
     if(minePanel !== false){
         rootClasses.push(cl.active)
-        console.log(JSON.stringify(minePanel))
+        // console.log(JSON.stringify(minePanel))
     }
+
     const goahead = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -20,21 +21,41 @@ const MinePanel = ({minePanel, setMinePanel, money, url}) => {
                 return;
             }
     
-            const response = await fetch(`${url}/api/buyMine?id=${player?.id}`, {
+            // Исправленный путь: передаём id как часть URL
+            const response = await fetch(`${url}/api/buyCard/${player?.id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify({ dayliy: minePanel?.id }),
+                body: JSON.stringify({ dayliy: minePanel?.id }), 
             });
     
             if (!response.ok) {
+                try {
+                    // Извлекаем текст ответа
+                    const errorText = await response.text();
+            
+                    // Проверяем, есть ли в тексте строка "400"
+                    if (errorText.includes("400")) {
+                        toast.error('Insufficient funds', { theme: 'dark' });
+                        setMinePanel(false); 
+                        return false;
+                    }
+            
+                    // Логируем текст ошибки для диагностики
+                    console.error('Error response:', errorText);
+                } catch (e) {
+                    console.error('Error reading response:', e);
+                }
+            
                 toast.error('Error code: ' + response.status, { theme: 'dark' });
                 return false;
             }
+            
     
             const data = await response.json(); // Ожидание ответа сервера
+            updateMoney(data?.user?.money);
             console.log('Response data:', data);
     
             setMinePanel(false); // Закрытие панели после успешной покупки
@@ -43,6 +64,7 @@ const MinePanel = ({minePanel, setMinePanel, money, url}) => {
             toast.error('Error: ' + e.message, { theme: 'dark' });
         }
     };
+    
     
 
 
