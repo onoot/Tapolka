@@ -3,15 +3,28 @@ import cl from "./MinePanel.module.css";
 import Button from "../Button/Button";
 import {convertMoneyToRCommasIsFull} from "../../hooks/converMoney";
 import {usePlayerStore} from "../../../store/playerStore.mjs";
+import {DayStore} from "../../../store/dayStore.mjs";
 import { toast } from 'react-toastify';
 
 const MinePanel = ({minePanel, setMinePanel, money, url}) => {
     const {player, updateMoney} = usePlayerStore((state) => state);
+    const { updateImage, kangaroo } = new DayStore((state) => state);
     const rootClasses = [cl.deleteAccount__background]
     if(minePanel !== false){
         rootClasses.push(cl.active)
         // console.log(JSON.stringify(minePanel))
     }
+
+    // Функция для изменения изображения на картинку кенгуру
+  const changeToKangaroo = () => {
+    try {
+      // Предположим, что мы обновляем изображение для элемента с id = 1
+      updateImage(1, kangaroo); // Обновляем изображение на kangaroo
+    } catch (error) {
+      console.error('Error updating image:', error);
+    }
+  };
+
 
     const goahead = async () => {
         try {
@@ -57,6 +70,9 @@ const MinePanel = ({minePanel, setMinePanel, money, url}) => {
             const data = await response.json(); // Ожидание ответа сервера
             updateMoney(data?.user?.money);
             console.log('Response data:', data);
+            if(data?.guessed==true){
+                changeToKangaroo();
+            }
     
             setMinePanel(false); // Закрытие панели после успешной покупки
         } catch (e) {

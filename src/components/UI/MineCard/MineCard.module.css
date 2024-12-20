@@ -1,4 +1,4 @@
-.mineCard__container{
+.mineCard__container {
     background: #32353A;
     background-image: url("../../images/mineCardBackground.png");
     background-position: bottom;
@@ -8,10 +8,11 @@
     border-radius: 12px;
     box-shadow: 0 -4px 0 0 #4F5AD7;
     position: relative;
-}
-.mineCard__container:before{
+  }
+  
+  .mineCard__container:before {
     content: "";
-    background: url("../../images/MineCardQuestion.png");
+    background: var(--mine-card-bg); /* Устанавливается через JS */
     width: 38px;
     height: 60px;
     position: absolute;
@@ -21,4 +22,5 @@
     right: 0;
     top: 6px;
     text-align: center;
-}
+  }
+  

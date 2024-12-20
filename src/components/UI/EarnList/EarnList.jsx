@@ -27,7 +27,7 @@ const EarnList = ({listTasks, url}) => {
                     })
                 }
             </div>
-            Task list
+            Сommunity tasks
             <div className={cl.earnList_container__row}>
                 {
                     sortArray(listTasks, 4).map((task) =>{
@@ -40,7 +40,7 @@ const EarnList = ({listTasks, url}) => {
                     })
                 }
             </div>
-            Tongaroo Youtube
+            Partner tasks
             <div className={cl.earnList_container__row}>
                 {
                     sortArray(listTasks, 2).map((task) =>{

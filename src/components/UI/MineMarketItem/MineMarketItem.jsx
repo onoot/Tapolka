@@ -10,13 +10,11 @@ const MineMarketItem = ({ setMinePanel, item }) => {
 
     useEffect(() => {
         if (containerRef.current) {
-            console.log(item?.levels);
-
             // Проверяем и устанавливаем значение
-            const content = item?.levels != null ? `"lvl 0${item.levels}"` : '"lvl 0"';
+            const content = item?.levels != null ? `"lvl 0${item?.levels}"` : '"lvl 0"';
             containerRef.current.style.setProperty('--custom-content', content);
         }
-    }, [item]);
+    }, [item, setMinePanel]);
 
     return (
         <div className={containerClasses} ref={containerRef}>
@@ -43,13 +41,13 @@ const MineMarketItem = ({ setMinePanel, item }) => {
             </div>
             <div onClick={() => setMinePanel(item)} className={cl.mineMarketItems__container__block}>
                 <div className={cl.mineMarketItems__container__block__textPrice}>
-                    Upgrade
+                    Upgrade 
                 </div>
                 <div className={cl.mineMarketItems__container__block__price}>
                     <div className={cl.mineMarketItems__container__block__image}>
                         <CoinIcon height={'10px'} width={'10px'} />
                     </div>
-                    {convertMoneyToReduction(item.price)}
+                    {convertMoneyToReduction(item?.levels==null?0.5*item?.price*item?.multip:item?.levels*item?.price*item?.multip)}
                 </div>
             </div>
         </div>
