@@ -11,15 +11,13 @@
     display: flex;
     flex-direction: column;
     background: #282B30;
-    padding: 15px; /* Ensure consistent padding */
+    padding: 15px 20px 15px 15px;
     border-radius: 12px;
     border: 1px solid rgba(120, 120, 120, 0.3);
     box-shadow: 0 -4px 0 0 #D02EF9;
     position: relative;
-    width: 100%; /* Uniform width for all cards */
-    max-width: 150px; /* Optional: to limit card size */
-    height: 150px; /* Reduced uniform height for all cards */
-    box-sizing: border-box; /* Include padding and border in width/height */
+    width: 120px; 
+    box-sizing: border-box; 
 }
 
 .dailyList__container.true:before {
