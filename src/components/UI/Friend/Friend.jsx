@@ -1,8 +1,18 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import cl from "./Friend.module.css"
 import {convertMoneyToReduction} from "../../hooks/converMoney";
+import {convertData} from "../../hooks/convertUserData.mjs";
 
 const Friend = ({friend}) => {
+    const [rank, setRank] = useState(null);
+    const converter = new convertData();
+    
+     useEffect(() => {
+            if (friend && friend.rank !== undefined) {
+                const convertedRank = converter.convertRank(friend.rank);
+                setRank(convertedRank);
+            }
+        }, [friend]);
     return (
         <div className={cl.friend__container}>
             <div className={cl.friend__container__block}>
@@ -11,10 +21,10 @@ const Friend = ({friend}) => {
                 </div>
                 <div className={cl.friend__container__description}>
                     <div className={cl.friend__container__description__name}>
-                        {friend.name}
+                        {friend.firstName}
                     </div>
                     <div className={cl.friend__container__description__level}>
-                        Level {friend.level}
+                        Level {rank?.rank}
                     </div>
                 </div>
             </div>
@@ -32,7 +42,7 @@ const Friend = ({friend}) => {
                     </svg>
                 </div>
                 <div className={cl.friend__container__item__reward}>
-                    +{convertMoneyToReduction(friend.reward)}
+                    {convertMoneyToReduction(friend?.money)}
                 </div>
             </div>
         </div>
