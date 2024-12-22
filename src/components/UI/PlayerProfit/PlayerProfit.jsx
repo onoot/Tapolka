@@ -13,7 +13,7 @@ const PlayerProfit = ({setSettings}) => {
                 </div>
                 <div className={cl.playerProfit__container__block__item}>
                     <div className={cl.playerProfit__container__block__item__profitInfo__text}>
-                    lootbox
+                    Lootbox
                     </div>
                     <div className={cl.playerProfit__container__block__item__profitInfo}>
                         <img className={cl.PlayerProfit__key}src={require("./../../images/chest.png")} alt="" />

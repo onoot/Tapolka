@@ -105,6 +105,8 @@ function App() {
                 rank: data.rank || 0,
                 benefit: data.benefit || 0,
                 key: data.key|| 0,
+                daily: JSON.parse(data.combo_daily_tasks||'[]'),
+                reward: data.reward || null,
             };
             updatePlayer(playerData);
             setIsLoading(false)

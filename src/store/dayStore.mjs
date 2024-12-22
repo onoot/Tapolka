@@ -59,3 +59,31 @@ export class DayStore {
     };
   }
 }
+
+export const useDayStore = create((set) => ({
+  items: [
+    { id: 1, image: MineCardImage, card: 0 },
+    { id: 2, image: MineCardImage, card: 0 },
+    { id: 3, image: MineCardImage, card: 0 },
+  ],
+  promoEndTime: null,
+  updateImage: (itemId, newImage) =>
+    set((state) => {
+      const items = state.items.map((item) =>
+        item.id === itemId ? { ...item, image: newImage } : item
+      );
+      return { items };
+    }),
+  updatePromoEndTime: (newEndTime) => {
+    if (isNaN(new Date(newEndTime).getTime())) {
+      throw new Error('Invalid date format for promo end time');
+    }
+    set({ promoEndTime: newEndTime });
+  },
+  resetStorage: (newEndTime) => {
+    if (isNaN(new Date(newEndTime).getTime())) {
+      throw new Error('Invalid date format for promo end time');
+    }
+    set({ items: [], promoEndTime: newEndTime });
+  },
+}));

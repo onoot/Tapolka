@@ -10,7 +10,7 @@ const SettingInput = ({param, setSettings}) => {
                 {param.name}
             </div>
             <div className={cl.settingParam__container__paramInput}>
-                <input defaultChecked={param.isActive} name="language" type="radio"/>
+                <input disabled defaultChecked={param.isActive} name="language" type="radio"/>
             </div>
         </div>
     );

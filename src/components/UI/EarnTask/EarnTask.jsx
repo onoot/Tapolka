@@ -729,9 +729,11 @@ const EarnTask = ({ task, url }) => {
                     <stop offset="1" style={{ stopColor: "#8AAADC" }} />
                 </linearGradient>
             </defs>
-        </svg>
+        </svg>,
+        <img className={cl.task_max_size} src={require("../../images/pawn.jpg")} alt="" />,
+        <img className={cl.task_max_size} src={require("../../images/blum.png")} alt="" />
     ]
-    const index = task.type - 1
+    const index = task.number - 1
 
     const [link, setLink] = useState('');
     const {initData} = useTelegram();

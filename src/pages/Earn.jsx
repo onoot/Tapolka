@@ -4,11 +4,11 @@ import EarnList from "../components/UI/EarnList/EarnList";
 
 const Earn = ({url}) => {
     const [tasks, setTasks] = useState([
-        {id: 1, task: "Subscribe to Blum", reward: 5000,type:2, number:1},
-        {id: 2, task: "Subscribe to Paws", reward: 5000, type:2, number:2},
-        {id: 3, task: "Daily Combo", reward: 5000, type:1, number:3},
+        {id: 3, task: "Subscribe to Blum", reward: 5000,type:2, number:5},
+        {id: 2, task: "Subscribe to Paws", reward: 5000, type:2, number:6},
+        {id: 3, task: "Daily Combo", reward: 5000, type:1, number:1},
         {id: 4, task: "Subscribe to the community", reward: 5000, type:4, number:4},
-        {id: 5, task: "Boost to the community", reward: 25000, type:3, number:5},
+        {id: 5, task: "Boost to the community", reward: 25000, type:3, number:3},
     ])
 
 

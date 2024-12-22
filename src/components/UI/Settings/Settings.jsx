@@ -65,9 +65,6 @@ const Settings = ({visible, setVisible}) => {
                 {
                     id:2, name: "Telegram", isActive: false, isInput: true
                 },
-                {
-                    id:3, name: "Telegram", isActive: false, isInput: true
-                }
             ]
         }
     ])

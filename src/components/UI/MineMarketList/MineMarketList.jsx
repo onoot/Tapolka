@@ -4,18 +4,19 @@ import MineMarketType from '../MineMarketType/MineMarketType';
 import MineMarketItem from '../MineMarketItem/MineMarketItem';
 import MineMarketItemSpecial from '../MineMarketItemSpecial/MineMarketItemSpecial';
 import { useTelegram } from '../../hooks/useTelegram';
+import { usePlayerStore } from '../../../store/playerStore.mjs';
 
 const MineMarketList = ({setMinePanel, url }) => {
     const [mineTypes, setMineTypes] = useState([
         { id: 1, name: 'Combo', isActive: true },
         { id: 2, name: 'Market', isActive: false },
         { id: 3, name: 'Spin', isActive: false },
-        { id: 4, name: 'lootbox', isActive: false },
+        { id: 4, name: 'Lootbox', isActive: false },
     ]);
-    const [mineItems, setMineItems] = useState([
-       
-    ])
+    const {player} = usePlayerStore((state) => state);
+    const [mineItems, setMineItems] = useState([])
     const { initData } = useTelegram();
+
     const getItems = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -40,7 +41,7 @@ const MineMarketList = ({setMinePanel, url }) => {
     
     useEffect(() => {
         getItems();
-    }, [mineTypes]);
+    }, [mineTypes, player?.money]);
 
     return (
         <div className={cl.mineMarketContainer}>

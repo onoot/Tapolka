@@ -13,8 +13,10 @@
   .mineCard__container:before {
     content: "";
     background: var(--mine-card-bg); /* Устанавливается через JS */
-    width: 38px;
-    height: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 54px;
+    height: 63px;
     position: absolute;
     margin-left: auto;
     margin-right: auto;

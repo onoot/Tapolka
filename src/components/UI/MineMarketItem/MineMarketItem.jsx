@@ -1,12 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import cl from "./MineMarketItem.module.css"
 import { convertMoneyToReduction } from "../../hooks/converMoney";
-const MineMarketItem = ({ setMinePanel, item }) => {
+const MineMarketItem = ({ setMinePanel, item}) => {
     const containerRef = useRef(null);
 
     const containerClasses = item.isLock
         ? `${cl.mineMarketItems__container} ${cl.mineMarketItems__container__locked}`
         : cl.mineMarketItems__container;
+
 
     useEffect(() => {
         if (containerRef.current) {
@@ -14,6 +15,8 @@ const MineMarketItem = ({ setMinePanel, item }) => {
             const content = item?.levels != null ? `"lvl 0${item?.levels}"` : '"lvl 0"';
             containerRef.current.style.setProperty('--custom-content', content);
         }
+    // console.log(item)
+
     }, [item, setMinePanel]);
 
     return (

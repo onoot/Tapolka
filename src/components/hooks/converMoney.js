@@ -1,72 +1,59 @@
-export function convertMoneyToReduction(money){
-    if (money == null) return 0; 
+export function convertMoneyToReduction(money) {
+    if (money == null || isNaN(money)) return "0";
 
-    const multipliers = ["K", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc"]
-    const str = money.toString().length;
-    let a = Math.floor(str/3);
-    const b = str%3;
-    let res, res1, res2;
-    let bool = true;
-    if(b){
-        res = money.toString().substring(0,b*2+1)
-        res1 = res.slice(0, b)
-        res2 = res.slice(b, b+2)
-    } else{
-        res = money.toString().substring(0,4)
-        res1 = res.slice(0, 3)
-        res2 = res.slice(3)
+    const multipliers = ["K", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc"];
+    const str = money.toString();
+    const length = str.length;
+
+    if (length <= 3) {
+        return money.toString(); // Если число меньше 1000, возвращаем как есть
+    }
+
+    let a = Math.floor(length / 3);
+    const b = length % 3;
+    let res1, res2;
+
+    if (b) {
+        res1 = str.substring(0, b);
+        res2 = str.substring(b, b + 2);
+    } else {
+        res1 = str.substring(0, 3);
+        res2 = str.substring(3, 5);
         a--;
     }
-    while (bool){
-        if(res2.slice(-1) === "0"){
-            res2=res2.slice(0,-1);
-        } else {
-            bool = false;
-        }
+
+    // Убираем лишние нули в конце
+    res2 = res2.replace(/0+$/, "");
+
+    if (multipliers[a - 1] && res2) {
+        return `${res1},${res2}${multipliers[a - 1]}`;
+    } else if (multipliers[a - 1]) {
+        return `${res1}${multipliers[a - 1]}`;
     }
-    if (multipliers[a-1] && res2){
-        res = res1 + "," + res2 + multipliers[a-1]
-    } else if(multipliers[a-1] && !res2){
-        res = res1 + multipliers[a-1];
-    } else{
-        res = res1;
-    }
-    return res;
+    return res1;
 }
+
 export function convertMoneyToRCommasIsFull(money) {
-    try {
-        // Если число меньше 1000, возвращаем его как есть, без форматирования
-        if (money < 1000) {
-            return money.toString();
-        }
+    if (money == null || isNaN(money)) return "0";
 
-        const strLength = money.toString().length;
-        const segments = [];
-        let mainPart, remainderPart;
-        
-        mainPart = money;
-        
-        let groupCount = Math.floor(strLength / 3);
-        const remainder = strLength % 3;
-
-        if (remainder) {
-            mainPart = money.toString().slice(0, remainder);
-            remainderPart = money.toString().slice(remainder);
-        }
-        
-        for (let i = 0; i < groupCount; i++) {
-            segments[i] = remainderPart.toString().slice(i * 3, i * 3 + 3);
-        }
-        
-        mainPart = mainPart + "," + segments.join(",");
-        return mainPart;
-    } catch (e) {
-        console.log(money);
-        console.log(e);
-        return money;
+    // Если число меньше 1000, возвращаем его как есть
+    if (money < 1000) {
+        return money.toString();
     }
+
+    const str = money.toString();
+    const strLength = str.length;
+    const remainder = strLength % 3;
+    const mainPart = remainder ? str.slice(0, remainder) : "";
+    const groups = str.slice(remainder).match(/.{1,3}/g) || [];
+
+    return mainPart
+        ? `${mainPart},${groups.join(",")}`
+        : groups.join(",");
 }
 
-export function convertMoneyToRCommas(money){
+export function convertMoneyToRCommas(money) {
+    if (money == null || isNaN(money)) return "0";
 
+    return money.toLocaleString(); // Простое форматирование чисел с запятыми
 }

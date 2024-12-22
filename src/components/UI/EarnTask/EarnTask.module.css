@@ -29,3 +29,8 @@
 .earnTask__container__reward svg{
     margin-top: -2px;
 }
+
+.task_max_size{
+    height: 60px;
+    width: 60px;
+}
