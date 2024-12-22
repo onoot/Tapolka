@@ -2,7 +2,6 @@
     position: absolute;
     z-index: 10;
     width: 100svw;
-    height: 100svh;
     padding: 16px;
     top: 0;
     left: 0;
@@ -85,12 +84,21 @@
 .progress__svg{
     margin-top: 5px;
 }
+
 .progress__user{
     position: fixed;
     bottom: 20px;
     width: 91%;
     border: 1px solid #A55BFE;
     border-radius: 16px;
+}
+
+.progress_for_user{
+    border: 1px solid #A55BFE;
+    border-radius: 16px;
+}
+.progress_for_pizda{
+    width: 100vw;
 }
 .progress__progressBar{
     width: 100%;

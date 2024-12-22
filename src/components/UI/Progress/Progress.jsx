@@ -4,26 +4,23 @@ import ButtonClose from "../ButtonSettingBack/ButtonClose";
 import clD from "./Progress.module.css";
 import ProgressItem from "../ProgressItem/ProgressItem";
 import { convertMoneyToReduction } from "../../hooks/converMoney";
-import {convertData} from "../../hooks/convertUserData.mjs";
+import { convertData } from "../../hooks/convertUserData.mjs";
 
-const Progress = ({ visible, setVisible, player, url, pisda}) => {
-    const [users, setUsers] = useState([])
+const Progress = ({ visible, setVisible, player, url, pisda }) => {
+    const [users, setUsers] = useState([]);
     const [rank, setRank] = useState(null);
     const money = convertMoneyToReduction(player?.money);
     const converter = new convertData();
-    
-    console.log(player)
-    
+
     async function getData() {
         try {
-            if(pisda === false) 
-                return
+            if (pisda === false) return;
             const token = localStorage.getItem('token');
-            if(!token) {
+            if (!token) {
                 console.error(!token);
                 return;
             }
-            const response = await fetch(`${url}/api/board/${player?.id}`,{
+            const response = await fetch(`${url}/api/board/${player?.id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,12 +32,13 @@ const Progress = ({ visible, setVisible, player, url, pisda}) => {
             }
             const data = await response.json();
             if (data) {
-                setUsers(data);
+                setUsers(data.users); // Устанавливаем только массив пользователей
             }
         } catch (e) {
-            console.log(e)
+            console.log(e);
         }
     }
+
     useEffect(() => {
         getData();
     }, [pisda]);
@@ -52,10 +50,14 @@ const Progress = ({ visible, setVisible, player, url, pisda}) => {
         }
     }, [player]);
 
-    const rootClasses = [clD.settings__container]
+    const rootClasses = [clD.settings__container];
     if (visible === true) {
-        rootClasses.push(clD.active)
+        rootClasses.push(clD.active);
     }
+
+    // Проверяем, есть ли user.id среди users
+    const isUserInUsers = users.some((u) => u.id === player?.id);
+
     return (
         <div>
             <div className={rootClasses.join(" ")}>
@@ -82,15 +84,19 @@ const Progress = ({ visible, setVisible, player, url, pisda}) => {
                     </div>
                 </div>
                 <div className={cl.settings__container__settingBlock}>
-                    {users?.users?.map((prop) => {
+                    {users?.map((prop) => {
                         return (
-                            <ProgressItem key={prop.id} prop={prop} />
+                            <div className={`${clD.progress_for_pizda} ${prop.id === player?.id ? clD.progress_for_user : ''}`}>
+                                <ProgressItem key={prop.id} prop={prop} />
+                            </div>
                         )
                     })}
                 </div>
-                <div className={clD.progress__user}>
-                    <ProgressItem key={player.id} prop={player} />
-                </div>
+                {!isUserInUsers && (
+                    <div className={clD.progress__user}>
+                        <ProgressItem key={player.id} prop={player} />
+                    </div>
+                )}
             </div>
         </div>
     );

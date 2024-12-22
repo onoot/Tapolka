@@ -24,7 +24,7 @@ const ProgressItem = ({ prop }) => {
                 </div>
                 <div className={clT.boosters__container__block}>
                     <div className={clD.boosters__container__block__title}>
-                        {prop?.name}
+                        {prop?.firstName}
                     </div>
                     <div className={clD.boosters__container__block__rank}>
                         Rank: {rank?.rank}
