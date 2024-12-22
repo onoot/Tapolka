@@ -18,6 +18,7 @@ const BuildAPage = React.lazy(() => import("./components/BuildAPage"));
 
 function App() {
     const { user, tg, initData, photoUrl, expand } = useTelegram();
+    // const { user, tg, photoUrl, expand } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
 
     const [settings, setSettings] = useState(false);
@@ -28,7 +29,9 @@ function App() {
     const [isError, setIsError] = React.useState(true);
     const [pisda, setPisda] = React.useState(false);
     const urlBase="https://tongaroo.fun"
+    // const urlBase="http://localhost"
 
+    // const initData = {"query_id":"AAH-2XhEAAAAAP7ZeETH4IO6","user":{"id":1148770814,"first_name":"overlamer","last_name":"Broken","username":"Crazy_santa","language_code":"ru","allows_write_to_pm":true,"photo_url":"https://t.me/i/userpic/320/XO1rdazihmwfj8CcPcBSmaGmx1WgnQpPp5lJnxAxYQ0.svg"},"auth_date":"1731992070","signature":"1l_D07GmouWIa-mY0nG5EPDfISHvEl2UdYtsm41_M4jqeHlmGK6f2Oq6O6xjePbAsAk4yoo5i-ZRHvx3CF2-Bw","hash":"247557dc49adbf846e3a9ebd2dac18b59e0acde3d4371d8757608c89314aa3d9"}
     
     useEffect(() => {
         tg.ready();
@@ -66,65 +69,73 @@ function App() {
     }, []);
 
     // Функция для асинхронной загрузки данных игрока
-    const fetchPlayerData = async () => {
-        try {
-            const response = await fetch(`${urlBase}/api/login`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(initData),
-            });
-            if (!response.ok) {
-                toast.error(`Error: ${response.status}!`, {
+    const fetchPlayerData = async (retryCount = 3, delay = 1000) => {
+        for (let attempt = 1; attempt <= retryCount; attempt++) {
+            try {
+                const response = await fetch(`${urlBase}/api/login`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(initData),
+                });
+    
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status}`);
+                }
+    
+                const data = await response.json();
+                if (data.token) {
+                    localStorage.removeItem('token');
+                    localStorage.setItem('token', data.token);
+                }
+    
+                const playerData = {
+                    id: data.id || 1,
+                    name: data?.name || user?.username || 'Guest',
+                    role: data.role || 'CEO',
+                    money: data.money || 0,
+                    totalMoney: data.totalMoney || 0,
+                    profit: data.profit || 0,
+                    energy: data.energy || 1000,
+                    rank: data.rank || 0,
+                    benefit: data.benefit || 0,
+                    key: data.key || 0,
+                    daily: JSON.parse(data.combo_daily_tasks || '[]'),
+                    reward: data.reward || null,
+                };
+    
+                updatePlayer(playerData);
+                setIsLoading(false);
+                toast.info('Welcome!', {
                     position: 'top-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
+                    autoClose: 3000,
                     theme: 'dark',
                 });
-                return false;
+    
+                setPisda(true);
+                setIsError(false);
+                return; // Успешное завершение
+            } catch (error) {
+                if (attempt < retryCount) {
+                    console.warn(`Attempt ${attempt} failed. Retrying in ${delay}ms...`);
+                    await new Promise((res) => setTimeout(res, delay));
+                } else {
+                    console.error('All attempts failed.');
+                    toast.error(`Failed to fetch data after ${retryCount} attempts: ${error.message}`, {
+                        position: 'top-right',
+                        autoClose: 5000,
+                        theme: 'dark',
+                    });
+                    setIsLoading(true);
+                    setIsError(true);
+                }
             }
-
-            const data = await response.json();
-            if (data.token) 
-                localStorage.removeItem('token');
-                localStorage.setItem('token', data.token);
-
-            const playerData = {
-                id: data.id || 1,
-                name: data?.name || user?.username || 'Guest',
-                role: data.role || 'CEO',
-                money: data.money || 0,
-                totalMoney: data.totalMoney || 0,
-                profit: data.profit || 0,
-                energy: data.energy || 1000,
-                rank: data.rank || 0,
-                benefit: data.benefit || 0,
-                key: data.key|| 0,
-                daily: JSON.parse(data.combo_daily_tasks||'[]'),
-                reward: data.reward || null,
-            };
-            updatePlayer(playerData);
-            setIsLoading(false)
-            toast.info('Welcome!', {
-                position: 'top-right',
-                autoClose: 3000,
-                theme: 'dark',
-            });
-            setPisda(true);
-            setIsError(false);
-        } catch (error) {
-            toast.error(`Ошибка: ${error.message}`);
-            setIsLoading(true);
-            setIsError(true);
         }
     };
-
+    
     useEffect(() => {
         fetchPlayerData();
     }, []);
+    
 
     return (
         <TonConnectUIProvider manifestUrl={`${urlBase}/manifest.json`}>

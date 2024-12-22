@@ -7,7 +7,7 @@ import { DayStore, useDayStore } from "../../../store/dayStore.mjs";
 import { toast } from 'react-toastify';
 
 const MinePanel = ({ minePanel, setMinePanel, money, url }) => {
-    const { player, updateMoney } = usePlayerStore((state) => state);
+    const { player, updateMoney, updatePlayer } = usePlayerStore((state) => state);
     const { updateImage, kangaroo } = new DayStore((state) => state);
     const { items } = useDayStore();
     const [update, setUpdate] = useState(false);
@@ -16,7 +16,6 @@ const MinePanel = ({ minePanel, setMinePanel, money, url }) => {
     if (minePanel !== false) {
         rootClasses.push(cl.active)
     }
-
     const goahead = async () => {
         try {
             const token = localStorage.getItem('token');
@@ -24,7 +23,7 @@ const MinePanel = ({ minePanel, setMinePanel, money, url }) => {
                 toast.error('Token not found', { theme: 'dark' });
                 return;
             }
-
+    
             const response = await fetch(`${url}/api/buyCard/${player?.id}`, {
                 method: 'POST',
                 headers: {
@@ -33,7 +32,7 @@ const MinePanel = ({ minePanel, setMinePanel, money, url }) => {
                 },
                 body: JSON.stringify({ daily: minePanel?.id }),
             });
-
+    
             if (!response.ok) {
                 const errorText = await response.text();
                 if (response.status === 400 || errorText.includes("400")) {
@@ -41,25 +40,38 @@ const MinePanel = ({ minePanel, setMinePanel, money, url }) => {
                     setMinePanel(false);
                     return;
                 }
-
+    
                 toast.error(`Error code: ${response.status}`, { theme: 'dark' });
                 return;
             }
-
+    
             const data = await response.json();
-            // Обновляем деньги и проверяем результат
+    
+            // Обновляем деньги
             updateMoney(data?.user?.money);
-
+    
+            // Если угадал, обновляем состояние
             if (data?.guessed) {
-                setUpdate(!update)
+                setUpdate(!update);
+    
+                // Обновляем daily, сохраняя предыдущие данные
+                updatePlayer({
+                    ...player,
+                    daily: Array.isArray(player.daily)
+                        ? [...player.daily, { id: minePanel?.id }]
+                        : [{ id: minePanel?.id }],
+                });
             }
-
+    
+            console.log(player);
+    
             setMinePanel(false); // Закрытие панели
         } catch (error) {
             console.error('Error:', error);
             toast.error(`Error: ${error.message}`, { theme: 'dark' });
         }
     };
+    
 
     return (
         <div className={rootClasses.join(" ")}>

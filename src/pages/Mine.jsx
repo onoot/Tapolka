@@ -20,9 +20,9 @@ const Mine = ({ timer, money, energy, setMinePanel, setBoost, url }) => {
 
   useEffect(() => {
     setReward(player?.reward);
-
     // Получаем уникальные идентификаторы карт из combo_daily_tasks
     if (player?.daily) {
+      console.log(player)
       try {
         const uniqueIds = [...new Set(player.daily.map((task) => task.id))];
 
@@ -36,7 +36,7 @@ const Mine = ({ timer, money, energy, setMinePanel, setBoost, url }) => {
         console.error('Error parsing combo_daily_tasks:', error);
       }
     }
-  }, [player]);
+  }, [player?.money,]);
 
   useEffect(() => {
     // Обновляем карточки при изменении money или items
