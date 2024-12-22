@@ -27,6 +27,7 @@ function App() {
     const [minePanel, setMinePanel] = useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
     const [isError, setIsError] = React.useState(true);
+    const [pisda, setPisda] = React.useState(false);
     const urlBase="https://tongaroo.fun"
     // const urlBase="http://localhost"
 
@@ -115,6 +116,7 @@ function App() {
                 autoClose: 3000,
                 theme: 'dark',
             });
+            setPisda(true);
             setIsError(false);
         } catch (error) {
             toast.error(`Ошибка: ${error.message}`);
@@ -132,7 +134,7 @@ function App() {
             <div className="App">
         <Settings visible={settings} setVisible={setSettings}/>
         <Boost visible={boost} setVisible={setBoost} money={player.money}/>
-        <Progress visible={progress} setVisible={setProgress} player={player}/>
+        <Progress visible={progress} setVisible={setProgress} player={player} url={urlBase} pisda={pisda}/>
         <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} url={urlBase}/>
             <ToastContainer />
                 {isLoading ? (
