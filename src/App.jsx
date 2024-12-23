@@ -71,33 +71,36 @@ function App() {
     // Функция для асинхронной загрузки данных игрока
     const fetchPlayerData = async () => {
         try {
+            console.log('Fetching player data...');
             const response = await fetch(`${urlBase}/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(initData),
             });
+    
             if (!response.ok) {
                 toast.error(`Error: ${response.status}!`, {
                     position: 'top-right',
                     autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
                     theme: 'dark',
                 });
-                return false;
+                setIsError(true);
+                setIsLoading(false);
+                return;
             }
-
+    
             const data = await response.json();
-            if (data.token) 
-                localStorage.removeItem('token');
+            console.log('Response data:', data);
+    
+            if (data.token) {
                 localStorage.setItem('token', data.token);
-
+            } else {
+                console.warn('Token is missing in response');
+            }
+    
             const playerData = {
                 id: data.id || 1,
-                name: data?.name || user?.username || 'Guest',
+                name: data.name || user?.username || 'Guest',
                 role: data.role || 'CEO',
                 money: data.money || 0,
                 totalMoney: data.totalMoney || 0,
@@ -105,25 +108,34 @@ function App() {
                 energy: data.energy || 1000,
                 rank: data.rank || 0,
                 benefit: data.benefit || 0,
-                key: data.key|| 0,
-                daily: JSON.parse(data.combo_daily_tasks||'[]'),
+                key: data.key || 0,
+                daily: data.combo_daily_tasks || [],
                 reward: data.reward || null,
             };
+    
+            console.log('Player data:', playerData);
+    
             updatePlayer(playerData);
-            setIsLoading(false)
+            setIsLoading(false);
+            setIsError(false);
+    
             toast.info('Welcome!', {
                 position: 'top-right',
                 autoClose: 3000,
                 theme: 'dark',
             });
-            setPisda(true);
-            setIsError(false);
         } catch (error) {
-            toast.error(`${error.message}`);
+            console.error('Error during fetchPlayerData:', error);
+            toast.error(`Error: ${error.message}`, {
+                position: 'top-right',
+                autoClose: 5000,
+                theme: 'dark',
+            });
             setIsLoading(true);
             setIsError(true);
         }
     };
+    
 
     useEffect(() => {
         fetchPlayerData();
