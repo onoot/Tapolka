@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useTonConnectUI } from '@tonconnect/ui-react';
 import cl from './ButtonWallet.module.css';
 import { toast } from 'react-toastify';
+import {usePlayerStore} from '../../../store/playerStore.mjs'
 
 const ButtonWallet = ({ ton }) => {
     const [walletAddress, setWalletAddress] = useState(null);
     const [tonConnectUI] = useTonConnectUI();
+    const { player } = usePlayerStore();
 
     useEffect(() => {
         const unsubscribe = tonConnectUI.onStatusChange((wallet) => {
