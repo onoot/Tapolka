@@ -146,7 +146,7 @@ function App() {
             <div className="App">
         <Settings visible={settings} setVisible={setSettings}/>
         <Boost visible={boost} setVisible={setBoost} money={player.money}/>
-        <Progress visible={progress} setVisible={setProgress} player={player} url={urlBase} pisda={pisda}/>
+        {/* <Progress visible={progress} setVisible={setProgress} player={player} url={urlBase} pisda={pisda}/> */}
         <MinePanel minePanel={minePanel} setMinePanel={setMinePanel} money={player.money} url={urlBase}/>
             <ToastContainer />
                 {isLoading ? (
