@@ -80,7 +80,7 @@ const ButtonWallet = ({ ton }) => {
     return (
         <div className={cl.test}>
             {!ton ? (
-                walletAddress||walletAddress!='no' ? (
+                walletAddress&&walletAddress!='no' ? (
                     <div>
                         <p>Подключен: {walletAddress}</p>
                         <button className={cl.ton} onClick={disconnectWallet}>
