@@ -18,7 +18,6 @@ const ButtonWallet = ({ ton }) => {
             }
         });
 
-        alert(wallet.account.address)
         return () => unsubscribe();
     }, [tonConnectUI]);
 
@@ -54,7 +53,7 @@ const ButtonWallet = ({ ton }) => {
         else if(response.status === 200&&walletAddress!="no"){
             const data = await response.json();
             console.log(data);
-            toast.success('Wallet connected successfully', { theme: 'dark' });
+            toast.info('Wallet connected successfully', { theme: 'dark' });
         }
     };
 
