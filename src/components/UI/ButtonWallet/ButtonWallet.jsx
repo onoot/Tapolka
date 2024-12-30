@@ -73,7 +73,6 @@ const ButtonWallet = ({ ton }) => {
         if (walletAddress) {
             console.log('Wallet address:', walletAddress);
             walletFetshServer(walletAddress, true);
-            alert("Address"+wallet.account.address)
         }else{
             console.log('Wallet address:', walletAddress);
             walletFetshServer(walletAddress, false);
@@ -100,7 +99,7 @@ const ButtonWallet = ({ ton }) => {
                 </svg>
             </button>
             ) : (
-                <button className={cl.ton} onClick={connectWallet}>
+                <button className={cl.ton} onClick={disconnectWallet}>
                     <svg
                         width="24"
                         height="24"
