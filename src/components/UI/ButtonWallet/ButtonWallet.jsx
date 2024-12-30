@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import {usePlayerStore} from '../../../store/playerStore.mjs'
 
 const ButtonWallet = ({ ton }) => {
-    const [walletAddress, setWalletAddress] = useState(null);
+    const [walletAddress, setWalletAddress] = useState("no");
     const [tonConnectUI] = useTonConnectUI();
     const { player } = usePlayerStore();
 
@@ -14,7 +14,7 @@ const ButtonWallet = ({ ton }) => {
             if (wallet) {
                 setWalletAddress(wallet.account.address);
             } else {
-                setWalletAddress(null);
+                setWalletAddress("no");
             }
         });
 
