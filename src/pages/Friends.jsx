@@ -92,13 +92,13 @@ const Friends = ({ url }) => {
                         <p>Your referral link:</p>
                         <div className={cl.referralLink}>{referralLink}</div>
                         <div className={cl.modalActions}>
-                            <Button
-                                text={"Invite a friend"} 
+                        <Button
+                                text={"Copy link"} 
                                 isImg={false} 
                                 isFullScreen={false}
                                 onClick={copyToClipboard} />
-                            <Button
-                                text={"Invite a friend"} 
+                        <Button
+                                text={"Share link"} 
                                 isImg={false} 
                                 isFullScreen={false}
                                 onClick={() => {
@@ -107,7 +107,12 @@ const Friends = ({ url }) => {
                                 }}
                             />
 
-                        <Button text={"Close"} isImg={false} isFullScreen={false} onClick={closeModal} />
+                        <Button 
+                                text={"Close"} 
+                                isImg={false} 
+                                isFullScreen={false} 
+                                onClick={closeModal} 
+                            />
                         </div>
                     </div>
                 </div>
