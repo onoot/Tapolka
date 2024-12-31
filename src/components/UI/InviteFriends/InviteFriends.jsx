@@ -21,7 +21,7 @@ const InviteFriends = ({ item, url }) => {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-            console.log("Response data:", data);
+            console.log("Response data:", response);
             if (!response.ok) {
                 toast.error(`Failed to generate link. Error code: ${response.status}`, { theme: 'dark' });
                 return;
@@ -36,7 +36,7 @@ const InviteFriends = ({ item, url }) => {
                 toast.error('Referral link not found in server response.', { theme: 'dark' });
             }
         } catch (e) {
-            console.error(e);
+            console.log(e);
             toast.error('An error occurred while generating the referral link.', { theme: 'dark' });
         }
     }
