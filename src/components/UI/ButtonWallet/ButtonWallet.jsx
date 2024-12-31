@@ -86,15 +86,13 @@ const ButtonWallet = ({ ton }) => {
 
     return (
         <div className={cl.test}>
-            {walletAddress === "no" ? (
+            {/* {walletAddress === "no" ? ( */}
                 <button className={cl.button_wallet} onClick={connectWallet}>
-                    Connect Wallet
                 </button>
-            ) : (
+            {/* ) : ( */}
                 <button className={cl.button_wallet} onClick={disconnectWallet}>
-                    Disconnect Wallet
                 </button>
-            )}
+            {/* )} */}
         </div>
     );
 };
