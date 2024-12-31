@@ -21,7 +21,7 @@ const InviteFriends = ({ item, url }) => {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-            console.log("Response data:", response);
+        
             if (!response.ok) {
                 toast.error(`Failed to generate link. Error code: ${response.status}`, { theme: 'dark' });
                 return;
@@ -30,8 +30,13 @@ const InviteFriends = ({ item, url }) => {
             const data = await response.json();
 
             if (data.referralLink) {
-                await navigator.clipboard.writeText(data.referralLink);
-                toast.success('The referral link has been copied to the clipboard!', { theme: 'dark' });
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(data.referralLink);
+                    toast.success('The referral link has been copied to the clipboard!', { theme: 'dark' });
+                } else {
+                    toast.error('Clipboard API is not available. Please copy the link manually.', { theme: 'dark' });
+                    console.log('Referral link:', data.referralLink);
+                }
             } else {
                 toast.error('Referral link not found in server response.', { theme: 'dark' });
             }
