@@ -9,7 +9,7 @@ import Button from "../components/button/Button";
 
 const Friends = ({ url }) => {
     const { player } = usePlayerStore((state) => state);
-    const [modal, setModal] = useState(false)
+    const [modal, setModal] = useState(true)
     const { shareMessage } = useTelegram();
     const [referralLink, setReferralLink] = useState('');
 
@@ -92,14 +92,16 @@ const Friends = ({ url }) => {
                         <p>Your referral link:</p>
                         <div className={cl.referralLink}>{referralLink}</div>
                         <div className={cl.modalActions}>
-                        <Button
-                                text={"Copy link"} 
-                                isImg={false} 
+                            <Button
+                                text={"Copy link"}
+                                isImg={false}
                                 isFullScreen={false}
-                                onClick={copyToClipboard} />
-                        <Button
-                                text={"Share link"} 
-                                isImg={false} 
+                                onClick={copyToClipboard}
+                            />
+
+                            <Button
+                                text={"Share link"}
+                                isImg={false}
                                 isFullScreen={false}
                                 onClick={() => {
                                     shareMessage(referralLink);
@@ -107,12 +109,13 @@ const Friends = ({ url }) => {
                                 }}
                             />
 
-                        <Button 
-                                text={"Close"} 
-                                isImg={false} 
-                                isFullScreen={false} 
-                                onClick={closeModal} 
+                            <Button
+                                text={"Close"}
+                                isImg={false}
+                                isFullScreen={false}
+                                onClick={closeModal}
                             />
+
                         </div>
                     </div>
                 </div>
