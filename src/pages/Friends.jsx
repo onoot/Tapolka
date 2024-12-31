@@ -4,7 +4,7 @@ import InviteFriendsList from "../components/UI/InviteFriendsList/InviteFriendsL
 import FriendsList from "../components/UI/FriendsList/FriendsList";
 import { usePlayerStore } from "../store/playerStore.mjs";
 import { toast } from 'react-toastify';
-import {useTelegram} from '../components/hooks/useTelegram'
+import { useTelegram } from '../components/hooks/useTelegram'
 import Button from "../components/button/Button";
 
 const Friends = ({ url }) => {
@@ -92,14 +92,14 @@ const Friends = ({ url }) => {
                         <p>Your referral link:</p>
                         <div className={cl.referralLink}>{referralLink}</div>
                         <div className={cl.modalActions}>
-                            <Button 
-                            text={"Copy to Clipboard"} 
-                            isImg={false} 
-                            isFullScreen={false} 
-                            onClick={copyToClipboard} />
                             <Button
-                                text={"Share in Telegram"}
-                                isImg={false}
+                                text={"Invite a friend"} 
+                                isImg={false} 
+                                isFullScreen={false}
+                                onClick={copyToClipboard} />
+                            <Button
+                                text={"Invite a friend"} 
+                                isImg={false} 
                                 isFullScreen={false}
                                 onClick={() => {
                                     shareMessage(referralLink);
@@ -107,7 +107,7 @@ const Friends = ({ url }) => {
                                 }}
                             />
 
-                            <Button text="Close" isImg={false} isFullScreen={false} onClick={closeModal} />
+                        <Button text={"Close"} isImg={false} isFullScreen={false} onClick={closeModal} />
                         </div>
                     </div>
                 </div>
