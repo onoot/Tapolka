@@ -114,7 +114,7 @@ const Friends = ({ url }) => {
                                 isFullScreen={false}
                                 onClick={closeModal}
                             />
-  <Button text={"Invite a friend"} isImg={false} isFullScreen={false} onClick={() => inviteFriend()} />
+                            <Button text={"Invite a friend"} isImg={false} isFullScreen={false} onClick={() => inviteFriend()} />
                         </div>
                     </div>
                 </div>
