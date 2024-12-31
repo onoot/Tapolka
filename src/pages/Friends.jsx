@@ -5,7 +5,7 @@ import FriendsList from "../components/UI/FriendsList/FriendsList";
 import { usePlayerStore } from "../store/playerStore.mjs";
 import { toast } from 'react-toastify';
 import { useTelegram } from '../components/hooks/useTelegram'
-import Button from "../components/button/Button";
+import Button from "../components/UI/Button/Button";
 
 const Friends = ({ url }) => {
     const { player } = usePlayerStore((state) => state);
@@ -114,7 +114,6 @@ const Friends = ({ url }) => {
                                 isFullScreen={false}
                                 onClick={closeModal}
                             />
-                            <Button text={"Invite a friend"} isImg={false} isFullScreen={false} onClick={() => console.log('fdsfs')} />
                         </div>
                     </div>
                 </div>
