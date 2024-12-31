@@ -92,9 +92,13 @@ const Friends = ({ url }) => {
                         <p>Your referral link:</p>
                         <div className={cl.referralLink}>{referralLink}</div>
                         <div className={cl.modalActions}>
-                            <Button text="Copy to Clipboard" isImg={false} isFullScreen={false} onClick={copyToClipboard} />
+                            <Button 
+                            text={"Copy to Clipboard"} 
+                            isImg={false} 
+                            isFullScreen={false} 
+                            onClick={copyToClipboard} />
                             <Button
-                                text="Share in Telegram"
+                                text={"Share in Telegram"}
                                 isImg={false}
                                 isFullScreen={false}
                                 onClick={() => {
