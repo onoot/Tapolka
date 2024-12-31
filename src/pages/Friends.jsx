@@ -99,7 +99,8 @@ const Friends = ({ url }) => {
                                 onClick={copyToClipboard}
                             />
                         */}
-                            <Button 
+                        <div className={cl.modalButtons}>
+                        <Button 
                                 text={"Share link"}
                                 isImg={false}
                                 isFullScreen={false}
@@ -114,6 +115,7 @@ const Friends = ({ url }) => {
                                 isFullScreen={false}
                                 onClick={closeModal}
                             />
+                        </div>
                         </div>
                     </div>
                 </div>

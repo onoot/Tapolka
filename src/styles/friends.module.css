@@ -170,3 +170,10 @@
 .modalActions button {
     margin: 5px;
 }
+
+.modalButtons{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
