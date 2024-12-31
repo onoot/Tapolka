@@ -9,7 +9,7 @@ import Button from "../components/button/Button";
 
 const Friends = ({ url }) => {
     const { player } = usePlayerStore((state) => state);
-    const [modal, setModal] = useState(true)
+    const [modal, setModal] = useState(false)
     const { shareMessage } = useTelegram();
     const [referralLink, setReferralLink] = useState('');
 
