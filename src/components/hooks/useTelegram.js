@@ -24,7 +24,8 @@ export function useTelegram() {
             return;
         }
 
-        tg.shareLink(message)
+        // Открытие ссылки через Telegram WebApp
+        tg.openLink(`https://t.me/share/url?url=${encodeURIComponent(message)}`)
             .then(() => console.log('Ссылка успешно отправлена через Telegram.'))
             .catch((error) => console.error('Ошибка при отправке ссылки:', error));
     };
