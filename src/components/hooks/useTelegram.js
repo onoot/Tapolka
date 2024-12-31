@@ -18,7 +18,16 @@ export function useTelegram() {
             tg.MainButton.show();
         }
     }
+    const shareMessage = (message) => {
+        if (!message || typeof message !== 'string') {
+            console.error('Сообщение должно быть строкой.');
+            return;
+        }
 
+        tg.shareLink(message)
+            .then(() => console.log('Ссылка успешно отправлена через Telegram.'))
+            .catch((error) => console.error('Ошибка при отправке ссылки:', error));
+    };
     return {
         onClose,
         onToggleButton,
@@ -28,5 +37,7 @@ export function useTelegram() {
         queryId: tg.initDataUnsafe?.query_id,
         photoUrl: tg.initDataUnsafe?.user?.photo_url,
         expand,
+        shareMessage,
+        
     }
 }

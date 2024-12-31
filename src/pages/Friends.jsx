@@ -4,11 +4,13 @@ import InviteFriendsList from "../components/UI/InviteFriendsList/InviteFriendsL
 import FriendsList from "../components/UI/FriendsList/FriendsList";
 import { usePlayerStore } from "../store/playerStore.mjs";
 import { toast } from 'react-toastify';
+import {useTelegram} from '../components/hooks/useTelegram'
 import Button from "../components/button/Button";
 
 const Friends = ({ url }) => {
     const { player } = usePlayerStore((state) => state);
     const [modal, setModal] = useState(false)
+    const { shareMessage } = useTelegram();
     const [referralLink, setReferralLink] = useState('');
 
     const [inviteFriends, setInviteFriends] = useState([
@@ -96,15 +98,7 @@ const Friends = ({ url }) => {
                                 isImg={false}
                                 isFullScreen={false}
                                 onClick={() => {
-                                    if (window.Telegram?.WebApp) {
-                                        window.Telegram.WebApp.shareLink(referralLink).then(() => {
-                                            console.log('Ссылка успешно отправлена.');
-                                        }).catch((error) => {
-                                            console.error('Ошибка при отправке ссылки:', error);
-                                        });
-                                    } else {
-                                        console.error('Telegram WebApp API недоступен.');
-                                    }
+                                    shareMessage(referralLink);
                                     closeModal();
                                 }}
                             />
