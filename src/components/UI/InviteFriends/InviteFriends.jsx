@@ -18,10 +18,10 @@ const InviteFriends = ({ item, url }) => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`,
+                    'Authorization': `Bearer ${token}`,
                 },
             });
-
+            console.log("Response data:", data);
             if (!response.ok) {
                 toast.error(`Failed to generate link. Error code: ${response.status}`, { theme: 'dark' });
                 return;
