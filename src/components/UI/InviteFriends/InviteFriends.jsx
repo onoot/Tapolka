@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import cl from "./InviteFriends.module.css"
+import React, { useState } from 'react';
+import cl from "./InviteFriends.module.css";
 import Button from "../Button/Button";
 import { convertMoneyToRCommasIsFull } from "../../hooks/converMoney";
 import { usePlayerStore } from "../../../store/playerStore.mjs";
 import { toast } from 'react-toastify';
 
-const InviteFriends = ({ item, url }) => {
+const InviteFriends = ({ item, url, openModal }) => {
     const { player } = usePlayerStore((state) => state);
+
     async function inviteFriend() {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -21,7 +22,7 @@ const InviteFriends = ({ item, url }) => {
                     'Authorization': `Bearer ${token}`,
                 },
             });
-        
+
             if (!response.ok) {
                 toast.error(`Failed to generate link. Error code: ${response.status}`, { theme: 'dark' });
                 return;
@@ -30,13 +31,7 @@ const InviteFriends = ({ item, url }) => {
             const data = await response.json();
 
             if (data.referralLink) {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    await navigator.clipboard.writeText(data.referralLink);
-                    toast.success('The referral link has been copied to the clipboard!', { theme: 'dark' });
-                } else {
-                    toast.error('Clipboard API is not available. Please copy the link manually.', { theme: 'dark' });
-                    console.log('Referral link:', data.referralLink);
-                }
+                openModal(data.referralLink);
             } else {
                 toast.error('Referral link not found in server response.', { theme: 'dark' });
             }
@@ -45,6 +40,8 @@ const InviteFriends = ({ item, url }) => {
             toast.error('An error occurred while generating the referral link.', { theme: 'dark' });
         }
     }
+
+   
 
     return (
         <div className={cl.inviteFriend__container__item}>

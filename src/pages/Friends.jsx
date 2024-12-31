@@ -1,21 +1,45 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import cl from "../styles/friends.module.css"
 import InviteFriendsList from "../components/UI/InviteFriendsList/InviteFriendsList";
 import FriendsList from "../components/UI/FriendsList/FriendsList";
-import {usePlayerStore} from "../store/playerStore.mjs";
+import { usePlayerStore } from "../store/playerStore.mjs";
+import { toast } from 'react-toastify';
+import Button from "../components/button/Button";
 
-const Friends = ({url}) => {
+const Friends = ({ url }) => {
     const { player } = usePlayerStore((state) => state);
+    const [modal, setModal] = useState(false)
+    const [referralLink, setReferralLink] = useState('');
 
     const [inviteFriends, setInviteFriends] = useState([
-        {id: 1, task: "LootBox and key", reward: 1, description: "For you & your friend", pathImg:"redGift"},
-        {id: 2, task: "LootBoxes and keys for Premium", reward: 3, description: "For you & your friend", pathImg:"blueGift"},
+        { id: 1, task: "LootBox and key", reward: 1, description: "For you & your friend", pathImg: "redGift" },
+        { id: 2, task: "LootBoxes and keys for Premium", reward: 3, description: "For you & your friend", pathImg: "blueGift" },
     ])
 
 
     const [friends, setFriends] = useState([
         // {id: 1, name: "Lara Croft", reward: 25300, level: 4},
     ])
+    const closeModal = () => setModal(false);
+
+    const openModal = (link) => {
+        setReferralLink(link);
+        setModal(true);
+    };
+    const copyToClipboard = async () => {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            try {
+                await navigator.clipboard.writeText(referralLink);
+                toast.success('The referral link has been copied to the clipboard!', { theme: 'dark' });
+                closeModal();
+            } catch (e) {
+                toast.error('Failed to copy the referral link.', { theme: 'dark' });
+            }
+        } else {
+            toast.error('Clipboard API is not available.', { theme: 'dark' });
+        }
+    };
+
     async function GetList() {
         try {
             const token = localStorage.getItem('token');
@@ -34,7 +58,7 @@ const Friends = ({url}) => {
                 throw new Error(`Ошибка запроса: ${response.status}`);
             }
             const data = await response.json();
-            
+
             // Защита от некорректного ответа сервера
             const friendList = Array.isArray(data?.friends) ? data.friends : [];
             setFriends(friendList);
@@ -43,11 +67,11 @@ const Friends = ({url}) => {
             setFriends([]);
         }
     }
-    
+
     useEffect(() => {
         GetList();
     }, []);
-   
+
 
 
     return (
@@ -58,8 +82,39 @@ const Friends = ({url}) => {
             <div className={cl.friends__container__description}>
                 The opening of the LootBox will take place before TGE
             </div>
-            <InviteFriendsList inviteFriends={inviteFriends} url={url}/>
-            <FriendsList friends={friends} GetList={GetList}/>
+            <InviteFriendsList inviteFriends={inviteFriends} url={url} openModal={openModal} />
+            {modal && (
+                <div className={cl.modal}>
+                    <div className={cl.modalContent}>
+                        <h3>Share or Copy Referral Link</h3>
+                        <p>Your referral link:</p>
+                        <div className={cl.referralLink}>{referralLink}</div>
+                        <div className={cl.modalActions}>
+                            <Button text="Copy to Clipboard" isImg={false} isFullScreen={false} onClick={copyToClipboard} />
+                            <Button
+                                text="Share in Telegram"
+                                isImg={false}
+                                isFullScreen={false}
+                                onClick={() => {
+                                    if (window.Telegram?.WebApp) {
+                                        window.Telegram.WebApp.shareLink(referralLink).then(() => {
+                                            console.log('Ссылка успешно отправлена.');
+                                        }).catch((error) => {
+                                            console.error('Ошибка при отправке ссылки:', error);
+                                        });
+                                    } else {
+                                        console.error('Telegram WebApp API недоступен.');
+                                    }
+                                    closeModal();
+                                }}
+                            />
+
+                            <Button text="Close" isImg={false} isFullScreen={false} onClick={closeModal} />
+                        </div>
+                    </div>
+                </div>
+            )}
+            <FriendsList friends={friends} GetList={GetList} />
         </div>
 
     );
