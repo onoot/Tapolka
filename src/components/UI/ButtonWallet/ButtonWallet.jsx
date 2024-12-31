@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTonConnectUI } from '@tonconnect/ui-react';
 import cl from './ButtonWallet.module.css';
 import { toast } from 'react-toastify';
-import {usePlayerStore} from '../../../store/playerStore.mjs'
+import { usePlayerStore } from '../../../store/playerStore.mjs';
 
 const ButtonWallet = ({ ton }) => {
     const [walletAddress, setWalletAddress] = useState("no");
@@ -22,69 +22,77 @@ const ButtonWallet = ({ ton }) => {
     }, [tonConnectUI]);
 
     const walletFetshServer = async (pubkey, option) => {
-        const urlBase="https://tongaroo.fun"
+        const urlBase = "https://tongaroo.fun";
 
         const token = localStorage.getItem('token');
         if (!token) {
-            console.error(!token);
+            console.error('Token not found');
             return;
         }
-        const response = await fetch(`${urlBase}/api/wallet/${player?.id}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-            body: JSON.stringify({ wallet: pubkey, connect: option }),
-        });
 
-        if (!response.ok) {
-            if (response.status === 400) {
-                toast.error('Error code 400', { theme: 'dark' });
-                return;
-            }else if (response.status === 401) {
-                toast.error('Error code 401', { theme: 'dark' });
-                return;
-            }else if(response.status === 500){
-                toast.error('Internal server error', { theme: 'dark' });
+        try {
+            const response = await fetch(`${urlBase}/api/wallet/${player?.id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify({ wallet: pubkey, connect: option }),
+            });
+
+            if (!response.ok) {
+                const errorMessage = `Error code ${response.status}`;
+                toast.error(errorMessage, { theme: 'dark' });
                 return;
             }
-        }
-        else if(response.status === 200&&walletAddress!="no"){
-            const data = await response.json();
-            console.log(data);
-            toast.info('Wallet connected successfully', { theme: 'dark' });
+
+            if (response.status === 200 && walletAddress !== "no") {
+                const data = await response.json();
+                console.log(data);
+                toast.info('Wallet connected successfully', { theme: 'dark' });
+            }
+        } catch (error) {
+            console.error('Error in walletFetshServer:', error.message);
+            toast.error('Network or server error', { theme: 'dark' });
         }
     };
 
     const connectWallet = () => {
-        const test = tonConnectUI.connectWallet();
-        console.log(test)
+        if (walletAddress !== "no") {
+            toast.warning('Wallet is already connected.', { theme: 'dark' });
+            return;
+        }
+        tonConnectUI.connectWallet();
     };
 
     const disconnectWallet = () => {
-        const test = tonConnectUI.disconnect();
-        setWalletAddress(null);
-        console.log(test)
+        if (walletAddress === "no") {
+            toast.warning('No wallet is connected.', { theme: 'dark' });
+            return;
+        }
+        tonConnectUI.disconnect();
+        setWalletAddress("no");
     };
 
     useEffect(() => {
-        if (walletAddress) {
+        if (walletAddress !== "no") {
             console.log('Wallet address:', walletAddress);
             walletFetshServer(walletAddress, true);
-        }else{
-            console.log('Wallet address:', walletAddress);
+        } else {
+            console.log('No wallet connected');
             walletFetshServer(walletAddress, false);
         }
     }, [walletAddress]);
 
     return (
         <div className={cl.test}>
-            {!ton ? (
-                  <button className={cl.button_wallet} onClick={connectWallet}>
-                    </button>
+            {walletAddress === "no" ? (
+                <button className={cl.button_wallet} onClick={connectWallet}>
+                    Connect Wallet
+                </button>
             ) : (
                 <button className={cl.button_wallet} onClick={disconnectWallet}>
+                    Disconnect Wallet
                 </button>
             )}
         </div>
