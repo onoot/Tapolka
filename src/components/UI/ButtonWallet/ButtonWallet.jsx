@@ -57,24 +57,33 @@ const ButtonWallet = ({ ton }) => {
   };
 
   const connectWallet = () => {
-    if (walletAddress !== "no") {
-      toast.warning('Wallet is already connected.', { theme: 'dark' });
-      return;
+    try{
+        if (walletAddress !== "no") {
+            toast.warning('Wallet is already connected.', { theme: 'dark' });
+            return;
+          }
+          tonConnectUI.connectWallet();
+    }catch(e){
+        console.log(e)
     }
-    tonConnectUI.connectWallet();
+   
   };
 
   const disconnectWallet = () => {
+   try{
     if (walletAddress === "no") {
-      toast.warning('No wallet is connected.', { theme: 'dark' });
-      return;
-    }
-    tonConnectUI.disconnect();
-    setWalletAddress("no");
+        toast.warning('No wallet is connected.', { theme: 'dark' });
+        return;
+      }
+      tonConnectUI.disconnect();
+      setWalletAddress("no");
+   }catch(e){
+       console.log(e)
+   }
   };
 
   useEffect(() => {
-    if (walletAddress !== "no") {
+    if (walletAddress != "no") {
       console.log('Wallet address:', walletAddress);
       walletFetshServer(walletAddress, true);
     } else {
@@ -100,9 +109,9 @@ const ButtonWallet = ({ ton }) => {
       ) : (
         <div className={cl.test}>
           {walletAddress === "no" ? (
-            <button onClick={connectWallet}>Connect Wallet</button>
+            <button className={cl.button_wallet} onClick={connectWallet}></button>
           ) : (
-            <button className={cl.button_wallet} onClick={disconnectWallet}>Disconnect Wallet</button>
+            <button className={cl.button_wallet} onClick={disconnectWallet}></button>
           )}
         </div>
       )}
