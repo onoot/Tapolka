@@ -42,7 +42,11 @@ const MineMarketItem = ({ setMinePanel, item}) => {
                     </div>
                 </div>
             </div>
-            <div onClick={() => setMinePanel(item)} className={cl.mineMarketItems__container__block}>
+            <div onClick={() => {
+                if (!item?.isLock) {
+                    setMinePanel(item);
+                }
+            }} className={cl.mineMarketItems__container__block}>
                 <div className={cl.mineMarketItems__container__block__textPrice}>
                     Upgrade 
                 </div>

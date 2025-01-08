@@ -3,7 +3,6 @@ import cl from './MineMarketList.module.css';
 import MineMarketType from '../MineMarketType/MineMarketType';
 import MineMarketItem from '../MineMarketItem/MineMarketItem';
 import MineMarketItemSpecial from '../MineMarketItemSpecial/MineMarketItemSpecial';
-import { useTelegram } from '../../hooks/useTelegram';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
 
 const MineMarketList = ({setMinePanel, url }) => {
@@ -15,7 +14,7 @@ const MineMarketList = ({setMinePanel, url }) => {
     ]);
     const {player} = usePlayerStore((state) => state);
     const [mineItems, setMineItems] = useState([])
-    const { initData } = useTelegram();
+    const [count, setCount] = useState(0);
 
     const getItems = async () => {
         try {
@@ -24,7 +23,7 @@ const MineMarketList = ({setMinePanel, url }) => {
                 console.error(!token);
                 return;
             }
-            const req = await fetch(`${url}/api/getMineItems/${initData?.user?.id || 1148770814}`, {
+            const req = await fetch(`${url}/api/getMineItems/${player?.id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -33,7 +32,9 @@ const MineMarketList = ({setMinePanel, url }) => {
             });
             if (!req || req.status !== 200) return false;
             const data = await req.json();
-            setMineItems(data);
+            setMineItems(data?.updatedTasks);
+            console.log(mineItems)
+            setCount(data?.unlock||0);
         } catch (e) {
             console.log("Ошибка получения карт", e);
         }
@@ -51,16 +52,27 @@ const MineMarketList = ({setMinePanel, url }) => {
                 })}
             </div>
             <div className={cl.mineMarketContainer__ItemsContainer}>
-                {mineItems.map((item, index) => {
-                    if(item.type == (mineTypes.filter(item => item.isActive).map(item => item.name))) {
-                        if(item.type === "Specials") {
-                            return <MineMarketItemSpecial key={index} item={item}/>
-                        } else{
-                            return <MineMarketItem setMinePanel={setMinePanel} key={index} item={item}/>
-                        }
+             
+                {mineItems?.map((item, index) => {
+                    const activeTypeName = mineTypes.find(type => type.isActive)?.name;
+                    const isUnlocked = index < 6 || index < count + 6;
+
+                    if (item.type === activeTypeName) {
+                        return item.type === "Specials" ? (
+                            <MineMarketItemSpecial
+                                key={item.id || index}
+                                item={{ ...item, isLock: !isUnlocked }}
+                            />
+                        ) : (
+                            <MineMarketItem
+                                setMinePanel={setMinePanel}
+                                key={item.id || index}
+                                item={{ ...item, isLock: !isUnlocked }}
+                            />
+                        );
                     }
-                })
-                }
+                    return null;
+                })}
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import cl from "../styles/friends.module.css";
-import ButtonWallet from '../components/UI/ButtonWallet/ButtonWallet';
+import ButtonWallet from "../components/UI/ButtonWallet/ButtonWallet"
 
 const Airdrop = ({url}) => {
     return (
