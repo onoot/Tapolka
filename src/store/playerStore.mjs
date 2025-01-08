@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 
 class Player {
-    constructor(id, name, role, money, totalMoney, profit, energy, rank, benefit, daily, reward) {
+    constructor(id, name, role, money, totalMoney, profit, energy, rank, benefit, daily, reward, wallet) {
         this.id = id;
         this.name = name;
         this.role = role;
@@ -14,6 +14,7 @@ class Player {
         this.benefit = benefit;
         this.daily = daily;
         this.reward = reward;
+        this.wallet = wallet;
     }
 }
 export const usePlayerStore = create((set) => ({

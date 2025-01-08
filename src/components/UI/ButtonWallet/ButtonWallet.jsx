@@ -4,18 +4,20 @@ import cl from './ButtonWallet.module.css';
 import { toast } from 'react-toastify';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
 
-const ButtonWallet = ({ ton }) => {
+const ButtonWallet = ({ ton, connect }) => {
   const [walletAddress, setWalletAddress] = useState("no");
   const [tonConnectUI] = useTonConnectUI();
   const { player } = usePlayerStore();
 
   useEffect(() => {
+    //получить адресс кошелька из хранилища, если он есть, то обновить состояние
+    if (connect) {
+      setWalletAddress(connect);
+    }
     const unsubscribe = tonConnectUI.onStatusChange((wallet) => {
       if (wallet) {
         setWalletAddress(wallet.account.address);
-      } else {
-        setWalletAddress("no");
-      }
+      } 
     });
 
     return () => unsubscribe();
@@ -70,17 +72,18 @@ const ButtonWallet = ({ ton }) => {
   };
 
   const disconnectWallet = () => {
-   try{
     if (walletAddress === "no") {
         toast.warning('No wallet is connected.', { theme: 'dark' });
         return;
-      }
-      tonConnectUI.disconnect();
-      setWalletAddress("no");
-   }catch(e){
-       console.log(e)
-   }
-  };
+    }
+    try {
+        tonConnectUI.disconnect();
+        setWalletAddress("no");
+        toast.info('Wallet disconnected successfully', { theme: 'dark' });
+    } catch (error) {
+        toast.error(`Error disconnecting wallet: ${error.message}`, { theme: 'dark' });
+    }
+};
 
   useEffect(() => {
     if (walletAddress != "no") {

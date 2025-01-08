@@ -12,7 +12,7 @@ const ClickerAndBuff = ({ setBoost, url }) => {
         <div className={cl.clickerAndBuff__container}>
             <Clicker url={url} />
             <div className={cl.wallet__container}>
-                <ButtonWallet ton={false} />
+                <ButtonWallet ton={false} connect={false}/>
             </div>
             <div className={`${cl.energyAndBoost__container} ${cl.mt_1}`}>
                 <div className={cl.energy__item}>

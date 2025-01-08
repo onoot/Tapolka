@@ -108,6 +108,7 @@ function App() {
                 key: data.key || 0,
                 daily: data.combo_daily_tasks || [],
                 reward: data.reward || null,
+                wallet: data.wallet || null,
             };
     
             console.log('Player data:', playerData);

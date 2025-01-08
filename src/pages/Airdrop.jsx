@@ -1,8 +1,11 @@
 import React from 'react';
 import cl from "../styles/friends.module.css";
 import ButtonWallet from "../components/UI/ButtonWallet/ButtonWallet"
+import { usePlayerStore } from '../store/playerStore.mjs';
 
 const Airdrop = ({url}) => {
+    const {player} = usePlayerStore((state) => state);
+
     return (
         <div className={`${cl.friends__container} ${cl.mt_20} ${cl.mb_30}`}>
             <div className={cl.friends__container__title}>
@@ -14,7 +17,7 @@ const Airdrop = ({url}) => {
             <div className={cl.airdrop__img}>
                 <img src={require("../components/images/airdropMainImg.png")} alt=""/>
             </div>
-            <ButtonWallet ton={true} />
+            <ButtonWallet ton={true} connect={player?.wallet}/>
             <div className={`${cl.mp_20}`}></div>
         </div>
     );
