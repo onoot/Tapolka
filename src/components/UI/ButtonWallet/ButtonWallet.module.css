@@ -28,9 +28,26 @@
 
 .ton {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     background-color: #0098EA; 
+    color: #FFFFFF;
+    padding: 8px 16px;
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 100vh;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    transition: transform 0.125s ease-in-out;
+}
+.unton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #410734; 
     color: #FFFFFF;
     padding: 8px 16px;
     width: 100%;
