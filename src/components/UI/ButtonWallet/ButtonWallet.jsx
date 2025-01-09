@@ -65,6 +65,7 @@ const ButtonWallet = ({ ton, connect }) => {
       tonConnectUI.connectWallet();
     } catch (e) {
       console.log(e)
+      reconnectWallet()
     }
 
   };
