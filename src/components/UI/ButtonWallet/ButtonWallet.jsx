@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
 
 const ButtonWallet = ({ ton, connect }) => {
- try{
   const [walletAddress, setWalletAddress] = useState("no");
   const [tonConnectUI] = useTonConnectUI();
   const { player } = usePlayerStore();
@@ -92,13 +91,10 @@ const ButtonWallet = ({ ton, connect }) => {
     } else {
       console.log('No wallet connected');
       walletFetshServer(walletAddress, false);
+      disconnectWallet();
     }
   }, [walletAddress]);
 
- }catch(e){
-    console.log(e)
-    toast.error(e, { theme: 'dark' });
- }
   return (
     <>
       {ton ? (
