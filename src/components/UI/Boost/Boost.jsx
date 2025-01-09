@@ -12,10 +12,10 @@ const Boost = ({boost, energy, visible, setVisible, money}) => {
     
     const [boosters, setBoosters] = useState([
         {
-            id:1, name: "Multitap", benefit:128000, level:8, img:"multitap"
+            id:1, name: "Multitap", benefit:128000, level:1, img:"multitap"
         },
         {
-            id:2, name: "Energy limit", benefit:128000, level:13, img:"lightning"
+            id:2, name: "Energy limit", benefit:128000, level:1, img:"lightning"
         }
     ])
 
@@ -54,7 +54,7 @@ const Boost = ({boost, energy, visible, setVisible, money}) => {
                             </div>
                             <div className={clD.boosters__container__block__info}>
                                 <div className={clD.boosters__container__block__level}>
-                                    {6}/6 available
+                                    {3}/3 available
                                 </div>
                             </div>
                         </div>
