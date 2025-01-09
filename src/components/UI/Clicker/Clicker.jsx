@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import cl from './Clicker.module.css';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
+import {useTelegram} from "../../../components/hooks/useTelegram";
 
 const MAX_ENERGY = 500;
 const ENERGY_REGEN_RATE = 1;
@@ -12,6 +13,7 @@ const Clicker = ({ url }) => {
     const [clickCount, setClickCount] = useState(0);
     const clickerImage = require('../../images/clickerBtn.png');
     const clickTimeout = useRef(null);
+    const { tg } = useTelegram();
 
     useEffect(() => {
         const img = new Image();
