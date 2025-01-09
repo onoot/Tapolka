@@ -5,9 +5,11 @@ import ButtonClose from "../ButtonSettingBack/ButtonClose";
 import {changeNavbarAndMine} from "../../hooks/changeNavbarAndMine";
 import {convertMoneyToReduction} from "../../hooks/converMoney";
 import Money from "../Money/Money";
+import { usePlayerStore } from '../../../store/playerStore.mjs';
 
 const Boost = ({boost, energy, visible, setVisible, money}) => {
-
+    const player = usePlayerStore((state) => state.player);
+    
     const [boosters, setBoosters] = useState([
         {
             id:1, name: "Multitap", benefit:128000, level:8, img:"multitap"
@@ -52,7 +54,7 @@ const Boost = ({boost, energy, visible, setVisible, money}) => {
                             </div>
                             <div className={clD.boosters__container__block__info}>
                                 <div className={clD.boosters__container__block__level}>
-                                    {energy}/6 available
+                                    {6}/6 available
                                 </div>
                             </div>
                         </div>

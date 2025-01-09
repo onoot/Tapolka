@@ -5,23 +5,23 @@ import { toast } from 'react-toastify';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
 
 const ButtonWallet = ({ ton, connect }) => {
+ try{
   const [walletAddress, setWalletAddress] = useState("no");
   const [tonConnectUI] = useTonConnectUI();
   const { player } = usePlayerStore();
 
   useEffect(() => {
-    //получить адресс кошелька из хранилища, если он есть, то обновить состояние
-    if (connect) {
-      setWalletAddress(connect);
-    }
     const unsubscribe = tonConnectUI.onStatusChange((wallet) => {
+      console.log('Wallet status changed:', wallet);
+      toast.info('Wallet status changed', { theme: 'dark' });
       if (wallet) {
         setWalletAddress(wallet.account.address);
-      } 
+      }
     });
-
+  
     return () => unsubscribe();
   }, [tonConnectUI]);
+  
 
   const walletFetshServer = async (pubkey, option) => {
     const urlBase = "https://tongaroo.fun";
@@ -95,6 +95,10 @@ const ButtonWallet = ({ ton, connect }) => {
     }
   }, [walletAddress]);
 
+ }catch(e){
+    console.log(e)
+    toast.error(e, { theme: 'dark' });
+ }
   return (
     <>
       {ton ? (
