@@ -6,7 +6,6 @@ import { usePlayerStore } from '../../../store/playerStore.mjs';
 
 const ButtonWallet = ({ ton, connect }) => {
   const [walletAddress, setWalletAddress] = useState("no");
-  const [isConnecting, setIsConnecting] = useState(false);
   const [tonConnectUI] = useTonConnectUI();
   const { player } = usePlayerStore();
 
@@ -22,89 +21,120 @@ const ButtonWallet = ({ ton, connect }) => {
     });
 
     return () => unsubscribe();
-  }, [tonConnectUI]);
-
+  }, [tonConnectUI, player]); 
+  
   const walletFetshServer = async (pubkey, option) => {
-    // Ваш код для запроса walletFetshServer
-  };
-
-  const connectWallet = async () => {
-    if (isConnecting || walletAddress !== "no") {
-      toast.warning('Wallet is already connected or connection in progress.', { theme: 'dark' });
+    const urlBase = "https://tongaroo.fun";
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('Token not found');
       return;
     }
 
     try {
-      setIsConnecting(true);
-      await tonConnectUI.connectWallet();
+      const response = await fetch(`${urlBase}/api/wallet/${player?.id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ wallet: pubkey, connect: option }),
+      });
+
+      if (!response.ok) {
+        const errorMessage = `Error code ${response.status}`;
+        toast.error(errorMessage, { theme: 'dark' });
+        return;
+      }
+
+      if (response.status === 200 && walletAddress !== "no") {
+        const data = await response.json();
+        console.log(data);
+        toast.info('Wallet connected successfully', { theme: 'dark' });
+      }
     } catch (error) {
-      console.error('Error connecting wallet:', error.message);
-      toast.error('Error connecting wallet.', { theme: 'dark' });
-    } finally {
-      setIsConnecting(false);
+      console.error('Error in walletFetshServer:', error.message);
+      toast.error('Network or server error', { theme: 'dark' });
     }
   };
 
-  const disconnectWallet = async () => {
-    if (isConnecting || walletAddress === "no") {
-      toast.warning('No wallet is connected or disconnection in progress.', { theme: 'dark' });
-      return;
+  const connectWallet = () => {
+    try {
+      if (walletAddress !== "no") {
+        toast.warning('Wallet is already connected.', { theme: 'dark' });
+        return;
+      }
+      tonConnectUI.connectWallet();
+    } catch (e) {
+      console.log(e)
+      reconnectWallet()
     }
 
+  };
+
+  const disconnectWallet = () => {
+    if (walletAddress === "no") {
+      toast.warning('No wallet is connected.', { theme: 'dark' });
+      return;
+    }
     try {
-      setIsConnecting(true);
-      await tonConnectUI.disconnect();
+      tonConnectUI.disconnect();
       setWalletAddress("no");
       toast.info('Wallet disconnected successfully', { theme: 'dark' });
     } catch (error) {
-      console.error('Error disconnecting wallet:', error.message);
       toast.error(`Error disconnecting wallet: ${error.message}`, { theme: 'dark' });
-    } finally {
-      setIsConnecting(false);
     }
   };
 
   const reconnectWallet = async () => {
-    if (isConnecting) {
-      toast.warning('Wallet reconnection in progress.', { theme: 'dark' });
-      return;
-    }
-
     try {
-      setIsConnecting(true);
       if (walletAddress !== "no") {
         await tonConnectUI.disconnect();
         setWalletAddress("no");
       }
-      await tonConnectUI.connectWallet();
+      tonConnectUI.connectWallet();
     } catch (error) {
       console.error('Error reconnecting wallet:', error.message);
       toast.error('Error reconnecting wallet.', { theme: 'dark' });
-    } finally {
-      setIsConnecting(false);
     }
   };
 
+
   useEffect(() => {
-    if (walletAddress !== "no") {
+    if (walletAddress != "no") {
+      console.log('Wallet address:', walletAddress);
       walletFetshServer(walletAddress, true);
     } else {
+      console.log('No wallet connected');
       walletFetshServer(walletAddress, false);
+      disconnectWallet();
     }
   }, [walletAddress]);
 
   return (
-    <div className={cl.test}>
-      {walletAddress === "no" ? (
-        <button className={cl.ton} onClick={connectWallet}>
-          Connect Wallet
-        </button>
+    <>
+      {ton ? (
+        <div className={cl.test}>
+          {walletAddress === "no" ? (
+            <button className={cl.ton} onClick={connectWallet}>
+              Connect Wallet
+            </button>
+          ) : (
+            <button className={cl.unton} onClick={disconnectWallet}>
+              Disconnect Wallet
+            </button>
+          )}
+        </div>
       ) : (
-        <button className={cl.unton} onClick={disconnectWallet}>
-          Disconnect Wallet
-        </button>
+        <div className={cl.test}>
+          {walletAddress === "no" ? (
+            <button className={cl.button_wallet} onClick={connectWallet}></button>
+          ) : (
+            <button className={cl.button_wallet} onClick={disconnectWallet}></button>
+          )}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
