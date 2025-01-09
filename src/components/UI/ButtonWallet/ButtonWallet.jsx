@@ -59,11 +59,6 @@ const ButtonWallet = ({ ton, connect }) => {
     }
   };
   const connectWallet = async () => {
-    if (isConnecting || walletAddress !== "no") {
-      toast.warning('Wallet is already connected or connection in progress.', { theme: 'dark' });
-      return;
-    }
-  
     try {
       setIsConnecting(true); // Устанавливаем флаг подключения
       await tonConnectUI.connectWallet();
@@ -76,10 +71,6 @@ const ButtonWallet = ({ ton, connect }) => {
   };
   
   const disconnectWallet = async () => {
-    if (isConnecting || walletAddress === "no") {
-      toast.warning('No wallet is connected or disconnection in progress.', { theme: 'dark' });
-      return;
-    }
   
     try {
       setIsConnecting(true); // Устанавливаем флаг отключения
@@ -95,11 +86,6 @@ const ButtonWallet = ({ ton, connect }) => {
   };
   
   const reconnectWallet = async () => {
-    if (isConnecting) {
-      toast.warning('Wallet reconnection in progress.', { theme: 'dark' });
-      return;
-    }
-  
     try {
       setIsConnecting(true);
       if (walletAddress !== "no") {
@@ -132,7 +118,7 @@ const ButtonWallet = ({ ton, connect }) => {
       {ton ? (
         <div className={cl.test}>
           {walletAddress === "no" ? (
-            <button className={cl.ton} onClick={reconnectWallet }>
+            <button className={cl.ton} onClick={reconnectWallet}>
               Connect Wallet
             </button>
           ) : (
@@ -144,7 +130,7 @@ const ButtonWallet = ({ ton, connect }) => {
       ) : (
         <div className={cl.test}>
           {walletAddress === "no" ? (
-            <button className={cl.button_wallet} onClick={reconnectWallet }></button>
+            <button className={cl.button_wallet} onClick={reconnectWallet}></button>
           ) : (
             <button className={cl.button_wallet} onClick={disconnectWallet}></button>
           )}
