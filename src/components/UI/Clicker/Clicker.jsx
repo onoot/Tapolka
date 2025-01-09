@@ -21,7 +21,9 @@ const Clicker = ({ url }) => {
     // Обработка кликов
     const handleClick = () => {
         if (player.energy <= 0) return;
-
+        if ('vibrate' in navigator) {
+            navigator.vibrate(100); 
+        }
         setIsShaking(true);
         setClickCount((prevCount) => prevCount + 1);
 
