@@ -66,8 +66,6 @@ const ButtonWallet = ({ ton }) => {
     } catch (error) {
       console.error('Error connecting wallet:', error.message);
       reconnectWallet();
-    } finally {
-      setIsConnecting(false);
     }
   };
 
@@ -80,23 +78,20 @@ const ButtonWallet = ({ ton }) => {
     } catch (error) {
       console.error('Error disconnecting wallet:', error.message);
       toast.error(`Error disconnecting wallet: ${error.message}`, { theme: 'dark' });
-    } finally {
-      setIsConnecting(false);
+      connectWallet();
     }
   };
 
   const reconnectWallet = async () => {
     try {
       setIsConnecting(true);
-      if (walletAddress !== "no") {
-        await tonConnectUI.disconnect();
-        setWalletAddress("no");
-      }
+      await tonConnectUI.disconnect();
+      setWalletAddress("no");
       await tonConnectUI.connectWallet();
     } catch (error) {
       console.error('Error reconnecting wallet:', error.message);
       toast.error('Error reconnecting wallet.', { theme: 'dark' });
-    } 
+    }
   };
 
   useEffect(() => {
