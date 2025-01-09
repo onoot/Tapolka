@@ -125,11 +125,9 @@ function App() {
                 autoClose: 3000,
                 theme: 'dark',
             });
-            
+
             // Добавляем вибрацию после успешной загрузки
-            if ('vibrate' in navigator) {
-                navigator.vibrate(200); // Вибрация длительностью 200 мс
-            }
+            navigator.vibrate(200); // Вибрация длительностью 200 мс
         } catch (error) {
             console.error('Error during fetchPlayerData:', error);
             toast.error(`Error: ${error.message}`, {

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import cl from './Clicker.module.css';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
 
-const MAX_ENERGY = 1600;
+const MAX_ENERGY = 500;
 const ENERGY_REGEN_RATE = 1;
 const CLICK_SEND_DELAY = 2000;
 
@@ -21,9 +21,7 @@ const Clicker = ({ url }) => {
     // Обработка кликов
     const handleClick = () => {
         if (player.energy <= 0) return;
-        if ('vibrate' in navigator) {
             navigator.vibrate(100); 
-        }
         setIsShaking(true);
         setClickCount((prevCount) => prevCount + 1);
 
