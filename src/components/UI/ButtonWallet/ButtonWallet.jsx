@@ -12,7 +12,7 @@ const ButtonWallet = ({ ton, connect }) => {
 
   useEffect(() => {
     const unsubscribe = tonConnectUI.onStatusChange((wallet) => {
-      if (wallet) {
+      if (walletAddress!='no') {
         console.log('Wallet connected:', wallet.account.address);
         setWalletAddress(wallet.account.address);
       } else {
@@ -22,7 +22,7 @@ const ButtonWallet = ({ ton, connect }) => {
     });
   
     return () => unsubscribe();
-  }, [tonConnectUI, player]); 
+  }, [tonConnectUI, isConnecting]); 
   
   const walletFetshServer = async (pubkey, option) => {
     const urlBase = "https://tongaroo.fun";
@@ -63,8 +63,8 @@ const ButtonWallet = ({ ton, connect }) => {
       setIsConnecting(true); // Устанавливаем флаг подключения
       await tonConnectUI.connectWallet();
     } catch (error) {
+      reconnectWallet();
       console.error('Error connecting wallet:', error.message);
-      toast.error('Error connecting wallet.', { theme: 'dark' });
     } finally {
       setIsConnecting(false); // Сбрасываем флаг
     }
@@ -118,7 +118,7 @@ const ButtonWallet = ({ ton, connect }) => {
       {ton ? (
         <div className={cl.test}>
           {walletAddress === "no" ? (
-            <button className={cl.ton} onClick={reconnectWallet}>
+            <button className={cl.ton} onClick={connectWallet}>
               Connect Wallet
             </button>
           ) : (
@@ -130,7 +130,7 @@ const ButtonWallet = ({ ton, connect }) => {
       ) : (
         <div className={cl.test}>
           {walletAddress === "no" ? (
-            <button className={cl.button_wallet} onClick={reconnectWallet}></button>
+            <button className={cl.button_wallet} onClick={connectWallet}></button>
           ) : (
             <button className={cl.button_wallet} onClick={disconnectWallet}></button>
           )}
