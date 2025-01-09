@@ -60,11 +60,6 @@ const ButtonWallet = ({ ton }) => {
   };
 
   const connectWallet = async () => {
-    if (isConnecting || walletAddress !== "no") {
-      toast.warning('Wallet is already connected or connection in progress.', { theme: 'dark' });
-      return;
-    }
-
     try {
       setIsConnecting(true);
       await tonConnectUI.connectWallet();
@@ -77,11 +72,6 @@ const ButtonWallet = ({ ton }) => {
   };
 
   const disconnectWallet = async () => {
-    if (isConnecting || walletAddress === "no") {
-      toast.warning('No wallet is connected or disconnection in progress.', { theme: 'dark' });
-      return;
-    }
-
     try {
       setIsConnecting(true);
       await tonConnectUI.disconnect();
