@@ -70,7 +70,7 @@ const ButtonWallet = ({ ton }) => {
       await tonConnectUI.connectWallet();
     } catch (error) {
       console.error('Error connecting wallet:', error.message);
-      toast.error('Error connecting wallet.', { theme: 'dark' });
+      reconnectWallet();
     } finally {
       setIsConnecting(false);
     }
@@ -117,6 +117,8 @@ const ButtonWallet = ({ ton }) => {
   };
 
   useEffect(() => {
+    if(!isConnecting)
+      return;
     if (walletAddress !== "no") {
       console.log('Wallet address:', walletAddress);
       walletFetshServer(walletAddress, true);
