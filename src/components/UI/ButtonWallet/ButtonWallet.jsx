@@ -96,11 +96,6 @@ const ButtonWallet = ({ ton }) => {
   };
 
   const reconnectWallet = async () => {
-    if (isConnecting) {
-      toast.warning('Wallet reconnection in progress.', { theme: 'dark' });
-      return;
-    }
-
     try {
       setIsConnecting(true);
       if (walletAddress !== "no") {
@@ -111,9 +106,7 @@ const ButtonWallet = ({ ton }) => {
     } catch (error) {
       console.error('Error reconnecting wallet:', error.message);
       toast.error('Error reconnecting wallet.', { theme: 'dark' });
-    } finally {
-      setIsConnecting(false);
-    }
+    } 
   };
 
   useEffect(() => {
