@@ -11,18 +11,17 @@ const ButtonWallet = ({ ton, connect }) => {
 
   useEffect(() => {
     const unsubscribe = tonConnectUI.onStatusChange((wallet) => {
-      console.log('Wallet status changed:', wallet);
-      toast.info('Wallet status changed', { theme: 'dark' });
       if (wallet) {
+        console.log('Wallet connected:', wallet.account.address);
         setWalletAddress(wallet.account.address);
+      } else {
+        console.log('Wallet disconnected');
+        setWalletAddress("no");
       }
     });
-  
-    return () => unsubscribe();
-  }, [tonConnectUI]);
-  
 
-  const walletFetshServer = async (pubkey, option) => {
+    return () => unsubscribe();
+  }, [tonConnectUI]); const walletFetshServer = async (pubkey, option) => {
     const urlBase = "https://tongaroo.fun";
     const token = localStorage.getItem('token');
     if (!token) {
@@ -58,31 +57,45 @@ const ButtonWallet = ({ ton, connect }) => {
   };
 
   const connectWallet = () => {
-    try{
-        if (walletAddress !== "no") {
-            toast.warning('Wallet is already connected.', { theme: 'dark' });
-            return;
-          }
-          tonConnectUI.connectWallet();
-    }catch(e){
-        console.log(e)
+    try {
+      if (walletAddress !== "no") {
+        toast.warning('Wallet is already connected.', { theme: 'dark' });
+        return;
+      }
+      tonConnectUI.connectWallet();
+    } catch (e) {
+      console.log(e)
     }
-   
+
   };
 
   const disconnectWallet = () => {
     if (walletAddress === "no") {
-        toast.warning('No wallet is connected.', { theme: 'dark' });
-        return;
+      toast.warning('No wallet is connected.', { theme: 'dark' });
+      return;
     }
     try {
-        tonConnectUI.disconnect();
-        setWalletAddress("no");
-        toast.info('Wallet disconnected successfully', { theme: 'dark' });
+      tonConnectUI.disconnect();
+      setWalletAddress("no");
+      toast.info('Wallet disconnected successfully', { theme: 'dark' });
     } catch (error) {
-        toast.error(`Error disconnecting wallet: ${error.message}`, { theme: 'dark' });
+      toast.error(`Error disconnecting wallet: ${error.message}`, { theme: 'dark' });
     }
-};
+  };
+
+  const reconnectWallet = async () => {
+    try {
+      if (walletAddress !== "no") {
+        await tonConnectUI.disconnect();
+        setWalletAddress("no");
+      }
+      tonConnectUI.connectWallet();
+    } catch (error) {
+      console.error('Error reconnecting wallet:', error.message);
+      toast.error('Error reconnecting wallet.', { theme: 'dark' });
+    }
+  };
+
 
   useEffect(() => {
     if (walletAddress != "no") {
