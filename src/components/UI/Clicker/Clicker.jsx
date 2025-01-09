@@ -21,7 +21,17 @@ const Clicker = ({ url }) => {
     // Обработка кликов
     const handleClick = () => {
         if (player.energy <= 0) return;
-            navigator.vibrate(100); 
+
+        if (tg?.HapticFeedback?.impactOccurred) {
+            tg.HapticFeedback.impactOccurred('medium');
+        } else {
+            toast.info('HapticFeedback API недоступен', {
+                position: 'top-right',
+                autoClose: 3000,
+                theme: 'dark',
+            })
+            console.warn('HapticFeedback API недоступен');
+        }
         setIsShaking(true);
         setClickCount((prevCount) => prevCount + 1);
 

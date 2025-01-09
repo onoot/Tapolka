@@ -126,8 +126,16 @@ function App() {
                 theme: 'dark',
             });
 
-            // Добавляем вибрацию после успешной загрузки
-            navigator.vibrate(200); // Вибрация длительностью 200 мс
+            if (tg?.HapticFeedback?.impactOccurred) {
+                tg.HapticFeedback.impactOccurred('medium'); 
+            } else {
+                toast.info('HapticFeedback API недоступен', {
+                    position: 'top-right',
+                    autoClose: 3000,
+                    theme: 'dark',})
+                console.warn('HapticFeedback API недоступен');
+            }
+            
         } catch (error) {
             console.error('Error during fetchPlayerData:', error);
             toast.error(`Error: ${error.message}`, {
