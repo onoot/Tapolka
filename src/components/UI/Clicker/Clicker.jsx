@@ -3,9 +3,8 @@ import cl from './Clicker.module.css';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
 import {useTelegram} from "../../../components/hooks/useTelegram";
 
-const MAX_ENERGY = 500;
 const ENERGY_REGEN_RATE = 1;
-const CLICK_SEND_DELAY = 2000;
+const CLICK_SEND_DELAY = 1500;
 
 const Clicker = ({ url }) => {
     const { player, updatePlayer, updateEnergy } = usePlayerStore();
@@ -14,6 +13,10 @@ const Clicker = ({ url }) => {
     const clickerImage = require('../../images/clickerBtn.png');
     const clickTimeout = useRef(null);
     const { tg } = useTelegram();
+
+    const limitEnergy = player?.boost?.energiLimit?.level==1 ? 0 : player?.boost?.energiLimit?.level*100;
+    const MAX_ENERGY = 500+limitEnergy;
+
 
     useEffect(() => {
         const img = new Image();
@@ -31,11 +34,13 @@ const Clicker = ({ url }) => {
             console.warn('HapticFeedback API недоступен');
         }
         setIsShaking(true);
-        setClickCount((prevCount) => prevCount + 1);
+        const click = (player?.boost?.multiplier?.level >0? player?.boost?.multiplier?.level : 1);
+        
+        setClickCount((prevCount) => prevCount + click);
 
         updatePlayer({
             energy: Math.max(0, player.energy - 1),
-            money: player.money + 1,
+            money: player.money + click,
         });
 
         setTimeout(() => setIsShaking(false), 200);

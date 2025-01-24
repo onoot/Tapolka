@@ -1,24 +1,27 @@
 import React, {useState} from 'react';
 import cl from "../styles/friends.module.css"
 import EarnList from "../components/UI/EarnList/EarnList";
+import { useTranslation } from "../hooks/useTranslation";
 
 const Earn = ({url}) => {
-    const [tasks, setTasks] = useState([
-        {id: 3, task: "Subscribe to Blum", reward: 5000,type:2, number:5},
-        {id: 2, task: "Subscribe to Paws", reward: 5000, type:2, number:6},
-        {id: 3, task: "Daily Combo", reward: 5000, type:1, number:1},
-        {id: 4, task: "Subscribe to the community", reward: 5000, type:4, number:4},
-        {id: 5, task: "Boost to the community", reward: 25000, type:3, number:3},
-    ])
+    const language = localStorage.getItem('language') || 'en';
+    const { t } = useTranslation(language);
 
+    const [tasks, setTasks] = useState([
+        {id: 3, task: t('Earn.tasks.subscribe_blum'), reward: 1000, type: 2, number: 6},
+        {id: 2, task: t('Earn.tasks.subscribe_paws'), reward: 1000, type: 2, number: 5},
+        {id: 1, task: t('Earn.tasks.daily_combo'), reward: 1000, type: 1, number: 1},
+        {id: 4, task: t('Earn.tasks.subscribe_community'), reward: 1000, type: 4, number: 4},
+        {id: 5, task: t('Earn.tasks.boost_community'), reward: 1000, type: 3, number: 4},
+    ]);
 
     return (
         <div className={`${cl.friends__container} ${cl.mt_20}`}>
             <div className={cl.friends__container__title}>
-                Earn more Bonuses
+                {t('Earn.title')}
             </div>
             <div className={cl.friends__container__description}>
-                Get more bonuses for completing activities!
+                {t('Earn.description')}
             </div>
             <EarnList listTasks={tasks} url={url}/>
         </div>

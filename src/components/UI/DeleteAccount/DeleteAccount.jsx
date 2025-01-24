@@ -1,8 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import cl from "./DeleteAccount.module.css"
 import Button from "../Button/Button";
+import { useTranslation } from '../../../hooks/useTranslation';
 
 const DeleteAccount = ({deleteAccount, setDeleteAccount}) => {
+    const language = localStorage.getItem('language') || 'en';
+    const { t } = useTranslation(language);
 
     const rootClasses = [cl.deleteAccount__background]
     if(deleteAccount){
@@ -12,14 +15,14 @@ const DeleteAccount = ({deleteAccount, setDeleteAccount}) => {
         <div className={rootClasses.join(" ")}>
             <div className={cl.deleteAccount__container}>
                 <div className={cl.deleteAccount__container__title}>
-                    Are you sure you want to delete your account?
+                    {t('DeleteAccount.title')}
                 </div>
                 <div className={cl.deleteAccount__container__description}>
-                    All your data, including game progress, achievements, and purchases, will be permanently deleted.
+                    {t('DeleteAccount.description')}
                 </div>
-                <Button text={"Delete account"} isImg={false} isFullScreen={true}/>
+                <Button text={t('DeleteAccount.buttons.delete')} isImg={false} isFullScreen={true}/>
                 <button onClick={() => setDeleteAccount(false)} className={cl.deleteAccount__container__button}>
-                    Cancel
+                    {t('DeleteAccount.buttons.cancel')}
                 </button>
             </div>
         </div>

@@ -6,40 +6,41 @@ import { usePlayerStore } from "../store/playerStore.mjs";
 import { toast } from 'react-toastify';
 import { useTelegram } from '../components/hooks/useTelegram'
 import Button from "../components/UI/Button/Button";
+import { useTranslation } from "../hooks/useTranslation";
 
 const Friends = ({ url }) => {
     const { player } = usePlayerStore((state) => state);
     const [modal, setModal] = useState(false)
     const { shareMessage } = useTelegram();
     const [referralLink, setReferralLink] = useState('');
+    
+    const language = localStorage.getItem('language') || 'en';
+    const { t } = useTranslation(language);
 
     const [inviteFriends, setInviteFriends] = useState([
-        { id: 1, task: "LootBox and key", reward: 1, description: "For you & your friend", pathImg: "redGift" },
-        { id: 2, task: "LootBoxes and keys for Premium", reward: 3, description: "For you & your friend", pathImg: "blueGift" },
+        { 
+            id: 1, 
+            task: t('Friends.inviteFriends.0.task'), 
+            reward: 1, 
+            description: t('Friends.inviteFriends.0.description'), 
+            pathImg: "redGift" 
+        },
+        { 
+            id: 2, 
+            task: t('Friends.inviteFriends.1.task'), 
+            reward: 3, 
+            description: t('Friends.inviteFriends.1.description'), 
+            pathImg: "blueGift" 
+        },
     ])
 
-
-    const [friends, setFriends] = useState([
-        // {id: 1, name: "Lara Croft", reward: 25300, level: 4},
-    ])
+    const [friends, setFriends] = useState([])
+    
     const closeModal = () => setModal(false);
 
     const openModal = (link) => {
         setReferralLink(link);
         setModal(true);
-    };
-    const copyToClipboard = async () => {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            try {
-                await navigator.clipboard.writeText(referralLink);
-                toast.success('The referral link has been copied to the clipboard!', { theme: 'dark' });
-                closeModal();
-            } catch (e) {
-                toast.error('Failed to copy the referral link.', { theme: 'dark' });
-            }
-        } else {
-            toast.error('Clipboard API is not available.', { theme: 'dark' });
-        }
     };
 
     async function GetList() {
@@ -61,7 +62,6 @@ const Friends = ({ url }) => {
             }
             const data = await response.json();
 
-            // Защита от некорректного ответа сервера
             const friendList = Array.isArray(data?.friends) ? data.friends : [];
             setFriends(friendList);
         } catch (e) {
@@ -74,55 +74,45 @@ const Friends = ({ url }) => {
         GetList();
     }, []);
 
-
-
     return (
         <div className={`${cl.friends__container}`}>
             <div className={cl.friends__container__title}>
-                Invite friends!
+                {t('Friends.title')}
             </div>
             <div className={cl.friends__container__description}>
-                The opening of the LootBox will take place before TGE
+                {t('Friends.description')}
             </div>
             <InviteFriendsList inviteFriends={inviteFriends} url={url} openModal={openModal} />
             {modal && (
                 <div className={cl.modal}>
                     <div className={cl.modalContent}>
-                        <h3>Share or Copy Referral Link</h3>
-                        <p>Your referral link:</p>
+                        <h3>{t('Friends.modal.title')}</h3>
+                        <p>{t('Friends.modal.subtitle')}</p>
                         <div className={cl.referralLink}>{referralLink}</div>
                         <div className={cl.modalActions}>
-                            {/* <Button
-                                text={"Copy link"}
-                                isImg={false}
-                                isFullScreen={false}
-                                onClick={copyToClipboard}
-                            />
-                        */}
-                        <div className={cl.modalButtons}>
-                        <Button 
-                                text={"Share link"}
-                                isImg={false}
-                                isFullScreen={false}
-                                onClick={() => {
-                                    shareMessage(referralLink);
-                                    closeModal();
-                                }}
-                            />
-                            <Button
-                                text={"Close"}
-                                isImg={false}
-                                isFullScreen={false}
-                                onClick={closeModal}
-                            />
-                        </div>
+                            <div className={cl.modalButtons}>
+                                <Button 
+                                    text={t('Friends.modal.buttons.share')}
+                                    isImg={false}
+                                    isFullScreen={false}
+                                    onClick={() => {
+                                        shareMessage(referralLink);
+                                        closeModal();
+                                    }}
+                                />
+                                <Button
+                                    text={t('Friends.modal.buttons.close')}
+                                    isImg={false}
+                                    isFullScreen={false}
+                                    onClick={closeModal}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
             )}
             <FriendsList friends={friends} GetList={GetList} />
         </div>
-
     );
 };
 

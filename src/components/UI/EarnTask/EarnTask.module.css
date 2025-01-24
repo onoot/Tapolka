@@ -9,6 +9,9 @@
     gap: 12px;
     width: 48%;
     margin: 16px 0 24px;
+
+    text-decoration: none;
+    color: white;
 }
 .earnTask__container__img{
 

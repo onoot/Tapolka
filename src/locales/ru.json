@@ -1,0 +1,358 @@
+{
+  "App": {
+    "welcome": "Добро пожаловать!",
+    "loading": "Загрузка...",
+    "errors": {
+      "hapticFeedback": "HapticFeedback API недоступен",
+      "tokenMissing": "Токен отсутствует в ответе",
+      "fetchError": "Ошибка: "
+    },
+    "toasts": {
+      "welcome": "Добро пожаловать!",
+      "error": "Ошибка: ",
+      "hapticUnavailable": "HapticFeedback API недоступен"
+    }
+  },
+  "Settings": {
+    "title": "Настройки",
+    "language": {
+      "title": "Выбрать язык",
+      "options": {
+        "en_us": "English (US)",
+        "en_uk": "English (UK)",
+        "hi": "हिंदी",
+        "es": "Español",
+        "fr": "Français",
+        "ar": "العربية",
+        "bn": "বাংলা",
+        "ru": "Русский",
+        "id": "Bahasa Indonesia"
+      }
+    },
+    "exchanger": {
+      "title": "Выбрать обменник",
+      "options": {
+        "binance": "Binance",
+        "telegram": "Telegram"
+      }
+    },
+    "deleteAccount": "Удалить аккаунт"
+  },
+  "Boost": {
+    "title": "Ускорение",
+    "balance": {
+      "title": "Ваш баланс"
+    },
+    "sections": {
+      "freeDaily": "Бесплатные ежедневные ускорения",
+      "boosters": "Ускорители"
+    },
+    "items": {
+      "fullEnergy": "Полная энергия",
+      "multitap": "Мультитап",
+      "energyLimit": "Лимит энергии",
+      "available": "доступно"
+    },
+    "errors": {
+      "tokenNotFound": "Токен не найден",
+      "notEnoughMoney": "Недостаточно денег",
+      "boosterNotFound": "Ускоритель не найден",
+      "unknown": "Произошла неизвестная ошибка"
+    },
+    "success": "Успешно ускорено!"
+  },
+  "Progress": {
+    "title": "Прогресс",
+    "rank": {
+      "current": "Текущий ранг",
+      "progress": "Прогресс"
+    },
+    "money": {
+      "target": "10M",
+      "current": "{amount}"
+    }
+  },
+  "Earn": {
+    "title": "Заработать бонусы",
+    "description": "Получайте больше бонусов за выполнение заданий!",
+    "tasks": {
+      "subscribe_blum": "Подписаться на Blum",
+      "subscribe_paws": "Подписаться на Paws",
+      "daily_combo": "Ежедневный комбо",
+      "subscribe_community": "Подписаться на сообщество",
+      "boost_community": "Поддержать сообщество"
+    }
+  },
+  "Friends": {
+    "title": "Пригласить друзей!",
+    "description": "Открытие LootBox состоится перед TGE",
+    "modal": {
+      "title": "Поделиться или скопировать реферальную ссылку",
+      "subtitle": "Ваша реферальная ссылка:",
+      "buttons": {
+        "share": "Поделиться",
+        "close": "Закрыть"
+      }
+    },
+    "inviteFriends": [
+      {
+        "task": "LootBox и ключ",
+        "description": "Для вас и вашего друга"
+      },
+      {
+        "task": "LootBox и ключи для Premium",
+        "description": "Для вас и вашего друга"
+      }
+    ]
+  },
+  "FriendsList": {
+    "title": "Список ваших друзей"
+  },
+  "InviteFriendsList": {
+    "moreBonuses": "Больше бонусов"
+  },
+  "InviteFriends": {
+    "button": "Пригласить друга",
+    "errors": {
+      "tokenMissing": "Токен не найден. Пожалуйста, войдите в систему.",
+      "linkGeneration": "Не удалось сгенерировать ссылку. Код ошибки: ",
+      "linkNotFound": "Реферальная ссылка не найдена в ответе сервера.",
+      "general": "Произошла ошибка при генерации реферальной ссылки."
+    }
+  },
+  "Mine": {
+    "dailyCombo": "Ежедневный комбо",
+    "comingSoon": "Скоро",
+    "toasts": {
+      "success": "Ежедневная награда успешно получена!",
+      "warnings": {
+        "notEnoughCards": "Недостаточно правильных карт для выполнения ежедневного задания",
+        "unexpectedResponse": "Неожиданный ответ сервера"
+      },
+      "errors": {
+        "unauthorized": "Неавторизованный доступ. Пожалуйста, войдите снова.",
+        "userNotFound": "Пользователь не найден",
+        "checkingCompletion": "Ошибка при проверке выполнения задания"
+      }
+    }
+  },
+  "DailyList": {
+    "daily_combo": "Ежедневный комбо",
+    "daily_spin": "Ежедневное вращение",
+    "daily_ton": "Ежедневный TON",
+    "soon": "Скоро"
+  },
+  "EarnList": {
+    "sections": {
+      "partner": "Партнерские задания",
+      "community": "Задания сообщества",
+      "daily": "Ежедневные задания"
+    }
+  },
+  "ClickerAndBuff": {
+    "energy": "Энергия",
+    "boost": "Улучшения"
+  },
+  "Loading": {
+    "title": "Farm $TOGO",
+    "description": "T2E <span className={cl.purple}>TOGO</span> и не жди <span className={cl.yellow}>FOMO</span>"
+  },
+  "Navbar": {
+    "home": "Главная",
+    "farm": "Ферма",
+    "friends": "Друзья",
+    "earn": "Бонусы",
+    "drop": "Дроп"
+  },
+  "PlayerProfit": {
+    "lootbox": "Лутбокс",
+    "settings": "Настройки"
+  },
+  "MineMarket": {
+    "types": {
+      "Combo": "Комбо",
+      "Market": "Маркет",
+      "Spin": "Спин",
+      "Lootbox": "Лутбокс",
+      "Specials": "Специальные"
+    },
+    "errors": {
+      "getItems": "Ошибка получения карт"
+    }
+  },
+  "Wallet": {
+    "connect": "Подключить кошелек",
+    "disconnect": "Отключить кошелек",
+    "messages": {
+      "alreadyConnected": "Кошелек уже подключен",
+      "noWalletConnected": "Кошелек не подключен",
+      "connectSuccess": "Кошелек успешно подключен",
+      "disconnectSuccess": "Кошелек успешно отключен",
+      "errors": {
+        "connect": "Ошибка подключения кошелька",
+        "disconnect": "Ошибка отключения кошелька: {error}",
+        "network": "Ошибка сети или сервера",
+        "tokenNotFound": "Токен не найден",
+        "status": "Ошибка код {code}"
+      }
+    }
+  },
+  "EarnTask": {
+    "messages": {
+      "errors": {
+        "tokenNotFound": "Токен не найден",
+        "alreadyCompleted": "Задание уже выполнено",
+        "notEnoughEnergy": "Недостаточно энергии",
+        "serverError": "Ошибка сервера: {error}",
+        "networkError": "Ошибка сети или сервера"
+      },
+      "success": {
+        "taskCompleted": "Задание выполнено! Получено {amount}",
+        "energySpent": "Потрачено энергии: {energy}"
+      }
+    },
+    "task": {
+      "reward": "Награда",
+      "energy": "Энергия",
+      "time": "Время",
+      "minutes": "мин",
+      "complete": "Выполнить",
+      "completed": "Выполнено"
+    }
+  },
+  "DeleteAccount": {
+    "title": "Вы уверены, что хотите удалить свой аккаунт?",
+    "description": "Все ваши данные, включая игровой прогресс, достижения и покупки, будут безвозвратно удалены.",
+    "buttons": {
+      "delete": "Удалить аккаунт",
+      "cancel": "Отмена"
+    }
+  },
+  "GetLink": {
+    "messages": {
+      "success": {
+        "taskHere": "Вы можете выполнить это задание здесь",
+        "linkReceived": "Ссылка получена"
+      },
+      "errors": {
+        "loginRequired": "Пожалуйста, войдите в систему",
+        "alreadyCompleted": "Задание уже выполнено",
+        "linkFailed": "Не удалось получить ссылку :( \nКод статуса: {status}",
+        "fallback": "Резервный вариант"
+      }
+    }
+  },
+  "Airdrop": {
+    "title": "Задания Airdrop",
+    "description": "Список заданий скоро появится. Задания будут отображаться ниже. Выполните их, чтобы участвовать в Airdrop",
+    "header": {
+      "disconnect": "Отключить",
+      "copy": {
+        "success": "Адрес скопирован",
+        "error": "Ошибка копирования адреса"
+      },
+      "buttons": {
+        "copy": "Копировать",
+        "view": "Просмотр"
+      }
+    },
+    "tabs": {
+      "tasks": "Задания",
+      "airdrop": "Airdrop",
+      "token": "Токен",
+      "withdraw": "Вывод"
+    },
+    "cards": {
+      "transactions": "Транзакции",
+      "tasksCompleted": "Заданий выполнено"
+    },
+    "taskLists": {
+      "daily": {
+        "title": "Ежедневные задания",
+        "task": {
+          "title": "Сделать транзакцию в TON",
+          "reward": "+ 10 $wTOGO"
+        }
+      },
+      "airdrop": {
+        "title": "Задания Airdrop",
+        "task": {
+          "title": "Сделать транзакцию в TON",
+          "reward": "+ 10 $wTOGO",
+          "combo": "Выигранные комбо"
+        }
+      }
+    }
+  },
+  "Ranks": {
+    "names": {
+      "Unknown": "Неизвестно",
+      "Bronze": "Бронза",
+      "Silver": "Серебро",
+      "Gold": "Золото",
+      "Platinum": "Платина",
+      "Diamond": "Алмаз",
+      "Master": "Мастер",
+      "Grandmaster": "Грандмастер",
+      "Challenger": "Претендент",
+      "Legend": "Легенда",
+      "Mythical": "Мифический"
+    },
+    "errors": {
+      "convert": "Ошибка в convertRank: {message}"
+    }
+  },
+  "balance": {
+    "title": "Баланс ~ /",
+    "currency": "wTOGO"
+  },
+  "nft": {
+    "title": "Мои NFT ~ /",
+    "collection": "NFT коллекция"
+  },
+  "transactions": {
+    "title": "Транзакции",
+    "viewAll": "Смотреть все",
+    "deposit": "Депозит",
+    "yesterday": "Вчера"
+  },
+  "modal": {
+    "paymentSuccess": "Платеж успешен",
+    "successMessage": "Ваш платеж прошел успешно",
+    "paymentId": "ID платежа"
+  },
+  "airdrop": {
+    "title": "Airdrop",
+    "description": "Подключите кошелек, чтобы получить доступ к airdrop",
+    "withdraw": {
+      "comingSoon": "Скоро будет....."
+    },
+    "tabs": {
+      "token": "Токен",
+      "withdraw": "Вывод",
+      "tasks": "Задания",
+      "airdrop": "Airdrop"
+    },
+    "cards": {
+      "transactions": "Транзакции",
+      "tasksCompleted": "Заданий выполнено"
+    },
+    "taskLists": {
+      "daily": {
+        "title": "Ежедневные задания",
+        "task": {
+          "title": "Сделать транзакцию в TON",
+          "reward": "+ 10 $wTOGO"
+        }
+      },
+      "airdrop": {
+        "title": "Задания Airdrop",
+        "task": {
+          "title": "Сделать транзакцию в TON",
+          "reward": "+ 10 $wTOGO",
+          "combo": "Выиграть комбо"
+        }
+      }
+    }
+  }
+} 

@@ -18,9 +18,6 @@ const DailyItem = ({ srcIcon, title, time, isLock, navbarPosition }) => {
             <div className={cl.dailyList__container__title}>
                 {title}
             </div>
-            <div className={cl.dailyList__container__time}>
-                {time}
-            </div>
         </Link>
     );
 };

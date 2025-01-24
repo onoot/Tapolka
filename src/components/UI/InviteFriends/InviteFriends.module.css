@@ -1,3 +1,8 @@
+.inviteFriend__container__item__block__video video {
+    background-color: transparent;
+    object-fit: cover; 
+}
+
 .inviteFriend__container__item{
     background: #282B30;
     width: 100%;

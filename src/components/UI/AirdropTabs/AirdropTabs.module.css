@@ -1,0 +1,34 @@
+.tabs {
+    display: flex;
+    gap: 2rem; 
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.tab {
+    width: 60svw;
+    font-size: 1.5rem; /* Размер шрифта */
+    font-weight: 400; /* Нормальная толщина шрифта */
+    color: #878787; /* Цвет для неактивных табов */
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tab.active {
+    font-weight: 600; /* Жирный шрифт для активного */
+    color: var(--text-primary); /* или white для активного */
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* Расстояние от текста до линии */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white; /* Белое подчеркивание */
+    border-radius: 1px;
+}

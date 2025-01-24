@@ -5,8 +5,11 @@ import clD from "./Progress.module.css";
 import ProgressItem from "../ProgressItem/ProgressItem";
 import { convertMoneyToReduction } from "../../hooks/converMoney";
 import { convertData } from "../../hooks/convertUserData.mjs";
+import { useTranslation } from "../../../hooks/useTranslation";
 
-const Progress = ({ visible, setVisible, player, url, pisda }) => {
+const Progress = ({ visible, setVisible, player, url }) => {
+    const language = localStorage.getItem('language') || 'en';
+    const { t } = useTranslation(language);
     const [users, setUsers] = useState([]);
     const [rank, setRank] = useState(null);
     const money = convertMoneyToReduction(player?.money);
@@ -14,10 +17,9 @@ const Progress = ({ visible, setVisible, player, url, pisda }) => {
 
     async function getData() {
         try {
-            if (pisda === false) return;
             const token = localStorage.getItem('token');
             if (!token) {
-                console.error(!token);
+                console.error('Token not found');
                 return;
             }
             const response = await fetch(`${url}/api/board/${player?.id}`, {
@@ -32,7 +34,7 @@ const Progress = ({ visible, setVisible, player, url, pisda }) => {
             }
             const data = await response.json();
             if (data) {
-                setUsers(data.users); // Устанавливаем только массив пользователей
+                setUsers(data.users);
             }
         } catch (e) {
             console.log(e);
@@ -40,8 +42,10 @@ const Progress = ({ visible, setVisible, player, url, pisda }) => {
     }
 
     useEffect(() => {
-        getData();
-    }, [pisda]);
+        if(visible) {
+            getData();
+        }
+    }, [visible]);
 
     useEffect(() => {
         if (player && player.rank !== undefined) {
@@ -64,7 +68,7 @@ const Progress = ({ visible, setVisible, player, url, pisda }) => {
                 <div className={cl.settings__container__titlePanel}>
                     <ButtonClose setVisible={setVisible} />
                     <div className={cl.settings__container__title}>
-                        Progress
+                        {t('Progress.title')}
                     </div>
                 </div>
                 <div className={clD.progress__container}>

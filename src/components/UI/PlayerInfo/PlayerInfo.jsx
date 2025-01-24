@@ -59,7 +59,7 @@ const PlayerInfo = ({ avatar, player, setProgress }) => {
                     </div>
                     <div
                         style={{
-                            '--progress-width': `${rank?.progress || 0}%`,
+                            '--progress-width': `${player?.money/10_000_000*100 || 0}%`,
                         }}
                         className={cl.playerInfo__panel__item__levelBlock__progressBar}
                     ></div>

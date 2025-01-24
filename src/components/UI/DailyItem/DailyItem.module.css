@@ -33,7 +33,7 @@
 }
 
 .dailyList__container__title {
-    font-size: 14px; /* Ensure consistent font size */
+    font-size: 12px; /* Ensure consistent font size */
     font-family: Poppins, sans-serif;
     text-align: center; /* Align text centrally */
     margin-top: 10px; /* Add spacing between elements */
@@ -47,6 +47,8 @@
 }
 
 .dailyList__container__icon img {
+    display: flex;
+    justify-content: center;
     width: 50px; /* Consistent icon size */
     height: 50px;
     margin: 0 auto; /* Center align icon */

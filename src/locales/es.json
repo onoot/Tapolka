@@ -1,0 +1,284 @@
+{
+  "App": {
+    "welcome": "¡Bienvenido!",
+    "loading": "Cargando...",
+    "errors": {
+      "hapticFeedback": "API de retroalimentación háptica no disponible",
+      "tokenMissing": "Falta el token en la respuesta",
+      "fetchError": "Error: "
+    },
+    "toasts": {
+      "welcome": "¡Bienvenido!",
+      "error": "Error: ",
+      "hapticUnavailable": "API de retroalimentación háptica no disponible"
+    }
+  },
+  "Settings": {
+    "title": "Ajustes",
+    "language": {
+      "title": "Seleccionar idioma",
+      "options": {
+        "en_us": "English (US)",
+        "en_uk": "English (UK)",
+        "hi": "हिंदी",
+        "es": "Español",
+        "fr": "Français",
+        "ar": "العربية",
+        "bn": "বাংলা",
+        "ru": "Русский",
+        "id": "Bahasa Indonesia"
+      }
+    },
+    "exchanger": {
+      "title": "Seleccionar Exchange",
+      "options": {
+        "binance": "Binance",
+        "telegram": "Telegram"
+      }
+    },
+    "deleteAccount": "Eliminar cuenta"
+  },
+  "Boost": {
+    "title": "Impulsar",
+    "balance": {
+      "title": "Tu saldo"
+    },
+    "sections": {
+      "freeDaily": "Impulsores diarios gratuitos",
+      "boosters": "Impulsores"
+    },
+    "items": {
+      "fullEnergy": "Energía completa",
+      "multitap": "Multitoque",
+      "energyLimit": "Límite de energía",
+      "available": "disponible"
+    },
+    "errors": {
+      "tokenNotFound": "Token no encontrado",
+      "notEnoughMoney": "Saldo insuficiente",
+      "boosterNotFound": "Impulsor no encontrado",
+      "unknown": "Ocurrió un error desconocido"
+    },
+    "success": "¡Impulsado con éxito!"
+  },
+  "Progress": {
+    "title": "Progreso",
+    "rank": {
+      "current": "Rango actual",
+      "progress": "Progreso"
+    },
+    "money": {
+      "target": "10M",
+      "current": "{amount}"
+    }
+  },
+  "Earn": {
+    "title": "Gana más bonos",
+    "description": "¡Obtén más bonos completando actividades!",
+    "tasks": {
+      "subscribe_blum": "Suscríbete a Blum",
+      "subscribe_paws": "Suscríbete a Paws",
+      "daily_combo": "Combo diario",
+      "subscribe_community": "Suscríbete a la comunidad",
+      "boost_community": "Impulsa a la comunidad"
+    }
+  },
+  "Friends": {
+    "title": "¡Invita amigos!",
+    "description": "La apertura del LootBox tendrá lugar antes del TGE",
+    "modal": {
+      "title": "Compartir o Copiar Enlace de Referido",
+      "subtitle": "Tu enlace de referido:",
+      "buttons": {
+        "share": "Compartir enlace",
+        "close": "Cerrar"
+      }
+    },
+    "inviteFriends": [
+      {
+        "task": "LootBox y llave",
+        "description": "Para ti y tu amigo"
+      },
+      {
+        "task": "LootBoxes y llaves para Premium",
+        "description": "Para ti y tu amigo"
+      }
+    ]
+  },
+  "FriendsList": {
+    "title": "Lista de tus amigos"
+  },
+  "InviteFriendsList": {
+    "moreBonuses": "Más bonos"
+  },
+  "InviteFriends": {
+    "button": "Invitar a un amigo",
+    "errors": {
+      "tokenMissing": "Token no encontrado. Por favor, inicia sesión.",
+      "linkGeneration": "Error al generar enlace. Código de error: ",
+      "linkNotFound": "Enlace de referido no encontrado en la respuesta del servidor.",
+      "general": "Ocurrió un error al generar el enlace de referido."
+    }
+  },
+  "Mine": {
+    "dailyCombo": "Combo diario",
+    "comingSoon": "Próximamente",
+    "toasts": {
+      "success": "¡Recompensa diaria reclamada con éxito!",
+      "warnings": {
+        "notEnoughCards": "No hay suficientes cartas correctas para completar la tarea diaria",
+        "unexpectedResponse": "Respuesta inesperada del servidor"
+      },
+      "errors": {
+        "unauthorized": "Acceso no autorizado. Por favor, inicia sesión nuevamente.",
+        "userNotFound": "Usuario no encontrado",
+        "checkingCompletion": "Error al verificar la finalización diaria"
+      }
+    }
+  },
+  "DailyList": {
+    "daily_combo": "Combo Diario",
+    "daily_spin": "Giro Diario",
+    "daily_ton": "TON Diario",
+    "soon": "Próximamente"
+  },
+  "EarnList": {
+    "sections": {
+      "partner": "Tareas de socios",
+      "community": "Tareas comunitarias",
+      "daily": "Tareas diarias"
+    }
+  },
+  "ClickerAndBuff": {
+    "energy": "Energía",
+    "boost": "Impulso"
+  },
+  "Loading": {
+    "title": "Farm $TOGO",
+    "description": "T2E TOGO y no esperes el FOMO"
+  },
+  "Navbar": {
+    "home": "Inicio",
+    "farm": "Granja",
+    "friends": "Amigos",
+    "earn": "Ganar",
+    "drop": "Drop"
+  },
+  "PlayerProfit": {
+    "lootbox": "Lootbox",
+    "settings": "Ajustes"
+  },
+  "MineMarket": {
+    "types": {
+      "Combo": "Combo",
+      "Market": "Mercado",
+      "Spin": "Giro",
+      "Lootbox": "Lootbox",
+      "Specials": "Especiales"
+    }
+  },
+  "DeleteAccount": {
+    "title": "¿Estás seguro de que quieres eliminar tu cuenta?",
+    "description": "Todos tus datos, incluyendo progreso del juego, logros y compras, serán eliminados permanentemente.",
+    "buttons": {
+      "delete": "Eliminar cuenta",
+      "cancel": "Cancelar"
+    }
+  },
+  "GetLink": {
+    "messages": {
+      "success": {
+        "taskHere": "Puedes hacer esta tarea aquí",
+        "linkReceived": "Enlace recibido"
+      },
+      "errors": {
+        "loginRequired": "Por favor, inicia sesión",
+        "alreadyCompleted": "Tarea ya completada",
+        "linkFailed": "Error al obtener enlace :( \nCódigo de estado: {status}",
+        "fallback": "Alternativa"
+      }
+    }
+  },
+  "Airdrop": {
+    "title": "Airdrop",
+    "description": "Conecta tu billetera para acceder al airdrop",
+    "header": {
+      "disconnect": "Desconectar",
+      "copy": {
+        "success": "Dirección copiada",
+        "error": "Error al copiar la dirección"
+      },
+      "buttons": {
+        "copy": "Copiar",
+        "view": "Ver"
+      }
+    },
+    "tabs": {
+      "tasks": "Tareas",
+      "airdrop": "Airdrop",
+      "token": "Token",
+      "withdraw": "Retirar"
+    },
+    "cards": {
+      "transactions": "Transacciones",
+      "tasksCompleted": "Tareas completadas"
+    },
+    "taskLists": {
+      "daily": {
+        "title": "Tareas Diarias",
+        "task": {
+          "title": "Hacer una transacción en TON",
+          "reward": "+ 10 $wTOGO"
+        }
+      },
+      "airdrop": {
+        "title": "Tareas de Airdrop",
+        "task": {
+          "title": "Hacer una transacción en TON",
+          "reward": "+ 10 $wTOGO",
+          "combo": "Ganar un combo"
+        }
+      }
+    },
+    "withdraw": {
+      "comingSoon": "Próximamente....."
+    }
+  },
+  "Ranks": {
+    "names": {
+      "Unknown": "Desconocido",
+      "Bronze": "Bronce",
+      "Silver": "Plata",
+      "Gold": "Oro",
+      "Platinum": "Platino",
+      "Diamond": "Diamante",
+      "Master": "Maestro",
+      "Grandmaster": "Gran Maestro",
+      "Challenger": "Retador",
+      "Legend": "Leyenda",
+      "Mythical": "Mítico"
+    },
+    "errors": {
+      "convert": "Error en convertRank: {message}"
+    }
+  },
+  "balance": {
+    "title": "Saldo ~ /",
+    "currency": "wTOGO"
+  },
+  "nft": {
+    "title": "Mi NFT ~ /",
+    "collection": "Colección NFT"
+  },
+  "transactions": {
+    "title": "Transacciones",
+    "viewAll": "Ver Todo",
+    "deposit": "Depósito",
+    "yesterday": "Ayer"
+  },
+  "modal": {
+    "paymentSuccess": "Pago exitoso",
+    "successMessage": "Tu pago fue exitoso",
+    "paymentId": "ID de pago"
+  }
+} 

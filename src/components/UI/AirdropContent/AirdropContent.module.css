@@ -1,0 +1,252 @@
+.airdrop_content {
+    padding: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.tab {
+    width: 60svw;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #878787;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.tab.active {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 1px;
+}
+
+.token_section, .withdraw_section {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.token_info, .withdraw_card {
+    background: var(--background-secondary);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.token_balance, .withdraw_info {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.balance_label, .withdraw_label {
+    font-size: 2rem;
+    margin-top: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-secondary);
+}
+
+.balance_amount, .withdraw_amount {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.token_description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.withdraw_button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.withdraw_button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* BalanceCard */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #121212; /* Темный фон */
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1e1e; /* Вторичный темный фон */
+    padding: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    width: 339px;
+    height: 90px;
+    border-radius: 32px;
+}
+
+.icon_wrapper {
+    flex-shrink: 0;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+}
+
+.card_content {
+    text-align: left;
+    flex-grow: 1;
+    margin: 0 24px;
+}
+
+.label {
+    text-align: center;
+    font-size: 1rem;
+    color: #b3b3b3;
+}
+
+.amount {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 12px;
+}
+
+.highlight {
+    font-family: 'Open Sans', sans-serif;
+    color: #00B749; /* Зеленый цвет */
+}
+
+.highlight_blue {
+    color: #27A7E7; /* Синий цвет */
+}
+
+/* TransactionHistory */
+.transaction_history {
+    margin-top: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 200px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: #838383;
+    font-weight: 400;
+}
+.view_all {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.875rem;
+    background: linear-gradient(112.6deg, #F9D16B 9.32%, #FAFDA6 86.61%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    position: relative;
+}
+
+.view_all::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Располагаем под текстом */
+    width: 100%;
+    height: 1px; /* Толщина линии */
+    background: linear-gradient(112.6deg, #F9D16B 9.32%, #FAFDA6 86.61%);
+    transform: scaleY(1.5); /* Увеличиваем высоту линии */
+    transform-origin: bottom; /* Центруем */
+}
+
+.transaction_group {
+    margin-bottom: 16px;
+}
+
+.date {
+    font-size: 1rem;
+    color: #b3b3b3;
+    margin-bottom: 8px;
+}
+
+.transaction_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px 12px 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #F2F2F7;
+}
+
+.transaction_icon {
+    width: 40px;
+    height: 40px;
+}
+
+.transaction_info {
+    flex-grow: 1;
+    margin-left: 12px;
+}
+
+.type {
+    display: block;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.currency {
+    display: block;
+    font-size: 0.875rem;
+    color: #F6FF00; /* Синий */
+}
+
+.amount {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #00B749; /* Зеленый */
+}

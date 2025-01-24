@@ -1,0 +1,331 @@
+{
+  "App": {
+    "welcome": "Welcome!",
+    "loading": "Loading...",
+    "errors": {
+      "hapticFeedback": "HapticFeedback API unavailable",
+      "tokenMissing": "Token is missing in response",
+      "fetchError": "Error: "
+    },
+    "toasts": {
+      "welcome": "Welcome!",
+      "error": "Error: ",
+      "hapticUnavailable": "HapticFeedback API unavailable"
+    }
+  },
+  "Settings": {
+    "title": "Settings",
+    "language": {
+      "title": "Select language",
+      "options": {
+        "en_us": "English (US)",
+        "en_uk": "English (UK)",
+        "hi": "हिंदी",
+        "es": "Español",
+        "fr": "Français",
+        "ar": "العربية",
+        "bn": "বাংলা",
+        "ru": "Русский",
+        "id": "Bahasa Indonesia"
+      }
+    },
+    "exchanger": {
+      "title": "Select Exchanger",
+      "options": {
+        "binance": "Binance",
+        "telegram": "Telegram"
+      }
+    },
+    "deleteAccount": "Delete Account"
+  },
+  "Boost": {
+    "title": "Boost",
+    "balance": {
+      "title": "Your balance"
+    },
+    "sections": {
+      "freeDaily": "Free daily boosters",
+      "boosters": "Boosters"
+    },
+    "items": {
+      "fullEnergy": "Full energy",
+      "multitap": "Multitap",
+      "energyLimit": "Energy limit",
+      "available": "available"
+    },
+    "errors": {
+      "tokenNotFound": "Token not found",
+      "notEnoughMoney": "Not enough money",
+      "boosterNotFound": "Booster not found",
+      "unknown": "An unknown error occurred"
+    },
+    "success": "Boosted successfully!"
+  },
+  "Progress": {
+    "title": "Progress",
+    "rank": {
+      "current": "Current rank",
+      "progress": "Progress"
+    },
+    "money": {
+      "target": "10M",
+      "current": "{amount}"
+    }
+  },
+  "Earn": {
+    "title": "Earn more Bonuses",
+    "description": "Get more bonuses for completing activities!",
+    "tasks": {
+      "subscribe_blum": "Subscribe to Blum",
+      "subscribe_paws": "Subscribe to Paws",
+      "daily_combo": "Daily Combo",
+      "subscribe_community": "Subscribe to the community",
+      "boost_community": "Boost to the community"
+    }
+  },
+  "Friends": {
+    "title": "Invite friends!",
+    "description": "The opening of the LootBox will take place before TGE",
+    "modal": {
+      "title": "Share or Copy Referral Link",
+      "subtitle": "Your referral link:",
+      "buttons": {
+        "share": "Share link",
+        "close": "Close"
+      }
+    },
+    "inviteFriends": [
+      {
+        "task": "LootBox and key",
+        "description": "For you & your friend"
+      },
+      {
+        "task": "LootBoxes and keys for Premium",
+        "description": "For you & your friend"
+      }
+    ]
+  },
+  "FriendsList": {
+    "title": "List of your friends"
+  },
+  "InviteFriendsList": {
+    "moreBonuses": "More bonuses"
+  },
+  "InviteFriends": {
+    "button": "Invite a friend",
+    "errors": {
+      "tokenMissing": "Token not found. Please log in.",
+      "linkGeneration": "Failed to generate link. Error code: ",
+      "linkNotFound": "Referral link not found in server response.",
+      "general": "An error occurred while generating the referral link."
+    }
+  },
+  "Mine": {
+    "dailyCombo": "Daily combo",
+    "comingSoon": "Coming Soon",
+    "toasts": {
+      "success": "Daily reward claimed successfully!",
+      "warnings": {
+        "notEnoughCards": "Not enough correct cards to complete the daily task",
+        "unexpectedResponse": "Unexpected server response"
+      },
+      "errors": {
+        "unauthorized": "Unauthorized access. Please login again.",
+        "userNotFound": "User not found",
+        "checkingCompletion": "Error checking daily completion"
+      }
+    }
+  },
+  "DailyList": {
+    "daily_combo": "Daily Combo",
+    "daily_spin": "Daily Spin",
+    "daily_ton": "Daily TON",
+    "soon": "Soon"
+  },
+  "EarnList": {
+    "sections": {
+      "partner": "Partner tasks",
+      "community": "Community tasks",
+      "daily": "Daily tasks"
+    }
+  },
+  "ClickerAndBuff": {
+    "energy": "Energy",
+    "boost": "Boost"
+  },
+  "Loading": {
+    "title": "Farm $TOGO",
+    "description": "T2E TOGO and don't wait for FOMO"
+  },
+  "Navbar": {
+    "home": "Home",
+    "farm": "Farm",
+    "friends": "Friends",
+    "earn": "Earn",
+    "drop": "Drop"
+  },
+  "PlayerProfit": {
+    "lootbox": "Lootbox",
+    "settings": "Settings"
+  },
+  "MineMarket": {
+    "types": {
+      "Combo": "Combo",
+      "Market": "Market",
+      "Spin": "Spin",
+      "Lootbox": "Lootbox",
+      "Specials": "Specials"
+    },
+    "errors": {
+      "getItems": "Error getting cards"
+    }
+  },
+  "Wallet": {
+    "connect": "Connect Wallet",
+    "disconnect": "Disconnect Wallet",
+    "messages": {
+      "alreadyConnected": "Wallet is already connected",
+      "noWalletConnected": "No wallet connected",
+      "connectSuccess": "Wallet connected successfully",
+      "disconnectSuccess": "Wallet disconnected successfully",
+      "errors": {
+        "connect": "Error connecting wallet",
+        "disconnect": "Error disconnecting wallet: {error}",
+        "network": "Network or server error",
+        "tokenNotFound": "Token not found",
+        "status": "Error code {code}"
+      }
+    }
+  },
+  "EarnTask": {
+    "messages": {
+      "errors": {
+        "tokenNotFound": "Token not found",
+        "alreadyCompleted": "Task already completed",
+        "notEnoughEnergy": "Not enough energy",
+        "serverError": "Server error: {error}",
+        "networkError": "Network or server error"
+      },
+      "success": {
+        "taskCompleted": "Task completed! Received {amount}",
+        "energySpent": "Energy spent: {energy}"
+      }
+    },
+    "task": {
+      "reward": "Reward",
+      "energy": "Energy",
+      "time": "Time",
+      "minutes": "min",
+      "complete": "Complete",
+      "completed": "Completed"
+    }
+  },
+  "DeleteAccount": {
+    "title": "Are you sure you want to delete your account?",
+    "description": "All your data, including game progress, achievements, and purchases, will be permanently deleted.",
+    "buttons": {
+      "delete": "Delete account",
+      "cancel": "Cancel"
+    }
+  },
+  "GetLink": {
+    "messages": {
+      "success": {
+        "taskHere": "You can do this task here",
+        "linkReceived": "Link received"
+      },
+      "errors": {
+        "loginRequired": "Please log in",
+        "alreadyCompleted": "Task already completed",
+        "linkFailed": "Failed to get link :( \nStatus code: {status}",
+        "fallback": "Fallback"
+      }
+    }
+  },
+  "Airdrop": {
+    "title": "Airdrop Tasks",
+    "description": "Listing is on its way. Tasks will appear below. Complete them to participate in the Airdrop"
+  },
+  "Ranks": {
+    "names": {
+      "Unknown": "Unknown",
+      "Bronze": "Bronze",
+      "Silver": "Silver",
+      "Gold": "Gold",
+      "Platinum": "Platinum",
+      "Diamond": "Diamond",
+      "Master": "Master",
+      "Grandmaster": "Grandmaster",
+      "Challenger": "Challenger",
+      "Legend": "Legend",
+      "Mythical": "Mythical"
+    },
+    "errors": {
+      "convert": "Error in convertRank: {message}"
+    }
+  },
+  "airdrop": {
+    "title": "Airdrop",
+    "description": "Connect wallet to access airdrop",
+    "header": {
+      "disconnect": "Disconnect",
+      "copy": {
+        "success": "Address copied",
+        "error": "Error copying address"
+      },
+      "buttons": {
+        "copy": "Copy",
+        "view": "View"
+      }
+    },
+    "tabs": {
+      "tasks": "Tasks",
+      "airdrop": "Airdrop",
+      "token": "Token",
+      "withdraw": "Withdraw"
+    },
+    "cards": {
+      "transactions": "Transactions",
+      "tasksCompleted": "Tasks completed"
+    },
+    "taskLists": {
+      "daily": {
+        "title": "Daily Tasks",
+        "task": {
+          "title": "Make a transaction in TON",
+          "reward": "+ 10 $wTOGO"
+        }
+      },
+      "airdrop": {
+        "title": "Airdrop Tasks",
+        "task": {
+          "title": "Make a transaction in TON",
+          "reward": "+ 10 $wTOGO",
+          "combo": "Win a combo"
+        }
+      }
+    },
+    "withdraw": {
+      "comingSoon": "Coming soon....."
+    }
+  },
+  "balance": {
+    "title": "Balance ~ /",
+    "currency": "wTOGO"
+  },
+  "nft": {
+    "title": "My NFT ~ /",
+    "collection": "NFT collection"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "viewAll": "View All",
+    "deposit": "Deposit",
+    "yesterday": "Yesterday"
+  },
+  "modal": {
+    "paymentSuccess": "Payment success",
+    "successMessage": "Your payment was success",
+    "paymentId": "Payment ID"
+  }
+} 

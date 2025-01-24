@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import cl from "./FriendsList.module.css";
 import Friend from "../Friend/Friend";
+import { useTranslation } from "../../../hooks/useTranslation";
 
 const FriendsList = ({friends, GetList}) => {
     const [isRotating, setIsRotating] = useState(false);
+    const language = localStorage.getItem('language') || 'en';
+    const { t } = useTranslation(language);
 
     const handleClick = () => {
         setIsRotating(true); 
@@ -16,7 +19,7 @@ const FriendsList = ({friends, GetList}) => {
         <div className={cl.friendsList__container}>
             <div className={cl.friendsList__container__content}>
                 <div>
-                    List of your friends
+                    {t('FriendsList.title')}
                 </div>
                 <button onClick={() => handleClick()} className={cl.friendsList__button}>
                     <svg className={isRotating ? cl.rotate : ''} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

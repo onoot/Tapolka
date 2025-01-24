@@ -1,0 +1,289 @@
+{
+  "App": {
+    "welcome": "!مرحباً",
+    "loading": "...جاري التحميل",
+    "errors": {
+      "hapticFeedback": "واجهة برمجة الاهتزاز غير متوفرة",
+      "tokenMissing": "الرمز مفقود في الاستجابة",
+      "fetchError": " :خطأ"
+    },
+    "toasts": {
+      "welcome": "!مرحباً",
+      "error": " :خطأ",
+      "hapticUnavailable": "واجهة برمجة الاهتزاز غير متوفرة"
+    }
+  },
+  "Settings": {
+    "title": "الإعدادات",
+    "language": {
+      "title": "اختر اللغة",
+      "options": {
+        "en_us": "English (US)",
+        "en_uk": "English (UK)",
+        "hi": "हिंदी",
+        "es": "Español",
+        "fr": "Français",
+        "ar": "العربية",
+        "bn": "বাংলা",
+        "ru": "Русский",
+        "id": "Bahasa Indonesia"
+      }
+    },
+    "exchanger": {
+      "title": "اختر المنصة",
+      "options": {
+        "binance": "Binance",
+        "telegram": "Telegram"
+      }
+    },
+    "deleteAccount": "حذف الحساب"
+  },
+  "Boost": {
+    "title": "تعزيز",
+    "balance": {
+      "title": "رصيدك"
+    },
+    "sections": {
+      "freeDaily": "المعززات اليومية المجانية",
+      "boosters": "المعززات"
+    },
+    "items": {
+      "fullEnergy": "طاقة كاملة",
+      "multitap": "نقر متعدد",
+      "energyLimit": "حد الطاقة",
+      "available": "متاح"
+    },
+    "errors": {
+      "tokenNotFound": "الرمز غير موجود",
+      "notEnoughMoney": "رصيد غير كافٍ",
+      "boosterNotFound": "المعزز غير موجود",
+      "unknown": "حدث خطأ غير معروف"
+    },
+    "success": "!تم التعزيز بنجاح"
+  },
+  "Progress": {
+    "title": "التقدم",
+    "rank": {
+      "current": "الرتبة الحالية",
+      "progress": "التقدم"
+    },
+    "money": {
+      "target": "10M",
+      "current": "{amount}"
+    }
+  },
+  "Earn": {
+    "title": "اكسب المزيد من المكافآت",
+    "description": "!احصل على المزيد من المكافآت عند إكمال الأنشطة",
+    "tasks": {
+      "subscribe_blum": "Blum اشترك في",
+      "subscribe_paws": "Paws اشترك في",
+      "daily_combo": "الكومبو اليومي",
+      "subscribe_community": "اشترك في المجتمع",
+      "boost_community": "عزز المجتمع"
+    }
+  },
+  "Friends": {
+    "title": "!ادعُ أصدقاءك",
+    "description": "TGE قبل LootBox سيتم فتح",
+    "modal": {
+      "title": "مشاركة أو نسخ رابط الإحالة",
+      "subtitle": ":رابط الإحالة الخاص بك",
+      "buttons": {
+        "share": "مشاركة الرابط",
+        "close": "إغلاق"
+      }
+    }
+  },
+  "FriendsList": {
+    "title": "قائمة أصدقائك"
+  },
+  "InviteFriendsList": {
+    "moreBonuses": "مكافآت إضافية"
+  },
+  "Mine": {
+    "dailyCombo": "الكومبو اليومي",
+    "comingSoon": "قريباً",
+    "toasts": {
+      "success": "!تم المطالبة بالمكافأة اليومية بنجاح",
+      "warnings": {
+        "notEnoughCards": "لا توجد بطاقات كافية لإكمال المهمة اليومية",
+        "unexpectedResponse": "استجابة غير متوقعة من الخادم"
+      },
+      "errors": {
+        "unauthorized": "غير مصرح. يرجى تسجيل الدخول مرة أخرى",
+        "userNotFound": "المستخدم غير موجود",
+        "checkingCompletion": "خطأ في التحقق من الإكمال اليومي"
+      }
+    }
+  },
+  "DailyList": {
+    "daily_combo": "الكومبو اليومي",
+    "daily_spin": "الدوران اليومي",
+    "daily_ton": "TON اليومي",
+    "soon": "قريباً"
+  },
+  "EarnList": {
+    "sections": {
+      "partner": "مهام الشركاء",
+      "community": "مهام المجتمع",
+      "daily": "المهام اليومية"
+    }
+  },
+  "ClickerAndBuff": {
+    "energy": "الطاقة",
+    "boost": "تعزيز"
+  },
+  "Loading": {
+    "title": "Farm $TOGO",
+    "description": "FOMO ولا تنتظر T2E TOGO"
+  },
+  "Navbar": {
+    "home": "الرئيسية",
+    "farm": "المزرعة",
+    "friends": "الأصدقاء",
+    "earn": "اكسب",
+    "drop": "الإسقاط"
+  },
+  "PlayerProfit": {
+    "lootbox": "Lootbox",
+    "settings": "الإعدادات"
+  },
+  "MineMarket": {
+    "types": {
+      "Combo": "كومبو",
+      "Market": "السوق",
+      "Spin": "دوران",
+      "Lootbox": "Lootbox",
+      "Specials": "المميزات"
+    },
+    "errors": {
+      "getItems": "خطأ في الحصول على البطاقات"
+    }
+  },
+  "Wallet": {
+    "connect": "ربط المحفظة",
+    "disconnect": "فصل المحفظة",
+    "messages": {
+      "alreadyConnected": "المحفظة متصلة بالفعل",
+      "noWalletConnected": "لا توجد محفظة متصلة",
+      "connectSuccess": "تم ربط المحفظة بنجاح",
+      "disconnectSuccess": "تم فصل المحفظة بنجاح",
+      "errors": {
+        "connect": "خطأ في ربط المحفظة",
+        "disconnect": "{error} :خطأ في فصل المحفظة",
+        "network": "خطأ في الشبكة أو الخادم",
+        "tokenNotFound": "الرمز غير موجود",
+        "status": "{code} رمز الخطأ"
+      }
+    }
+  },
+  "DeleteAccount": {
+    "title": "هل أنت متأكد من رغبتك في حذف حسابك؟",
+    "description": ".سيتم حذف جميع بياناتك، بما في ذلك تقدم اللعبة والإنجازات والمشتريات، بشكل دائم",
+    "buttons": {
+      "delete": "حذف الحساب",
+      "cancel": "إلغاء"
+    }
+  },
+  "GetLink": {
+    "messages": {
+      "success": {
+        "taskHere": "يمكنك القيام بهذه المهمة هنا",
+        "linkReceived": "تم استلام الرابط"
+      },
+      "errors": {
+        "loginRequired": "يرجى تسجيل الدخول",
+        "alreadyCompleted": "المهمة مكتملة بالفعل",
+        "linkFailed": "{status} :رمز الحالة \n :( فشل في الحصول على الرابط",
+        "fallback": "البديل"
+      }
+    }
+  },
+  "Airdrop": {
+    "title": "مهام الإسقاط الجوي",
+    "description": "القائمة في الطريق. ستظهر المهام أدناه. أكملها للمشاركة في الإسقاط الجوي"
+  },
+  "Ranks": {
+    "names": {
+      "Unknown": "غير معروف",
+      "Bronze": "برونزي",
+      "Silver": "فضي",
+      "Gold": "ذهبي",
+      "Platinum": "بلاتيني",
+      "Diamond": "ماسي",
+      "Master": "ماستر",
+      "Grandmaster": "جراند ماستر",
+      "Challenger": "متحدي",
+      "Legend": "أسطوري",
+      "Mythical": "أسطوري خرافي"
+    },
+    "errors": {
+      "convert": "{message} :خطأ في تحويل الرتبة"
+    }
+  },
+  "airdrop": {
+    "title": "الإسقاط الجوي",
+    "description": "قم بتوصيل المحفظة للوصول إلى الإسقاط الجوي",
+    "header": {
+      "disconnect": "قطع الاتصال",
+      "copy": {
+        "success": "تم نسخ العنوان",
+        "error": "خطأ في نسخ العنوان"
+      },
+      "buttons": {
+        "copy": "نسخ",
+        "view": "عرض"
+      }
+    },
+    "tabs": {
+      "tasks": "المهام",
+      "airdrop": "الإسقاط الجوي",
+      "token": "الرمز",
+      "withdraw": "سحب"
+    },
+    "cards": {
+      "transactions": "المعاملات",
+      "tasksCompleted": "المهام المكتملة"
+    },
+    "taskLists": {
+      "daily": {
+        "title": "المهام اليومية",
+        "task": {
+          "title": "إجراء معاملة في TON",
+          "reward": "wTOGO$ 10 +"
+        }
+      },
+      "airdrop": {
+        "title": "مهام الإسقاط الجوي",
+        "task": {
+          "title": "إجراء معاملة في TON",
+          "reward": "wTOGO$ 10 +",
+          "combo": "اربح كومبو"
+        }
+      }
+    },
+    "withdraw": {
+      "comingSoon": ".....قريباً"
+    }
+  },
+  "balance": {
+    "title": "/ ~ الرصيد",
+    "currency": "wTOGO"
+  },
+  "nft": {
+    "title": "/ ~ الخاص بي NFT",
+    "collection": "NFT مجموعة"
+  },
+  "transactions": {
+    "title": "المعاملات",
+    "viewAll": "عرض الكل",
+    "deposit": "إيداع",
+    "yesterday": "أمس"
+  },
+  "modal": {
+    "paymentSuccess": "تم الدفع بنجاح",
+    "successMessage": "تمت عملية الدفع بنجاح",
+    "paymentId": "معرف الدفع"
+  }
+} 

@@ -1,0 +1,73 @@
+.dropdown_content {
+    position: absolute;
+    top: calc(100% + 10px); /* Отступ от иконки */
+    right: -50px;
+    background-color: #1A1A1A;
+    border-radius: 24px 24px 16px 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    padding: 16px;
+    z-index: 9999; /* Увеличиваем z-index */
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.arrow_up {
+    position: absolute;
+    top: -10px;
+    right: 60px; /* Позиционируем стрелку */
+    width: 20px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.arrow_up::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #1A1A1A;
+    transform: translateX(3px) translateY(5px) rotate(45deg);
+    border-radius: 2px;
+}
+
+.notification_item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #333;
+}
+
+.notification_item:last-child {
+    border-bottom: none;
+}
+
+.notification_image {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 12px;
+}
+
+.notification_content {
+    flex: 1;
+}
+
+.notification_title {
+    color: #fff;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.notification_description {
+    color: #bbb;
+    margin: 5px 0;
+    font-size: 0.8rem;
+}
+
+.notification_time {
+    color: #666;
+    font-size: 0.75rem;
+}
+  

@@ -1,0 +1,285 @@
+{
+  "App": {
+    "welcome": "Selamat datang!",
+    "loading": "Memuat...",
+    "errors": {
+      "hapticFeedback": "API Haptic Feedback tidak tersedia",
+      "tokenMissing": "Token tidak ada dalam respons",
+      "fetchError": "Kesalahan: "
+    },
+    "toasts": {
+      "welcome": "Selamat datang!",
+      "error": "Kesalahan: ",
+      "hapticUnavailable": "API Haptic Feedback tidak tersedia"
+    }
+  },
+  "Settings": {
+    "title": "Pengaturan",
+    "language": {
+      "title": "Pilih bahasa",
+      "options": {
+        "en_us": "English (US)",
+        "en_uk": "English (UK)",
+        "hi": "हिंदी",
+        "es": "Español",
+        "fr": "Français",
+        "ar": "العربية",
+        "bn": "বাংলা",
+        "ru": "Русский",
+        "id": "Bahasa Indonesia"
+      }
+    },
+    "exchanger": {
+      "title": "Pilih Exchanger",
+      "options": {
+        "binance": "Binance",
+        "telegram": "Telegram"
+      }
+    },
+    "deleteAccount": "Hapus Akun"
+  },
+  "Boost": {
+    "title": "Boost",
+    "balance": {
+      "title": "Saldo Anda"
+    },
+    "sections": {
+      "freeDaily": "Booster harian gratis",
+      "boosters": "Booster"
+    },
+    "items": {
+      "fullEnergy": "Energi penuh",
+      "multitap": "Multitap",
+      "energyLimit": "Batas energi",
+      "available": "tersedia"
+    },
+    "errors": {
+      "tokenNotFound": "Token tidak ditemukan",
+      "notEnoughMoney": "Saldo tidak cukup",
+      "boosterNotFound": "Booster tidak ditemukan",
+      "unknown": "Terjadi kesalahan yang tidak diketahui"
+    },
+    "success": "Berhasil di-boost!"
+  },
+  "Progress": {
+    "title": "Kemajuan",
+    "rank": {
+      "current": "Peringkat saat ini",
+      "progress": "Kemajuan"
+    },
+    "money": {
+      "target": "10M",
+      "current": "{amount}"
+    }
+  },
+  "Earn": {
+    "title": "Dapatkan lebih banyak bonus",
+    "description": "Dapatkan lebih banyak bonus dengan menyelesaikan aktivitas!",
+    "tasks": {
+      "subscribe_blum": "Berlangganan Blum",
+      "subscribe_paws": "Berlangganan Paws",
+      "daily_combo": "Combo harian",
+      "subscribe_community": "Berlangganan komunitas",
+      "boost_community": "Boost komunitas"
+    }
+  },
+  "Friends": {
+    "title": "Undang teman!",
+    "description": "Pembukaan LootBox akan dilakukan sebelum TGE",
+    "modal": {
+      "title": "Bagikan atau Salin Tautan Referral",
+      "subtitle": "Tautan referral Anda:",
+      "buttons": {
+        "share": "Bagikan tautan",
+        "close": "Tutup"
+      }
+    }
+  },
+  "FriendsList": {
+    "title": "Daftar teman Anda"
+  },
+  "InviteFriendsList": {
+    "moreBonuses": "Bonus tambahan"
+  },
+  "Mine": {
+    "dailyCombo": "Combo harian",
+    "comingSoon": "Segera hadir",
+    "toasts": {
+      "success": "Hadiah harian berhasil diklaim!",
+      "warnings": {
+        "notEnoughCards": "Kartu tidak cukup untuk menyelesaikan tugas harian",
+        "unexpectedResponse": "Respons tidak terduga dari server"
+      },
+      "errors": {
+        "unauthorized": "Tidak sah. Silakan login kembali",
+        "userNotFound": "Pengguna tidak ditemukan",
+        "checkingCompletion": "Kesalahan memeriksa penyelesaian harian"
+      }
+    }
+  },
+  "DailyList": {
+    "daily_combo": "Combo harian",
+    "daily_spin": "Putaran harian",
+    "daily_ton": "TON harian",
+    "soon": "Segera"
+  },
+  "EarnList": {
+    "sections": {
+      "partner": "Tugas mitra",
+      "community": "Tugas komunitas",
+      "daily": "Tugas harian"
+    }
+  },
+  "ClickerAndBuff": {
+    "energy": "Energi",
+    "boost": "Boost"
+  },
+  "Loading": {
+    "title": "Farm $TOGO",
+    "description": "T2E TOGO dan jangan tunggu FOMO"
+  },
+  "Navbar": {
+    "home": "Beranda",
+    "farm": "Pertanian",
+    "friends": "Teman",
+    "earn": "Dapatkan",
+    "drop": "Drop"
+  },
+  "PlayerProfit": {
+    "lootbox": "Lootbox",
+    "settings": "Pengaturan"
+  },
+  "MineMarket": {
+    "types": {
+      "Combo": "Combo",
+      "Market": "Pasar",
+      "Spin": "Putar",
+      "Lootbox": "Lootbox",
+      "Specials": "Spesial"
+    },
+    "errors": {
+      "getItems": "Kesalahan mendapatkan kartu"
+    }
+  },
+  "Wallet": {
+    "connect": "Hubungkan Dompet",
+    "disconnect": "Putuskan Dompet",
+    "messages": {
+      "alreadyConnected": "Dompet sudah terhubung",
+      "noWalletConnected": "Tidak ada dompet yang terhubung",
+      "connectSuccess": "Dompet berhasil terhubung",
+      "disconnectSuccess": "Dompet berhasil diputuskan",
+      "errors": {
+        "connect": "Kesalahan menghubungkan dompet",
+        "disconnect": "Kesalahan memutuskan dompet: {error}",
+        "network": "Kesalahan jaringan atau server",
+        "tokenNotFound": "Token tidak ditemukan",
+        "status": "Kode kesalahan {code}"
+      }
+    }
+  },
+  "DeleteAccount": {
+    "title": "Apakah Anda yakin ingin menghapus akun Anda?",
+    "description": "Semua data Anda, termasuk kemajuan permainan, pencapaian, dan pembelian, akan dihapus secara permanen.",
+    "buttons": {
+      "delete": "Hapus akun",
+      "cancel": "Batal"
+    }
+  },
+  "GetLink": {
+    "messages": {
+      "success": {
+        "taskHere": "Anda dapat melakukan tugas ini di sini",
+        "linkReceived": "Tautan diterima"
+      },
+      "errors": {
+        "loginRequired": "Silakan login",
+        "alreadyCompleted": "Tugas sudah selesai",
+        "linkFailed": "Gagal mendapatkan tautan :( \nKode status: {status}",
+        "fallback": "Fallback"
+      }
+    }
+  },
+  "Airdrop": {
+    "title": "Airdrop",
+    "description": "Hubungkan dompet untuk mengakses airdrop",
+    "header": {
+      "disconnect": "Putuskan",
+      "copy": {
+        "success": "Alamat disalin",
+        "error": "Gagal menyalin alamat"
+      },
+      "buttons": {
+        "copy": "Salin",
+        "view": "Lihat"
+      }
+    },
+    "tabs": {
+      "tasks": "Tugas",
+      "airdrop": "Airdrop",
+      "token": "Token",
+      "withdraw": "Tarik"
+    },
+    "cards": {
+      "transactions": "Transaksi",
+      "tasksCompleted": "Tugas selesai"
+    },
+    "taskLists": {
+      "daily": {
+        "title": "Tugas Harian",
+        "task": {
+          "title": "Buat transaksi di TON",
+          "reward": "+ 10 $wTOGO"
+        }
+      },
+      "airdrop": {
+        "title": "Tugas Airdrop",
+        "task": {
+          "title": "Buat transaksi di TON",
+          "reward": "+ 10 $wTOGO",
+          "combo": "Menangkan combo"
+        }
+      }
+    },
+    "withdraw": {
+      "comingSoon": "Segera hadir....."
+    }
+  },
+  "Ranks": {
+    "names": {
+      "Unknown": "Tidak diketahui",
+      "Bronze": "Perunggu",
+      "Silver": "Perak",
+      "Gold": "Emas",
+      "Platinum": "Platinum",
+      "Diamond": "Berlian",
+      "Master": "Master",
+      "Grandmaster": "Grandmaster",
+      "Challenger": "Penantang",
+      "Legend": "Legenda",
+      "Mythical": "Mitis"
+    },
+    "errors": {
+      "convert": "Kesalahan dalam convertRank: {message}"
+    }
+  },
+  "balance": {
+    "title": "Saldo ~ /",
+    "currency": "wTOGO"
+  },
+  "nft": {
+    "title": "NFT Saya ~ /",
+    "collection": "Koleksi NFT"
+  },
+  "transactions": {
+    "title": "Transaksi",
+    "viewAll": "Lihat Semua",
+    "deposit": "Deposit",
+    "yesterday": "Kemarin"
+  },
+  "modal": {
+    "paymentSuccess": "Pembayaran berhasil",
+    "successMessage": "Pembayaran Anda berhasil",
+    "paymentId": "ID Pembayaran"
+  }
+} 

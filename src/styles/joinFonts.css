@@ -1,15 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap") format('truetype');
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
+}
+
 @font-face {
     font-family: Poppins;
-    src: url("../components/fonts/Poppins-Medium.ttf");
+    src: url("../components/fonts/JungleAdventurer.ttf") format('truetype');
     font-weight: 500;
 }
+
 @font-face {
     font-family: Poppins_SemiBold;
-    src: url("../components/fonts/Poppins-SemiBold.ttf");
+    src: url("../components/fonts/JungleAdventurer.ttf") format('truetype');
     font-weight: 600;
 }
+
 @font-face {
     font-family: Poppins_Regular;
-    src: url("../components/fonts/Poppins-Regular.ttf");
+    src: url("../components/fonts/JungleAdventurer.ttf") format('truetype');
     font-weight: 400;
 }

@@ -9,6 +9,32 @@
     position: relative;
 }
 
+.airdrop__container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    margin:20px auto 0;
+    padding: 0 16px;
+    position: relative;
+}
+
+.airdrop__container::before {
+    content: "";
+    position: fixed; /* Фиксируем элемент на экране */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Занимает всю ширину экрана */
+    height: 100vh; /* Занимает всю высоту экрана */
+    z-index: -1; /* Отправляем элемент на задний план */
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover; /* Растягиваем изображение на весь экран */
+    pointer-events: none; /* Чтобы фон не блокировал клики */
+    
+}
+
+
 .mt_40{
     margin-top: 50svh;
 }
@@ -176,4 +202,121 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.cards_horizontal {
+    display: flex;
+    gap: 1rem; /* Расстояние между карточками */
+    margin-bottom: 2rem;
+    justify-content: space-between; /* Выравнивание карточек */
+}
+
+.card_horizontal {
+    background: #222222; /* Фон карточки */
+    border-radius: 12px;
+    padding: 1rem;
+    min-height: 120px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Расстояние между элементами внутри карточки */
+}
+
+.card_number {
+    font-size: 2rem; /* Размер числа */
+    font-weight: bold;
+    color: #ffffff; /* Цвет числа */
+}
+
+.card_text {
+    font-size: 1rem; /* Размер текста */
+    color: #9b9b9b; /* Цвет текста */
+}
+
+.card_icon img {
+    width: 58px;
+    height: 61px;
+}
+/*  */
+.airdrop_tasks{
+    margin-bottom: 200px;
+}
+
+/*  */
+
+.task_lists {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card_vertical {
+    display: flex;
+    gap: 1rem; /* Расстояние между карточками */
+    margin-top: 1rem;
+    flex-direction: column;
+    justify-content: space-between; /* Выравнивание карточек */
+}
+
+.task_card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #222222; 
+    border-radius: 12px;
+    padding: 1rem;
+    min-height: 120px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    gap: 0.5rem; 
+    box-shadow: 0px 4px 24px 0px #00000033; 
+}
+
+.card_texts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.card_title {
+    font-size: 1rem;
+    color: #9B9B9B;
+}
+
+.divider {
+    width: 80%; /* Ширина линии */
+    border: 0.5px solid #ffffff4d; /* Линия под номером */
+    margin: 0.5rem 0;
+    align-self: flex-start;
+}
+
+.card_reward {
+    font-family: "Open Sans";
+    font-weight: normal;
+    color: #00b749; 
+    font-size: 0.9rem;
+    align-self: flex-start;
+}
+
+.card_image img {
+    width: 58px;
+    height: 61px;
+}
+
+.task_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task_icon img {
+    width: 40px;
+    height:40px;
+    margin-right: 35px;
 }

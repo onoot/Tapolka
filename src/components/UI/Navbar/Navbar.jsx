@@ -16,11 +16,11 @@ import NavbarBtn from "../NavbarBtn/NavbarBtn";
 
 const Navbar = () => {
     const [navbarPosition, setNavbarPosition] = useState([
-        {id:1, name:"home", isActive: false, on: <ExchangeOn/>, off: <ExchangeOff/>},
-        {id:2, name:"mine", isActive: false, on: <MineOn/>, off: <MineOff/>},
+        {id:1, name:"home", isActive: true, on: <ExchangeOn/>, off: <ExchangeOff/>},
+        {id:2, name:"farm", isActive: false, on: <MineOn/>, off: <MineOff/>},
         {id:3, name:"friends", isActive: false, on: <FriendsOn/>, off: <FriendsOff/>},
         {id:4, name:"earn", isActive: false, on: <EarnOn/>, off: <EarnOff/>},
-        {id:5, name:"airdrop", isActive: false, on: <AirdropOn/>, off: <AirdropOff/>},
+        {id:5, name:"drop", isActive: false, on: <AirdropOn/>, off: <AirdropOff/>},
     ])
     const pos = useLocation().pathname
 

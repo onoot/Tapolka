@@ -27,10 +27,12 @@
 }
 
 .ton {
+    position: fixed;
+    bottom: 15%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0098EA; 
+    background: linear-gradient(100.78deg, #6161FB 0%, #B15AFF 100%); 
     color: #FFFFFF;
     padding: 8px 16px;
     width: 100%;
@@ -47,7 +49,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #410734; 
+    background: linear-gradient(114.44deg, #0038F5 0%, #9F03FF 100%);
     color: #FFFFFF;
     padding: 8px 16px;
     width: 100%;

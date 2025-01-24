@@ -1,0 +1,285 @@
+{
+  "App": {
+    "welcome": "স্বাগতম!",
+    "loading": "লোড হচ্ছে...",
+    "errors": {
+      "hapticFeedback": "হ্যাপটিক ফিডব্যাক API অনুপলব্ধ",
+      "tokenMissing": "প্রতিক্রিয়ায় টোকেন অনুপস্থিত",
+      "fetchError": "ত্রুটি: "
+    },
+    "toasts": {
+      "welcome": "স্বাগতম!",
+      "error": "ত্রুটি: ",
+      "hapticUnavailable": "হ্যাপটিক ফিডব্যাক API অনুপলব্ধ"
+    }
+  },
+  "Settings": {
+    "title": "সেটিংস",
+    "language": {
+      "title": "ভাষা নির্বাচন করুন",
+      "options": {
+        "en_us": "English (US)",
+        "en_uk": "English (UK)",
+        "hi": "हिंदी",
+        "es": "Español",
+        "fr": "Français",
+        "ar": "العربية",
+        "bn": "বাংলা",
+        "ru": "Русский",
+        "id": "Bahasa Indonesia"
+      }
+    },
+    "exchanger": {
+      "title": "এক্সচেঞ্জার নির্বাচন করুন",
+      "options": {
+        "binance": "Binance",
+        "telegram": "Telegram"
+      }
+    },
+    "deleteAccount": "অ্যাকাউন্ট মুছুন"
+  },
+  "Boost": {
+    "title": "বুস্ট",
+    "balance": {
+      "title": "আপনার ব্যালেন্স"
+    },
+    "sections": {
+      "freeDaily": "বিনামূল্যে দৈনিক বুস্টার",
+      "boosters": "বুস্টার"
+    },
+    "items": {
+      "fullEnergy": "পূর্ণ শক্তি",
+      "multitap": "মাল্টিট্যাপ",
+      "energyLimit": "শক্তি সীমা",
+      "available": "উপলব্ধ"
+    },
+    "errors": {
+      "tokenNotFound": "টোকেন পাওয়া যায়নি",
+      "notEnoughMoney": "পর্যাপ্ত অর্থ নেই",
+      "boosterNotFound": "বুস্টার পাওয়া যায়নি",
+      "unknown": "একটি অজানা ত্রুটি ঘটেছে"
+    },
+    "success": "সফলভাবে বুস্ট করা হয়েছে!"
+  },
+  "Progress": {
+    "title": "অগ্রগতি",
+    "rank": {
+      "current": "বর্তমান র‍্যাঙ্ক",
+      "progress": "অগ্রগতি"
+    },
+    "money": {
+      "target": "10M",
+      "current": "{amount}"
+    }
+  },
+  "Earn": {
+    "title": "আরও বোনাস অর্জন করুন",
+    "description": "কার্যক্রম সম্পন্ন করে আরও বোনাস পান!",
+    "tasks": {
+      "subscribe_blum": "Blum-এ সাবস্ক্রাইব করুন",
+      "subscribe_paws": "Paws-এ সাবস্ক্রাইব করুন",
+      "daily_combo": "দৈনিক কম্বো",
+      "subscribe_community": "কমিউনিটিতে সাবস্ক্রাইব করুন",
+      "boost_community": "কমিউনিটি বুস্ট করুন"
+    }
+  },
+  "Friends": {
+    "title": "বন্ধুদের আমন্ত্রণ জানান!",
+    "description": "TGE-এর আগে LootBox খোলা হবে",
+    "modal": {
+      "title": "রেফারেল লিঙ্ক শেয়ার বা কপি করুন",
+      "subtitle": "আপনার রেফারেল লিঙ্ক:",
+      "buttons": {
+        "share": "লিঙ্ক শেয়ার করুন",
+        "close": "বন্ধ করুন"
+      }
+    }
+  },
+  "FriendsList": {
+    "title": "আপনার বন্ধুদের তালিকা"
+  },
+  "InviteFriendsList": {
+    "moreBonuses": "আরও বোনাস"
+  },
+  "Mine": {
+    "dailyCombo": "দৈনিক কম্বো",
+    "comingSoon": "শীঘ্রই আসছে",
+    "toasts": {
+      "success": "দৈনিক পুরস্কার সফলভাবে দাবি করা হয়েছে!",
+      "warnings": {
+        "notEnoughCards": "দৈনিক টাস্ক সম্পন্ন করার জন্য পর্যাপ্ত কার্ড নেই",
+        "unexpectedResponse": "সার্ভার থেকে অপ্রত্যাশিত প্রতিক্রিয়া"
+      },
+      "errors": {
+        "unauthorized": "অননুমোদিত। অনুগ্রহ করে আবার লগইন করুন",
+        "userNotFound": "ব্যবহারকারী পাওয়া যায়নি",
+        "checkingCompletion": "দৈনিক সমাপ্তি যাচাই করার সময় ত্রুটি"
+      }
+    }
+  },
+  "DailyList": {
+    "daily_combo": "দৈনিক কম্বো",
+    "daily_spin": "দৈনিক স্পিন",
+    "daily_ton": "দৈনিক TON",
+    "soon": "শীঘ্রই"
+  },
+  "EarnList": {
+    "sections": {
+      "partner": "পার্টনার টাস্ক",
+      "community": "কমিউনিটি টাস্ক",
+      "daily": "দৈনিক টাস্ক"
+    }
+  },
+  "ClickerAndBuff": {
+    "energy": "শক্তি",
+    "boost": "বুস্ট"
+  },
+  "Loading": {
+    "title": "Farm $TOGO",
+    "description": "T2E TOGO এবং FOMO-এর জন্য অপেক্ষা করবেন না"
+  },
+  "Navbar": {
+    "home": "হোম",
+    "farm": "ফার্ম",
+    "friends": "বন্ধুরা",
+    "earn": "অর্জন",
+    "drop": "ড্রপ"
+  },
+  "PlayerProfit": {
+    "lootbox": "লুটবক্স",
+    "settings": "সেটিংস"
+  },
+  "MineMarket": {
+    "types": {
+      "Combo": "কম্বো",
+      "Market": "মার্কেট",
+      "Spin": "স্পিন",
+      "Lootbox": "লুটবক্স",
+      "Specials": "স্পেশাল"
+    },
+    "errors": {
+      "getItems": "কার্ড পাওয়ার সময় ত্রুটি"
+    }
+  },
+  "Wallet": {
+    "connect": "ওয়ালেট সংযোগ করুন",
+    "disconnect": "ওয়ালেট বিচ্ছিন্ন করুন",
+    "messages": {
+      "alreadyConnected": "ওয়ালেট ইতিমধ্যে সংযুক্ত",
+      "noWalletConnected": "কোনো ওয়ালেট সংযুক্ত নেই",
+      "connectSuccess": "ওয়ালেট সফলভাবে সংযুক্ত হয়েছে",
+      "disconnectSuccess": "ওয়ালেট সফলভাবে বিচ্ছিন্ন হয়েছে",
+      "errors": {
+        "connect": "ওয়ালেট সংযোগে ত্রুটি",
+        "disconnect": "ওয়ালেট বিচ্ছিন্ন করার সময় ত্রুটি: {error}",
+        "network": "নেটওয়ার্ক বা সার্ভার ত্রুটি",
+        "tokenNotFound": "টোকেন পাওয়া যায়নি",
+        "status": "ত্রুটি কোড {code}"
+      }
+    }
+  },
+  "DeleteAccount": {
+    "title": "আপনি কি নিশ্চিত যে আপনি আপনার অ্যাকাউন্ট মুছতে চান?",
+    "description": "আপনার সমস্ত ডেটা, গেম অগ্রগতি, অর্জন এবং ক্রয় সহ, স্থায়ীভাবে মুছে ফেলা হবে।",
+    "buttons": {
+      "delete": "অ্যাকাউন্ট মুছুন",
+      "cancel": "বাতিল করুন"
+    }
+  },
+  "GetLink": {
+    "messages": {
+      "success": {
+        "taskHere": "আপনি এখানে এই টাস্কটি করতে পারেন",
+        "linkReceived": "লিঙ্ক পাওয়া গেছে"
+      },
+      "errors": {
+        "loginRequired": "অনুগ্রহ করে লগইন করুন",
+        "alreadyCompleted": "টাস্ক ইতিমধ্যে সম্পন্ন হয়েছে",
+        "linkFailed": "লিঙ্ক পেতে ব্যর্থ :( \nস্ট্যাটাস কোড: {status}",
+        "fallback": "ফলব্যাক"
+      }
+    }
+  },
+  "Airdrop": {
+    "title": "এয়ারড্রপ",
+    "description": "এয়ারড্রপ অ্যাক্সেস করতে ওয়ালেট সংযোগ করুন",
+    "header": {
+      "disconnect": "সংযোগ বিচ্ছিন্ন করুন",
+      "copy": {
+        "success": "ঠিকানা কপি করা হয়েছে",
+        "error": "ঠিকানা কপি করতে ত্রুটি"
+      },
+      "buttons": {
+        "copy": "কপি করুন",
+        "view": "দেখুন"
+      }
+    },
+    "tabs": {
+      "tasks": "কাজগুলি",
+      "airdrop": "এয়ারড্রপ",
+      "token": "টোকেন",
+      "withdraw": "উত্তোলন"
+    },
+    "cards": {
+      "transactions": "লেনদেন",
+      "tasksCompleted": "সম্পন্ন কাজগুলি"
+    },
+    "taskLists": {
+      "daily": {
+        "title": "দৈনিক কাজগুলি",
+        "task": {
+          "title": "TON-এ লেনদেন করুন",
+          "reward": "+ ১০ $wTOGO"
+        }
+      },
+      "airdrop": {
+        "title": "এয়ারড্রপ কাজগুলি",
+        "task": {
+          "title": "TON-এ লেনদেন করুন",
+          "reward": "+ ১০ $wTOGO",
+          "combo": "কম্বো জিতুন"
+        }
+      }
+    },
+    "withdraw": {
+      "comingSoon": "শীঘ্রই আসছে....."
+    }
+  },
+  "balance": {
+    "title": "ব্যালেন্স ~ /",
+    "currency": "wTOGO"
+  },
+  "nft": {
+    "title": "আমার NFT ~ /",
+    "collection": "NFT কালেকশন"
+  },
+  "transactions": {
+    "title": "লেনদেন",
+    "viewAll": "সব দেখুন",
+    "deposit": "জমা",
+    "yesterday": "গতকাল"
+  },
+  "modal": {
+    "paymentSuccess": "পেমেন্ট সফল",
+    "successMessage": "আপনার পেমেন্ট সফল হয়েছে",
+    "paymentId": "পেমেন্ট আইডি"
+  },
+  "Ranks": {
+    "names": {
+      "Unknown": "অজানা",
+      "Bronze": "ব্রোঞ্জ",
+      "Silver": "সিলভার",
+      "Gold": "গোল্ড",
+      "Platinum": "প্লাটিনাম",
+      "Diamond": "ডায়মন্ড",
+      "Master": "মাস্টার",
+      "Grandmaster": "গ্র্যান্ডমাস্টার",
+      "Challenger": "চ্যালেঞ্জার",
+      "Legend": "লেজেন্ড",
+      "Mythical": "মিথিক্যাল"
+    },
+    "errors": {
+      "convert": "র‍্যাঙ্ক রূপান্তরে ত্রুটি: {message}"
+    }
+  }
+} 

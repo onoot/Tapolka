@@ -1,0 +1,47 @@
+0000000000000000000000000000000000000000 aed686801fee33b15e9084e56f1a23915e351fbb unknown <penisxuei@gmail.com> 1736443138 +0700	commit (initial): first
+aed686801fee33b15e9084e56f1a23915e351fbb aed686801fee33b15e9084e56f1a23915e351fbb unknown <penisxuei@gmail.com> 1736443163 +0700	Branch: renamed refs/heads/main to refs/heads/main
+aed686801fee33b15e9084e56f1a23915e351fbb aed686801fee33b15e9084e56f1a23915e351fbb unknown <penisxuei@gmail.com> 1736443183 +0700	Branch: renamed refs/heads/main to refs/heads/main
+aed686801fee33b15e9084e56f1a23915e351fbb a1225e3caf6ddcff2b5632375947cb8cc401a0b1 unknown <penisxuei@gmail.com> 1736531798 +0700	commit: final
+a1225e3caf6ddcff2b5632375947cb8cc401a0b1 057279d8acb44b2d3d6aa89fcdab642db34bf35b unknown <penisxuei@gmail.com> 1736532770 +0700	commit: final
+057279d8acb44b2d3d6aa89fcdab642db34bf35b 8eba0450796cec2bdebcf5a8d00bb3d15682260e unknown <penisxuei@gmail.com> 1736533079 +0700	commit: final
+8eba0450796cec2bdebcf5a8d00bb3d15682260e 50df5206c6bbc34889a66a4404226420b5e30370 unknown <penisxuei@gmail.com> 1736533885 +0700	commit: final
+50df5206c6bbc34889a66a4404226420b5e30370 e79a38ab215dc0db97c6d42196470a0980f46828 unknown <penisxuei@gmail.com> 1736578556 +0700	commit: fix prod
+e79a38ab215dc0db97c6d42196470a0980f46828 9159f5e6efaa0c8a201daca37bb65bcd05a2f088 unknown <penisxuei@gmail.com> 1736586029 +0700	commit: fix prod
+9159f5e6efaa0c8a201daca37bb65bcd05a2f088 6b2e71a0b39d86834b2a36a74177318d4b274f06 unknown <penisxuei@gmail.com> 1736586294 +0700	commit: fix prod
+6b2e71a0b39d86834b2a36a74177318d4b274f06 bdd60243d8b8dca741920ba69ca330465f7c8ba5 unknown <penisxuei@gmail.com> 1736586763 +0700	commit: fix prod
+bdd60243d8b8dca741920ba69ca330465f7c8ba5 29696e75465959f776d0f33bb5726d0d4a353c71 unknown <penisxuei@gmail.com> 1736603671 +0700	commit: fix earn
+29696e75465959f776d0f33bb5726d0d4a353c71 ac212ce2090df37fedae72721d27c7b35882eb54 unknown <penisxuei@gmail.com> 1736610694 +0700	commit: fix redirect
+ac212ce2090df37fedae72721d27c7b35882eb54 59d76e6488f4e390b62a6d55d194a9d3df1dc54a unknown <penisxuei@gmail.com> 1736611531 +0700	commit: fix redirect
+59d76e6488f4e390b62a6d55d194a9d3df1dc54a 143a66089c7d8d6d4b5d074279c5f26189fb26f9 unknown <penisxuei@gmail.com> 1736613665 +0700	commit: fix redirect
+143a66089c7d8d6d4b5d074279c5f26189fb26f9 6ef78905b0e228e257dc2d7b3e67e443490767b7 unknown <penisxuei@gmail.com> 1736619678 +0700	commit: fix frieand task
+6ef78905b0e228e257dc2d7b3e67e443490767b7 e2b8cf81271f90aa6acf7835a2c73c92bdc39738 unknown <penisxuei@gmail.com> 1736620142 +0700	commit: fix frieand task
+e2b8cf81271f90aa6acf7835a2c73c92bdc39738 e2fc30f81b4fa4e24bf393227109aad1d62d4f6e unknown <penisxuei@gmail.com> 1736620863 +0700	commit: fix id task
+e2fc30f81b4fa4e24bf393227109aad1d62d4f6e aa9ce947657c022c9e41c14cefe31b3d3847b293 unknown <penisxuei@gmail.com> 1736621358 +0700	commit: fix task
+aa9ce947657c022c9e41c14cefe31b3d3847b293 2579fbe3106e025408ff48b2dcf5b885e3d25c4d unknown <penisxuei@gmail.com> 1736621590 +0700	commit: fix res progres
+2579fbe3106e025408ff48b2dcf5b885e3d25c4d 5dc41f53b0b683f4ffc0433e80f38bbda3a24c20 unknown <penisxuei@gmail.com> 1736622101 +0700	commit: fix res progres
+5dc41f53b0b683f4ffc0433e80f38bbda3a24c20 c1d92c9add1918d692d47a70010cde5df1e36229 unknown <penisxuei@gmail.com> 1736622258 +0700	commit: fix toasf earn task
+c1d92c9add1918d692d47a70010cde5df1e36229 c715eb1b8b107e64accee36a02d31430c9106838 unknown <penisxuei@gmail.com> 1736776073 +0700	commit: fix boost
+c715eb1b8b107e64accee36a02d31430c9106838 2b8dbd941e69e9637749ed05546d767cb1cc26dd unknown <penisxuei@gmail.com> 1736777975 +0700	commit: fix earn
+2b8dbd941e69e9637749ed05546d767cb1cc26dd 9810683e222dd7779e0281e489d86da0bef3f5cd unknown <penisxuei@gmail.com> 1736778883 +0700	commit: fix friend img
+9810683e222dd7779e0281e489d86da0bef3f5cd 959cc6efbfaf0c46371d5bf054ab8b9a3f2d24d9 unknown <penisxuei@gmail.com> 1736779301 +0700	commit: fix click
+959cc6efbfaf0c46371d5bf054ab8b9a3f2d24d9 6676cd04a026b5f2a12ac8cf665ddf43a05afa20 unknown <penisxuei@gmail.com> 1736782564 +0700	commit: fix energy
+6676cd04a026b5f2a12ac8cf665ddf43a05afa20 10c27dd9b370e917e11b42b2f0069328709f38c2 unknown <penisxuei@gmail.com> 1736783030 +0700	commit: fix переход
+10c27dd9b370e917e11b42b2f0069328709f38c2 c67fc6e371a4da15b90d1a2d188712ed6fae6c4b unknown <penisxuei@gmail.com> 1736851265 +0700	commit: fix переход
+c67fc6e371a4da15b90d1a2d188712ed6fae6c4b cc452677f87f53dcbcbda1fabe7898bcba661100 unknown <penisxuei@gmail.com> 1736851280 +0700	commit: fix переход
+cc452677f87f53dcbcbda1fabe7898bcba661100 84f530a916d541c77fdaf5f45d7657c7f3936923 unknown <penisxuei@gmail.com> 1736854417 +0700	commit: fix переход
+84f530a916d541c77fdaf5f45d7657c7f3936923 dfc0ea9d59f071c009ba068adfc8e0908658b23c unknown <penisxuei@gmail.com> 1736856013 +0700	commit: fix переход
+dfc0ea9d59f071c009ba068adfc8e0908658b23c f034b2888412ad8c097a4ed3c9c3ce6f34c23bcd unknown <penisxuei@gmail.com> 1736857247 +0700	commit: fix переход 1
+f034b2888412ad8c097a4ed3c9c3ce6f34c23bcd 9113f55d4401fbb60f5a76d05f922e46f83e278c unknown <penisxuei@gmail.com> 1736861472 +0700	commit: fix переход 1
+9113f55d4401fbb60f5a76d05f922e46f83e278c e52c43d89282ee4b000cb8801bab0925cfd2e435 unknown <penisxuei@gmail.com> 1736867707 +0700	commit: fix переход 2
+e52c43d89282ee4b000cb8801bab0925cfd2e435 cbca88cb19d2f16d6ce61cd1c7bffd1aa6ec3e36 unknown <penisxuei@gmail.com> 1736868631 +0700	commit: fix переход 2
+cbca88cb19d2f16d6ce61cd1c7bffd1aa6ec3e36 7ab32846f365cfc18c66cb59d0b64c6a544ef0f3 unknown <penisxuei@gmail.com> 1736869623 +0700	commit: fix переход useNavigate
+7ab32846f365cfc18c66cb59d0b64c6a544ef0f3 a6f6400a80edba87978630b1b52506429032a295 unknown <penisxuei@gmail.com> 1736874699 +0700	commit: fix переход useNavigat
+a6f6400a80edba87978630b1b52506429032a295 9426a648db48cc5a7f266de978b6919786543998 unknown <penisxuei@gmail.com> 1736876725 +0700	commit: fix переход mine
+9426a648db48cc5a7f266de978b6919786543998 943dc9200b87fc93cd8a1d0ec02f8ef031c8b7f8 unknown <penisxuei@gmail.com> 1736877071 +0700	commit: fix переход mine
+943dc9200b87fc93cd8a1d0ec02f8ef031c8b7f8 f6eda97ce487877d972ce027d2468addfb34cf6d unknown <penisxuei@gmail.com> 1736910136 +0700	commit: fix пе
+f6eda97ce487877d972ce027d2468addfb34cf6d 97f095346c375e88e442eb52c7584ee3a22e82eb unknown <penisxuei@gmail.com> 1737122266 +0700	commit: fix other nav bar minehome
+97f095346c375e88e442eb52c7584ee3a22e82eb 03a6c2558c8bc7713ddae0c6917b992cd04b0716 unknown <penisxuei@gmail.com> 1737127307 +0700	commit: fix tasks earn
+03a6c2558c8bc7713ddae0c6917b992cd04b0716 e5c4af88e4cc79a89957aac6d38a05db0b9199b2 unknown <penisxuei@gmail.com> 1737129385 +0700	commit: fix tasks earn
+e5c4af88e4cc79a89957aac6d38a05db0b9199b2 c5ac767db836cdeee4d2e0d6ee259c514fc129c7 unknown <penisxuei@gmail.com> 1737139570 +0700	commit: fix boost full rec
+c5ac767db836cdeee4d2e0d6ee259c514fc129c7 028e121bb5731639be447ea00a276a245558882b unknown <penisxuei@gmail.com> 1737213086 +0700	commit: fsdfsd
+028e121bb5731639be447ea00a276a245558882b 189404d6c0481185948f4a59d90ecef78e5ea150 unknown <penisxuei@gmail.com> 1737213521 +0700	commit: fsdfsd

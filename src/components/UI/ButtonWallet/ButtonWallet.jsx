@@ -3,8 +3,11 @@ import { useTonConnectUI } from '@tonconnect/ui-react';
 import cl from './ButtonWallet.module.css';
 import { toast } from 'react-toastify';
 import { usePlayerStore } from '../../../store/playerStore.mjs';
+import { useTranslation } from '../../../hooks/useTranslation';
 
 const ButtonWallet = ({ ton }) => {
+  const language = localStorage.getItem('language') || 'en';
+  const { t } = useTranslation(language);
   const [walletAddress, setWalletAddress] = useState("no");
   const [tonConnectUI] = useTonConnectUI();
   const { player } = usePlayerStore();
@@ -45,7 +48,7 @@ const ButtonWallet = ({ ton }) => {
     const urlBase = "https://tongaroo.fun";
     const token = localStorage.getItem('token');
     if (!token) {
-      console.error('Token not found');
+      console.error(t('Wallet.messages.errors.tokenNotFound'));
       return;
     }
 
@@ -60,48 +63,48 @@ const ButtonWallet = ({ ton }) => {
       });
 
       if (!response.ok) {
-        toast.error(`Error code ${response.status}`, { theme: 'dark' });
+        toast.error(t('Wallet.messages.errors.status', { code: response.status }), { theme: 'dark' });
         return;
       }
 
       if (response.status === 200 && pubkey !== "no") {
         const data = await response.json();
         console.log(data);
-        toast.info('Wallet connected successfully', { theme: 'dark' });
+        toast.info(t('Wallet.messages.connectSuccess'), { theme: 'dark' });
       }
     } catch (error) {
       console.error('Error in walletFetshServer:', error.message);
-      toast.error('Network or server error', { theme: 'dark' });
+      toast.error(t('Wallet.messages.errors.network'), { theme: 'dark' });
     }
   };
 
   const connectWallet = async () => {
     try {
       if (walletAddress !== "no") {
-        toast.info("Wallet is already connected.", { theme: "dark" });
+        toast.info(t('Wallet.messages.alreadyConnected'), { theme: "dark" });
         return;
       }
 
       await tonConnectUI.connectWallet();
     } catch (error) {
       console.error('Error connecting wallet:', error.message);
-      toast.error('Error connecting wallet.', { theme: 'dark' });
+      toast.error(t('Wallet.messages.errors.connect'), { theme: 'dark' });
     }
   };
 
   const disconnectWallet = async () => {
     try {
       if (walletAddress === "no") {
-        toast.info("No wallet connected.", { theme: "dark" });
+        toast.info(t('Wallet.messages.noWalletConnected'), { theme: "dark" });
         return;
       }
 
       await tonConnectUI.disconnect();
       setWalletAddress("no");
-      toast.info('Wallet disconnected successfully', { theme: 'dark' });
+      toast.info(t('Wallet.messages.disconnectSuccess'), { theme: 'dark' });
     } catch (error) {
       console.error('Error disconnecting wallet:', error.message);
-      toast.error(`Error disconnecting wallet: ${error.message}`, { theme: 'dark' });
+      toast.error(t('Wallet.messages.errors.disconnect', { error: error.message }), { theme: 'dark' });
     }
   };
 
@@ -111,11 +114,11 @@ const ButtonWallet = ({ ton }) => {
         <div className={cl.test}>
           {walletAddress === "no" ? (
             <button className={cl.ton} onClick={connectWallet}>
-              Connect Wallet
+              {t('Wallet.connect')}
             </button>
           ) : (
             <button className={cl.unton} onClick={disconnectWallet}>
-              Disconnect Wallet
+              {t('Wallet.disconnect')}
             </button>
           )}
         </div>
