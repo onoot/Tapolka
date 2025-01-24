@@ -80,7 +80,7 @@ function App() {
             const response = await fetch(`${urlBase}/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(initData),
+                body: JSON.stringify({initData}),
             });
     
             if (!response.ok) {
