@@ -1,0 +1,197 @@
+[33m58f67c2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: checkout: moving from master to main
+[33m8b35abb[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{1}: checkout: moving from main to master
+[33m58f67c2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{2}: commit: add transaction &airdrop page
+[33m8b35abb[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{3}: Branch: renamed refs/heads/master to refs/heads/main
+[33m8b35abb[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{5}: commit: ad vibro
+[33m125c714[m HEAD@{6}: commit: ad vibro
+[33m465d587[m HEAD@{7}: commit: ad vibro
+[33m13990cc[m HEAD@{8}: commit: ad vibro
+[33me887115[m HEAD@{9}: commit: ad vibro
+[33m92e6d28[m HEAD@{10}: commit: заебало
+[33m9780ee8[m HEAD@{11}: commit: заебало
+[33m7bfdb76[m HEAD@{12}: commit: заебало
+[33m53467b4[m HEAD@{13}: commit: test2
+[33m6788231[m HEAD@{14}: commit: test2
+[33m3f5e3ff[m HEAD@{15}: commit: test2
+[33m9ea542b[m HEAD@{16}: commit: test2
+[33m173eba1[m HEAD@{17}: commit: test2
+[33m0618a65[m HEAD@{18}: commit: test2
+[33mc7dd69c[m HEAD@{19}: commit: test2
+[33m0e969f5[m HEAD@{20}: commit: test2
+[33mb8db1ba[m HEAD@{21}: commit: test2
+[33md99c987[m HEAD@{22}: commit: test2
+[33mac39015[m HEAD@{23}: commit: test2
+[33m4f4ca8b[m HEAD@{24}: commit: test
+[33m78c4f3e[m HEAD@{25}: commit: test
+[33mece3c10[m HEAD@{26}: commit: fix for prod
+[33m319da84[m HEAD@{27}: commit: fix for prod
+[33md6590db[m HEAD@{28}: commit: fdffsawqe
+[33mae2866f[m HEAD@{29}: commit: fdffsawqe
+[33m1461177[m HEAD@{30}: commit: fdffsawqe
+[33m1380c33[m HEAD@{31}: commit: add ref share
+[33m3558a37[m HEAD@{32}: commit: add ref share
+[33ma0102db[m HEAD@{33}: commit: add ref share
+[33mf42f093[m HEAD@{34}: commit: add ref share
+[33mddfba03[m HEAD@{35}: commit: add ref share
+[33m3735202[m HEAD@{36}: commit: add ref share
+[33m82c1165[m HEAD@{37}: commit: add ref share
+[33ma310d7d[m HEAD@{38}: commit: add ref share
+[33mf4a4ca9[m HEAD@{39}: commit: fix ref share
+[33m2d95d46[m HEAD@{40}: commit: fix ref share
+[33m3646d82[m HEAD@{41}: commit: fix ref share
+[33m36b440f[m HEAD@{42}: commit: fix ref share
+[33me35f6c6[m HEAD@{43}: commit: fix ref share
+[33m86e72e7[m HEAD@{44}: commit: add ref share
+[33m19c817a[m HEAD@{45}: commit: fdsfsd
+[33m25fbc67[m HEAD@{46}: commit: fdfdf
+[33me65ca50[m HEAD@{47}: commit: fdfdf
+[33m69c6f74[m HEAD@{48}: commit: fdfd
+[33m8631a7f[m HEAD@{49}: commit: fdfdf
+[33m43946fa[m HEAD@{50}: commit: fdfdf
+[33mda10880[m HEAD@{51}: commit: dsds
+[33mf8080f4[m HEAD@{52}: commit: dsds
+[33meb1d440[m HEAD@{53}: commit: dsds
+[33ma13892a[m HEAD@{54}: commit: dsds
+[33m6304fad[m HEAD@{55}: commit: dsds
+[33m77a01c0[m HEAD@{56}: commit: dsds
+[33ma135ab1[m HEAD@{57}: commit: fix wallet button
+[33m5bc5a5b[m HEAD@{58}: commit: gix fdf
+[33m4b4e9b8[m HEAD@{59}: commit: retry
+[33me7bcdd0[m HEAD@{60}: commit: retry
+[33m59d9c0a[m HEAD@{61}: commit: retry
+[33mb653780[m HEAD@{62}: commit: fix boadr
+[33m75c51bd[m HEAD@{63}: commit: fix boadr
+[33m412f752[m HEAD@{64}: commit: fix boadr
+[33m5fa29b8[m HEAD@{65}: commit: fix boadr
+[33m8b3db45[m HEAD@{66}: commit: big add
+[33me02fb12[m HEAD@{67}: commit: big add
+[33mab437ce[m HEAD@{68}: commit: fdfsdf
+[33m7bfa163[m HEAD@{69}: commit: fdfd
+[33mec1137a[m HEAD@{70}: commit: fdfd
+[33med2ff69[m HEAD@{71}: commit: fix mine
+[33m8666997[m HEAD@{72}: Branch: renamed refs/heads/master to refs/heads/master
+[33m8666997[m HEAD@{74}: commit: fix mine
+[33m25a8533[m HEAD@{75}: commit: very big fix
+[33m7c45742[m HEAD@{76}: commit: dfdf
+[33m038bfa1[m HEAD@{77}: commit: fix fetch token
+[33m0b63a3e[m HEAD@{78}: commit: fix fetch auth
+[33m5ea5e49[m HEAD@{79}: commit: tetete
+[33mcbb7419[m HEAD@{80}: commit: fix fetch coin
+[33mad32994[m HEAD@{81}: commit: fdfd
+[33mc134653[m HEAD@{82}: commit: fix settings
+[33m53ec78d[m HEAD@{83}: commit: add timer for mineItems
+[33md6b51ca[m HEAD@{84}: commit: fix clicer style
+[33mf52eef1[m HEAD@{85}: commit: fix market item
+[33m9eeeb8e[m HEAD@{86}: commit: add link for dayli
+[33md749636[m HEAD@{87}: commit: fix img clicker
+[33m7832def[m HEAD@{88}: commit: fix dayli
+[33m2977efc[m HEAD@{89}: commit: fix airdorp page
+[33m12115c0[m HEAD@{90}: commit: fix friend page
+[33m70b5127[m HEAD@{91}: commit: fix host
+[33mfa30445[m HEAD@{92}: commit: fix playerPanel
+[33m3acc5d9[m HEAD@{93}: commit: add isError for app.js
+[33m87bf903[m HEAD@{94}: commit: fix friend list
+[33m8ed164c[m HEAD@{95}: commit: fix loading
+[33m8c9177f[m HEAD@{96}: commit: add notifications
+[33m748b68a[m HEAD@{97}: commit: fix pre prod
+[33mf57bfcd[m HEAD@{98}: commit: fix pre prod
+[33m69eb129[m HEAD@{99}: commit: fix pre prod
+[33me978d4c[m HEAD@{100}: commit: pre prod
+[33mdd61b19[m HEAD@{101}: commit: bighyjhgj
+[33me1ea4e0[m HEAD@{102}: commit: big
+[33m2bf1b51[m HEAD@{103}: commit: add lazy hgfds
+[33m229b752[m HEAD@{104}: commit: add lazy hgfds
+[33mab7ba3f[m HEAD@{105}: commit: add lazy hgf
+[33m2ee80db[m HEAD@{106}: commit: add lazy
+[33m6a3011a[m HEAD@{107}: commit: fix loader
+[33m0153f77[m HEAD@{108}: commit: fix app
+[33m1e37bd0[m HEAD@{109}: commit: fix props
+[33m05c3ffa[m HEAD@{110}: commit: fix props
+[33m0621fd8[m HEAD@{111}: commit: add lazy
+[33m52a1744[m HEAD@{112}: commit: add wallet
+[33mc4aa1eb[m HEAD@{113}: commit: fix wallet
+[33m6e23265[m HEAD@{114}: commit: fix wallet
+[33ma12cc13[m HEAD@{115}: commit: fix wallet
+[33mb2f2056[m HEAD@{116}: commit: fix wallet
+[33m0ee8625[m HEAD@{117}: commit: fix wallet
+[33m0462c80[m HEAD@{118}: commit: fix wallet button
+[33mb92711d[m HEAD@{119}: commit: fix wallet button
+[33m5d6e4f9[m HEAD@{120}: commit: fix wallet button style
+[33m01f1a30[m HEAD@{121}: commit: fix wallet button style
+[33m8401de1[m HEAD@{122}: commit: fix wallet button style
+[33m9a0fed4[m HEAD@{123}: commit: fix wallet button style
+[33mf81e9a5[m HEAD@{124}: commit: fix wallet button style
+[33mfc12eb7[m HEAD@{125}: commit: fix wallet provider
+[33mafd4ed4[m HEAD@{126}: commit: fix icon
+[33m9579518[m HEAD@{127}: commit: fix icon
+[33mf61d64e[m HEAD@{128}: commit: fix wallet
+[33m3641026[m HEAD@{129}: commit: fix support wallet
+[33m6eea8df[m HEAD@{130}: commit: add support wallet
+[33m034bf57[m HEAD@{131}: commit: t11iiio
+[33m5550261[m HEAD@{132}: commit: t11iiio
+[33mc05cf7e[m HEAD@{133}: commit: t11iiio
+[33m9fca98a[m HEAD@{134}: commit: t11iiio
+[33m7a3b295[m HEAD@{135}: commit: t11iiio
+[33m23223fb[m HEAD@{136}: commit: t11iiio
+[33m9065cfa[m HEAD@{137}: commit: t11iiio
+[33m2945359[m HEAD@{138}: commit: t11iiio
+[33m70e94bb[m HEAD@{139}: commit: t11iiio
+[33m90d12b7[m HEAD@{140}: commit: t11iiio
+[33m4c42708[m HEAD@{141}: commit: t11iiio
+[33mbbf91a4[m HEAD@{142}: commit: t11iiio
+[33m3078651[m HEAD@{143}: commit: t11iiio
+[33m3696d59[m HEAD@{144}: commit: t11iiio
+[33mc8ee23a[m HEAD@{145}: commit: t11iiio
+[33m3ed0c7f[m HEAD@{146}: commit: t11iiio
+[33m2d2a565[m HEAD@{147}: commit: t11iiio
+[33m5f8a691[m HEAD@{148}: commit: t11iiio
+[33m94d645a[m HEAD@{149}: commit: t11io
+[33m8a41bde[m HEAD@{150}: commit: t11o
+[33m1ce9655[m HEAD@{151}: commit: t11
+[33m419cc70[m HEAD@{152}: commit: t11
+[33mfc4eaf4[m HEAD@{153}: commit: t11
+[33m0d50623[m HEAD@{154}: commit: t11
+[33mfe4014d[m HEAD@{155}: commit: t11
+[33mfd6b8bb[m HEAD@{156}: commit: t11
+[33m97696c5[m HEAD@{157}: commit: t11
+[33m7231200[m HEAD@{158}: commit: t11
+[33mbec6926[m HEAD@{159}: commit: t11
+[33m1cd13d0[m HEAD@{160}: commit: t11
+[33m285b2c0[m HEAD@{161}: commit: tett11
+[33m7690145[m HEAD@{162}: commit: tett11
+[33m94c538b[m HEAD@{163}: commit: tett11
+[33mc521672[m HEAD@{164}: commit: tett11
+[33me7bdb74[m HEAD@{165}: commit: tett11
+[33m063e85e[m HEAD@{166}: commit: tett11
+[33m4a2cfc5[m HEAD@{167}: commit: tett11
+[33mff7bdbb[m HEAD@{168}: commit: tett11
+[33mc9f75f9[m HEAD@{169}: commit: tett11
+[33m5fec413[m HEAD@{170}: commit: first pizdec111
+[33m1e1742c[m HEAD@{171}: commit: first pizdec111
+[33m25c5213[m HEAD@{172}: commit: first pizdec111
+[33mb2dacf6[m HEAD@{173}: commit: first pizdec
+[33m85ec920[m HEAD@{174}: commit: pizdos
+[33m591f9bd[m HEAD@{175}: commit: pizdos
+[33m18c94e6[m HEAD@{176}: commit: pizdos
+[33macf1cdf[m HEAD@{177}: commit: tetsts
+[33mc94f068[m HEAD@{178}: commit: tetsts
+[33m39ab0ec[m HEAD@{179}: commit: tetsts
+[33mc34efdc[m HEAD@{180}: commit: fd
+[33ma457c7a[m HEAD@{181}: commit: tt
+[33mdadf763[m HEAD@{182}: commit: tt
+[33m9c17044[m HEAD@{183}: commit: Test
+[33mff9ffcd[m HEAD@{184}: commit: Test
+[33m390f98c[m HEAD@{185}: commit: Test
+[33mc8145ef[m HEAD@{186}: commit: Test
+[33m4331c4b[m HEAD@{187}: commit: test
+[33m6885daf[m HEAD@{188}: commit: test f
+[33maff91c7[m HEAD@{189}: commit: pizdec
+[33m98d25d6[m HEAD@{190}: commit: pizdec
+[33m20a8ef2[m HEAD@{191}: commit: pizdec
+[33m17da5ed[m HEAD@{192}: commit: pizdec
+[33mf6ca0a3[m HEAD@{193}: commit: pizdec
+[33m820225b[m HEAD@{194}: commit: pizdec
+[33mc77df5a[m HEAD@{195}: commit: pizdec
+[33m2a61604[m HEAD@{196}: commit: pizdec
+[33m11146d4[m HEAD@{197}: commit: first blya
+[33m4ce63e1[m HEAD@{198}: commit: first blya
