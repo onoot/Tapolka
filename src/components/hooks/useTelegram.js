@@ -33,12 +33,12 @@ export function useTelegram() {
         onClose,
         onToggleButton,
         tg,
-        initData: tg.initDataUnsafe,
+        initData,
         user: tg.initDataUnsafe?.user,
         queryId: tg.initDataUnsafe?.query_id,
         photoUrl: tg.initDataUnsafe?.user?.photo_url,
         expand,
         shareMessage,
-        
+        language: tg.initDataUnsafe?.user?.language_code,
     }
 }
