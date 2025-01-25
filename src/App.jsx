@@ -18,11 +18,11 @@ const Navbar = React.lazy(() => import("./components/UI/Navbar/Navbar"));
 const BuildAPage = React.lazy(() => import("./components/BuildAPage"));
 
 function App() {
-    const { user, tg, initData, photoUrl, expand } = useTelegram();
-    // const { user, tg, photoUrl, expand } = useTelegram();
+    // const { user, tg, initData, photoUrl, expand } = useTelegram();
+    const { user, tg, photoUrl, expand } = useTelegram();
     const { player, updatePlayer } = usePlayerStore();
 
-    //const initData = {"query_id":"AAH-2XhEAAAAAP7ZeETH4IO6","user":{"id":1148770814,"first_name":"overlamer","last_name":"Broken","username":"Crazy_santa","language_code":"ru","allows_write_to_pm":true,"photo_url":"https://t.me/i/userpic/320/XO1rdazihmwfj8CcPcBSmaGmx1WgnQpPp5lJnxAxYQ0.svg"},"auth_date":"1731992070","signature":"1l_D07GmouWIa-mY0nG5EPDfISHvEl2UdYtsm41_M4jqeHlmGK6f2Oq6O6xjePbAsAk4yoo5i-ZRHvx3CF2-Bw","hash":"247557dc49adbf846e3a9ebd2dac18b59e0acde3d4371d8757608c89314aa3d9"}
+    const initData = {"query_id":"AAH-2XhEAAAAAP7ZeETH4IO6","user":{"id":1148770814,"first_name":"overlamer","last_name":"Broken","username":"Crazy_santa","language_code":"ru","allows_write_to_pm":true,"photo_url":"https://t.me/i/userpic/320/XO1rdazihmwfj8CcPcBSmaGmx1WgnQpPp5lJnxAxYQ0.svg"},"auth_date":"1731992070","signature":"1l_D07GmouWIa-mY0nG5EPDfISHvEl2UdYtsm41_M4jqeHlmGK6f2Oq6O6xjePbAsAk4yoo5i-ZRHvx3CF2-Bw","hash":"247557dc49adbf846e3a9ebd2dac18b59e0acde3d4371d8757608c89314aa3d9"}
    
     const [settings, setSettings] = useState(false);
     const [isError, setIsError] = React.useState(true);
@@ -89,7 +89,7 @@ function App() {
             const response = await fetch(`${urlBase}/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(parsedData)
+                body: JSON.stringify({parsedData})
             });
 
             if (!response.ok) {
