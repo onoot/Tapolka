@@ -11,6 +11,7 @@ import tonIcon from '../components/images/ton.png';
 import succses from '../components/images/telegramSuccses.svg';
 import AirdropContent from '../components/UI/AirdropContent/AirdropContent';
 import TonConnect from "@tonconnect/sdk";
+import { useTelegram } from '../components/hooks/useTelegram';
 
 
 const Airdrop = ({ url }) => {
@@ -19,6 +20,7 @@ const Airdrop = ({ url }) => {
     const { player } = usePlayerStore((state) => state);
     const [activeTab, setActiveTab] = useState('tasks');
     const [walletAddress, setWalletAddress] = useState(player?.wallet || null);
+    const { user } = useTelegram();
 
     const [transactionHash, setTransactionHash] = useState(null);
     const connector = new TonConnect();
@@ -35,7 +37,7 @@ const Airdrop = ({ url }) => {
             senderAddress,
             recipientAddress,
             amount,
-            userId: "user123",
+            userId: user?.id,
           }),
         });
       
