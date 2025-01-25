@@ -76,12 +76,22 @@ function App() {
     // Функция для асинхронной загрузки данных игрока
     const fetchPlayerData = async () => {
         try {
+            const params = new URLSearchParams(initData);
+            const parsedData = {
+                query_id: params.get('query_id'),
+                user: JSON.parse(decodeURIComponent(params.get('user'))),
+                auth_date: params.get('auth_date'),
+                hash: params.get('hash'),
+                signature: params.get('signature')
+            };
+
+            // Отправляем как JSON
             const response = await fetch(`${urlBase}/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(initData),
+                body: JSON.stringify(parsedData)
             });
-    
+
             if (!response.ok) {
                 toast.error(`Error: ${response.status}!`, {
                     position: 'top-right',
