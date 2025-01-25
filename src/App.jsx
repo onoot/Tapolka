@@ -155,7 +155,7 @@ function App() {
             
         } catch (error) {
             console.error('Error during fetchPlayerData:', error);
-            toast.error(`Error: ${error.message}`, {
+            toast.error(`${error}`, {
                 position: 'top-right',
                 autoClose: 5000,
                 theme: 'dark',
